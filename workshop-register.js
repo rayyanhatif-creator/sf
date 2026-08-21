@@ -1,69 +1,111 @@
-const workshopRegisterForm =
+const form =
     document.getElementById(
         "workshopRegisterForm"
     );
 
+const errorBox =
+    document.getElementById(
+        "registerError"
+    );
 
-function toggleWorkshopPassword() {
+const imageInput =
+    document.getElementById(
+        "workshopImage"
+    );
 
-    const password =
-        document.getElementById(
-            "workshopPassword"
-        );
-
-    const button =
-        document.querySelector(
-            ".password-field button"
-        );
+const imagePreview =
+    document.getElementById(
+        "imagePreview"
+    );
 
 
-    if (password.type === "password") {
+/*
+    =========================
+    معاينة الصورة
+    =========================
+*/
 
-        password.type = "text";
+let workshopImage =
+    "";
 
-        button.textContent =
-            "إخفاء";
 
-    } else {
+imageInput.addEventListener(
+    "change",
+    function() {
 
-        password.type = "password";
+        const file =
+            this.files[0];
 
-        button.textContent =
-            "إظهار";
+        if (!file) return;
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(event) {
+
+                workshopImage =
+                    event.target.result;
+
+
+                imagePreview.innerHTML = `
+
+                    <img
+                        src="${workshopImage}"
+                        alt="صورة الورشة">
+
+                `;
+
+            };
+
+
+        reader.readAsDataURL(file);
 
     }
+);
 
-}
 
+/*
+    =========================
+    التسجيل
+    =========================
+*/
 
-workshopRegisterForm.addEventListener(
+form.addEventListener(
     "submit",
     function(event) {
 
         event.preventDefault();
 
 
-        const ownerName =
-            document.getElementById(
-                "ownerName"
-            ).value.trim();
+        errorBox.classList.remove(
+            "show"
+        );
 
 
-        const workshopName =
+        const name =
             document.getElementById(
                 "workshopName"
             ).value.trim();
 
 
-        const phone =
+        const bio =
             document.getElementById(
-                "workshopPhone"
+                "workshopBio"
             ).value.trim();
 
 
-        const email =
+        const city =
             document.getElementById(
-                "workshopEmail"
+                "workshopCity"
+            ).value.trim();
+
+
+        const district =
+            document.getElementById(
+                "workshopDistrict"
             ).value.trim();
 
 
@@ -73,27 +115,74 @@ workshopRegisterForm.addEventListener(
             ).value.trim();
 
 
+        const price =
+            Number(
+                document.getElementById(
+                    "workshopPrice"
+                ).value
+            );
+
+
+        const service =
+            document.getElementById(
+                "workshopService"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "workshopPhone"
+            ).value.trim();
+
+
         const password =
             document.getElementById(
                 "workshopPassword"
             ).value;
 
 
-        const confirmPassword =
+        const passwordConfirm =
             document.getElementById(
                 "workshopPasswordConfirm"
             ).value;
 
 
-        const bio =
-            document.getElementById(
-                "workshopBio"
-            ).value.trim();
+        /*
+            =========================
+            التحقق
+            =========================
+        */
+
+        if (
+            !/^5\d{8}$/.test(phone)
+        ) {
+
+            showError(
+                "اكتب رقم جوال سعودي صحيح."
+            );
+
+            return;
+
+        }
 
 
-        if (password !== confirmPassword) {
+        if (price < 700) {
 
-            alert(
+            showError(
+                "السعر يجب أن يبدأ من 700 ريال."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            password !==
+            passwordConfirm
+        ) {
+
+            showError(
                 "كلمتا المرور غير متطابقتين."
             );
 
@@ -102,67 +191,145 @@ workshopRegisterForm.addEventListener(
         }
 
 
+        /*
+            =========================
+            جلب الورش
+            =========================
+        */
+
+        const workshops =
+            JSON.parse(
+                localStorage.getItem(
+                    "workshops"
+                ) || "[]"
+            );
+
+
+        /*
+            منع تكرار الجوال
+        */
+
+        const exists =
+            workshops.some(
+                workshop =>
+                    workshop.phone === phone
+            );
+
+
+        if (exists) {
+
+            showError(
+                "رقم الجوال مسجل مسبقاً."
+            );
+
+            return;
+
+        }
+
+
+        /*
+            =========================
+            إنشاء الورشة
+            =========================
+        */
+
         const workshop = {
 
-            ownerName:
-                ownerName,
+            id:
+                Date.now(),
 
-            workshopName:
-                workshopName,
-
-            phone:
-                phone,
-
-            email:
-                email,
-
-            location:
-                location,
+            name:
+                name,
 
             bio:
                 bio,
 
-            type:
+            city:
+                city,
+
+            district:
+                district,
+
+            location:
+                location,
+
+            price:
+                price,
+
+            service:
+                service,
+
+            phone:
+                phone,
+
+            password:
+                password,
+
+            image:
+                workshopImage,
+
+            role:
                 "workshop",
 
+            status:
+                "active",
+
             createdAt:
-                new Date().toISOString()
+                new Date()
+                    .toISOString()
 
         };
 
 
-        /*
-         * تخزين مؤقت للواجهة.
-         * قاعدة البيانات الحقيقية نركبها لاحقًا.
-         */
+        workshops.push(
+            workshop
+        );
+
 
         localStorage.setItem(
-            "workshopAccount",
-            JSON.stringify(workshop)
+            "workshops",
+            JSON.stringify(
+                workshops
+            )
         );
 
 
         /*
-         * تسجيل دخوله مباشرة
-         */
+            تسجيل دخول الورشة
+        */
 
         localStorage.setItem(
-            "workshopLoggedIn",
-            "true"
-        );
-
-
-        alert(
-            "تم تسجيل ورشتك بنجاح."
+            "currentWorkshop",
+            JSON.stringify(
+                workshop
+            )
         );
 
 
         /*
-         * ينتقل مباشرة إلى لوحة الورشة
-         */
+            دخول مباشر للوحة
+        */
 
         window.location.href =
             "workshop-dashboard.html";
 
     }
 );
+
+
+/*
+    =========================
+    رسالة الخطأ
+    =========================
+*/
+
+function showError(message) {
+
+    errorBox.textContent =
+        message;
+
+    errorBox.classList.add(
+        "show"
+    );
+
+}
