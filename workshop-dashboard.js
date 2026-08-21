@@ -1,23 +1,18 @@
-const workshopData =
-    localStorage.getItem(
-        "workshopAccount"
-    );
-
-
-const workshopLoggedIn =
-    localStorage.getItem(
-        "workshopLoggedIn"
-    );
-
-
 /*
-    حماية لوحة الورشة
+    =========================
+    التحقق من دخول الورشة
+    =========================
 */
 
-if (
-    !workshopData ||
-    workshopLoggedIn !== "true"
-) {
+const currentWorkshop =
+    JSON.parse(
+        localStorage.getItem(
+            "currentWorkshop"
+        ) || "null"
+    );
+
+
+if (!currentWorkshop) {
 
     window.location.href =
         "workshop-login.html";
@@ -25,27 +20,109 @@ if (
 }
 
 
-const workshop =
-    JSON.parse(workshopData);
-
-
 /*
-    اسم الورشة
+    =========================
+    بيانات الورشة
+    =========================
 */
 
 document.getElementById(
-    "workshopName"
+    "headerWorkshopName"
 ).textContent =
-    workshop.workshopName ||
-    "ورشتك";
+    currentWorkshop.name;
 
+
+document.getElementById(
+    "welcomeWorkshopName"
+).textContent =
+    currentWorkshop.name;
+
+
+document.getElementById(
+    "infoWorkshopName"
+).textContent =
+    currentWorkshop.name;
+
+
+document.getElementById(
+    "infoWorkshopBio"
+).textContent =
+    currentWorkshop.bio;
+
+
+document.getElementById(
+    "infoCity"
+).textContent =
+    currentWorkshop.city +
+    " - " +
+    currentWorkshop.district;
+
+
+document.getElementById(
+    "infoPrice"
+).textContent =
+    Number(
+        currentWorkshop.price
+    ).toLocaleString("ar-SA");
+
+
+document.getElementById(
+    "infoService"
+).textContent =
+    currentWorkshop.service;
 
 
 /*
-    الحجوزات
+    =========================
+    صورة الورشة
+    =========================
 */
 
-const bookings =
+const workshopImage =
+    document.getElementById(
+        "workshopImage"
+    );
+
+
+if (currentWorkshop.image) {
+
+    workshopImage.innerHTML = `
+
+        <img
+            src="${currentWorkshop.image}"
+            alt="${currentWorkshop.name}">
+
+    `;
+
+} else {
+
+    workshopImage.innerHTML = `
+
+        <div style="
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#77736b;
+            font-size:10px;
+        ">
+
+            لا توجد صورة
+
+        </div>
+
+    `;
+
+}
+
+
+/*
+    =========================
+    جلب الحجوزات
+    =========================
+*/
+
+const allBookings =
     JSON.parse(
         localStorage.getItem(
             "workshopBookings"
@@ -53,131 +130,306 @@ const bookings =
     );
 
 
+const workshopBookings =
+    allBookings.filter(
+        booking =>
+            booking.workshopId ===
+            currentWorkshop.id
+    );
+
+
+/*
+    =========================
+    الإحصائيات
+    =========================
+*/
+
+const pending =
+    workshopBookings.filter(
+        booking =>
+            booking.status ===
+            "pending"
+    ).length;
+
+
+const confirmed =
+    workshopBookings.filter(
+        booking =>
+            booking.status ===
+            "confirmed"
+    ).length;
+
+
+const today =
+    new Date();
+
+
+today.setHours(
+    0,
+    0,
+    0,
+    0
+);
+
+
+const upcoming =
+    workshopBookings.filter(
+        booking => {
+
+            const date =
+                new Date(
+                    booking.date +
+                    "T00:00:00"
+                );
+
+            return (
+                date >= today &&
+                booking.status !==
+                "cancelled"
+            );
+
+        }
+    ).length;
+
+
 document.getElementById(
     "totalBookings"
 ).textContent =
-    bookings.length;
-
-
-/*
-    الحجوزات الجديدة
-*/
-
-const newBookings =
-    bookings.filter(
-        booking =>
-            booking.status === "pending"
-    );
+    workshopBookings.length;
 
 
 document.getElementById(
-    "newBookings"
+    "pendingBookings"
 ).textContent =
-    newBookings.length;
-
-
-/*
-    حجوزات اليوم
-*/
-
-const today =
-    new Date()
-        .toISOString()
-        .split("T")[0];
-
-
-const todayBookings =
-    bookings.filter(
-        booking =>
-            booking.date === today
-    );
+    pending;
 
 
 document.getElementById(
-    "todayBookings"
+    "confirmedBookings"
 ).textContent =
-    todayBookings.length;
+    confirmed;
 
+
+document.getElementById(
+    "upcomingBookings"
+).textContent =
+    upcoming;
 
 
 /*
-    عرض آخر الحجوزات
+    =========================
+    عرض الحجوزات
+    =========================
 */
 
-const container =
+const bookingsContainer =
     document.getElementById(
-        "dashboardBookings"
+        "workshopBookings"
     );
 
 
-if (bookings.length === 0) {
+const noBookings =
+    document.getElementById(
+        "noBookings"
+    );
 
-    container.innerHTML = `
 
-        <div class="dashboard-booking">
+if (
+    workshopBookings.length === 0
+) {
 
-            <div>
-
-                <h3>
-                    لا توجد حجوزات حتى الآن
-                </h3>
-
-                <p>
-                    ستظهر حجوزات العملاء هنا.
-                </p>
-
-            </div>
-
-        </div>
-
-    `;
+    noBookings.style.display =
+        "block";
 
 } else {
 
-    bookings
-        .slice(0,5)
+    workshopBookings
+        .slice()
+        .reverse()
         .forEach(
             booking => {
 
-                container.innerHTML += `
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
-                    <div class="dashboard-booking">
 
-                        <div>
+                card.className =
+                    "workshop-booking";
+
+
+                let statusText =
+                    "بانتظار المراجعة";
+
+
+                let statusClass =
+                    "pending";
+
+
+                if (
+                    booking.status ===
+                    "confirmed"
+                ) {
+
+                    statusText =
+                        "تم التأكيد";
+
+                    statusClass =
+                        "confirmed";
+
+                }
+
+
+                if (
+                    booking.status ===
+                    "cancelled"
+                ) {
+
+                    statusText =
+                        "ملغي";
+
+                    statusClass =
+                        "cancelled";
+
+                }
+
+
+                const date =
+                    new Date(
+                        booking.date +
+                        "T00:00:00"
+                    );
+
+
+                const formattedDate =
+                    date.toLocaleDateString(
+                        "ar-SA",
+                        {
+                            weekday:
+                                "long",
+                            year:
+                                "numeric",
+                            month:
+                                "long",
+                            day:
+                                "numeric"
+                        }
+                    );
+
+
+                card.innerHTML = `
+
+                    <div class="booking-main">
+
+                        <div class="booking-customer">
 
                             <h3>
-                                ${booking.name || "عميل"}
+                                ${booking.customerName}
                             </h3>
 
-                            <p>
-                                ${booking.phone || ""}
-                            </p>
+                            <div class="booking-id">
+                                WS-${String(booking.id).slice(-6)}
+                            </div>
 
                         </div>
 
 
-                        <div class="booking-time">
+                        <span class="booking-status ${statusClass}">
+                            ${statusText}
+                        </span>
 
-                            ${booking.date || ""}
-                            <br>
-                            ${booking.time || ""}
+                    </div>
+
+
+                    <div class="booking-details">
+
+                        <div class="booking-detail">
+
+                            <span>
+                                التاريخ
+                            </span>
+
+                            <strong>
+                                ${formattedDate}
+                            </strong>
 
                         </div>
 
 
-                        <div class="booking-status">
+                        <div class="booking-detail">
 
-                            ${
-                                booking.status === "confirmed"
-                                ? "مؤكد"
-                                : "جديد"
-                            }
+                            <span>
+                                الوقت
+                            </span>
+
+                            <strong>
+                                ${booking.time}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="booking-detail">
+
+                            <span>
+                                الخدمة
+                            </span>
+
+                            <strong>
+                                ${booking.service}
+                            </strong>
 
                         </div>
 
                     </div>
 
+
+                    ${
+                        booking.status ===
+                        "pending"
+
+                        ? `
+
+                        <div class="booking-actions">
+
+                            <button
+                                class="confirm-button"
+                                onclick="updateBooking(
+                                    ${booking.id},
+                                    'confirmed'
+                                )">
+
+                                تأكيد الحجز
+
+                            </button>
+
+
+                            <button
+                                class="cancel-button"
+                                onclick="updateBooking(
+                                    ${booking.id},
+                                    'cancelled'
+                                )">
+
+                                رفض الحجز
+
+                            </button>
+
+                        </div>
+
+                        `
+
+                        : ""
+
+                    }
+
                 `;
+
+
+                bookingsContainer.appendChild(
+                    card
+                );
 
             }
         );
@@ -185,18 +437,65 @@ if (bookings.length === 0) {
 }
 
 
-
 /*
-    تسجيل الخروج
+    =========================
+    تحديث الحجز
+    =========================
 */
 
-function workshopLogout() {
+function updateBooking(
+    bookingId,
+    newStatus
+) {
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem(
+                "workshopBookings"
+            ) || "[]"
+        );
+
+
+    const booking =
+        bookings.find(
+            item =>
+                item.id === bookingId
+        );
+
+
+    if (!booking) return;
+
+
+    booking.status =
+        newStatus;
+
+
+    localStorage.setItem(
+        "workshopBookings",
+        JSON.stringify(
+            bookings
+        )
+    );
+
+
+    window.location.reload();
+
+}
+
+
+/*
+    =========================
+    تسجيل الخروج
+    =========================
+*/
+
+function logoutWorkshop() {
 
     localStorage.removeItem(
-        "workshopLoggedIn"
+        "currentWorkshop"
     );
 
     window.location.href =
-        "workshop-login.html";
+        "index.html";
 
 }
