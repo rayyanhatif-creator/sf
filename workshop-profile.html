@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ملف الورشة | ورش السعودية</title>
+    <title>إدارة الورشة | ورش السعودية</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="workshop-profile.css">
@@ -26,164 +26,111 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<aside class="side-menu" id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>إدارة الورشة</span>
-
-        <button onclick="toggleMenu()">×</button>
-
-    </div>
-
-    <div class="menu-links">
-
-        <a href="workshop-dashboard.html">
-            <span>01</span>
-            الرئيسية
-        </a>
-
-        <a href="workshop-bookings.html">
-            <span>02</span>
-            الحجوزات
-        </a>
-
-        <a href="workshop-profile.html">
-            <span>03</span>
-            صفحة الورشة
-        </a>
-
-        <a href="index.html">
-            <span>04</span>
-            الموقع
-        </a>
-
-    </div>
-
-</aside>
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
-
-
 <main class="profile-page">
 
-
-    <!-- HEADER -->
-
-    <section class="profile-header">
+    <div class="profile-header">
 
         <div>
 
             <div class="section-label">
-                إدارة الصفحة
+                إدارة الورشة
             </div>
 
             <h1>
-                صفحة
-                <span>ورشتك.</span>
+                صفحتك
+                <span>الخاصة.</span>
             </h1>
 
             <p>
-                عدّل المعلومات التي تظهر للعملاء
+                عدّل المعلومات التي تظهر للزبائن
                 في صفحة ورشتك.
             </p>
 
         </div>
 
         <a
-            href="workshops.html"
-            class="preview-button">
+            href="workshop-dashboard.html"
+            class="back-dashboard">
 
-            مشاهدة صفحتي
-            ←
+            ← لوحة الورشة
 
         </a>
 
-    </section>
+    </div>
 
 
-    <form
-        id="workshopProfileForm"
-        class="profile-form">
+    <div class="profile-layout">
 
 
-        <!-- الصورة -->
+        <!-- المعاينة -->
 
-        <section class="profile-section">
+        <section class="preview-section">
 
-            <div class="profile-section-title">
+            <div class="section-label">
+                المعاينة
+            </div>
 
-                <span>01</span>
+            <h2>
+                كيف تظهر ورشتك للزبون
+            </h2>
 
-                <div>
 
-                    <h2>
-                        صورة الورشة
-                    </h2>
+            <div class="workshop-preview-card">
 
-                    <p>
-                        اختر صورة تعبر عن ورشتك.
-                    </p>
+                <div
+                    id="previewImage"
+                    class="preview-image">
 
                 </div>
 
-            </div>
 
+                <div class="preview-content">
 
-            <div class="image-upload">
+                    <div class="preview-top">
 
-                <div
-                    class="workshop-image-preview"
-                    id="imagePreview">
+                        <span class="preview-city"
+                              id="previewCity">
+                            —
+                        </span>
 
-                    <div class="image-placeholder">
-
-                        <strong>
-                            صورة الورشة
-                        </strong>
-
-                        <span>
-                            JPG / PNG
+                        <span class="preview-price">
+                            من
+                            <strong id="previewPrice">
+                                0
+                            </strong>
+                            ريال
                         </span>
 
                     </div>
 
-                </div>
+
+                    <h3 id="previewName">
+                        —
+                    </h3>
 
 
-                <div class="image-upload-content">
-
-                    <label
-                        for="workshopImage"
-                        class="upload-button">
-
-                        اختيار صورة
-
-                    </label>
-
-                    <input
-                        type="file"
-                        id="workshopImage"
-                        accept="image/*"
-                        hidden>
-
-                    <p>
-                        يفضل استخدام صورة واضحة
-                        وعالية الجودة للورشة.
+                    <p id="previewBio">
+                        —
                     </p>
+
+
+                    <div class="preview-service"
+                         id="previewService">
+                        —
+                    </div>
 
                 </div>
 
@@ -192,30 +139,21 @@
         </section>
 
 
-        <!-- البيانات -->
+        <!-- التعديل -->
 
-        <section class="profile-section">
+        <section class="edit-section">
 
-            <div class="profile-section-title">
-
-                <span>02</span>
-
-                <div>
-
-                    <h2>
-                        معلومات الورشة
-                    </h2>
-
-                    <p>
-                        البيانات الأساسية التي تظهر للزوار.
-                    </p>
-
-                </div>
-
+            <div class="section-label">
+                تعديل البيانات
             </div>
 
+            <h2>
+                معلومات الورشة
+            </h2>
 
-            <div class="form-grid">
+
+            <form id="profileForm">
+
 
                 <div class="form-group">
 
@@ -225,7 +163,7 @@
 
                     <input
                         type="text"
-                        id="profileWorkshopName"
+                        id="profileName"
                         required>
 
                 </div>
@@ -234,129 +172,43 @@
                 <div class="form-group">
 
                     <label>
-                        اسم الخراط
-                    </label>
-
-                    <input
-                        type="text"
-                        id="profileOwnerName"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        رقم الجوال
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="profilePhone"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        الموقع
-                    </label>
-
-                    <input
-                        type="text"
-                        id="profileLocation"
-                        placeholder="الرياض - حي ..."
-                        required>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- النبذة -->
-
-        <section class="profile-section">
-
-            <div class="profile-section-title">
-
-                <span>03</span>
-
-                <div>
-
-                    <h2>
                         نبذة عن الورشة
-                    </h2>
-
-                    <p>
-                        عرّف العملاء بخبرتك وشغلك.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <textarea
-                    id="profileBio"
-                    rows="7"
-                    placeholder="اكتب نبذة عن الورشة..."
-                    required></textarea>
-
-            </div>
-
-        </section>
-
-
-        <!-- الأسعار -->
-
-        <section class="profile-section">
-
-            <div class="profile-section-title">
-
-                <span>04</span>
-
-                <div>
-
-                    <h2>
-                        الأسعار
-                    </h2>
-
-                    <p>
-                        حدد السعر الابتدائي للخدمة.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label>
-                        السعر يبدأ من
                     </label>
 
-                    <div class="price-input">
+                    <textarea
+                        id="profileBio"
+                        maxlength="500"
+                        required></textarea>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            المدينة
+                        </label>
 
                         <input
-                            type="number"
-                            id="profilePrice"
-                            min="0"
-                            placeholder="700"
+                            type="text"
+                            id="profileCity"
                             required>
 
-                        <span>
-                            ريال
-                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            الحي
+                        </label>
+
+                        <input
+                            type="text"
+                            id="profileDistrict"
+                            required>
 
                     </div>
 
@@ -366,57 +218,54 @@
                 <div class="form-group">
 
                     <label>
-                        نوع الخدمة
+                        رابط الموقع
                     </label>
 
                     <input
-                        type="text"
-                        id="profileService"
-                        value="خرط السبح"
+                        type="url"
+                        id="profileLocation"
                         required>
 
                 </div>
 
-            </div>
 
-        </section>
+                <div class="form-grid">
 
+                    <div class="form-group">
 
-        <!-- أوقات العمل -->
+                        <label>
+                            السعر يبدأ من
+                        </label>
 
-        <section class="profile-section">
+                        <div class="price-input">
 
-            <div class="profile-section-title">
+                            <input
+                                type="number"
+                                id="profilePrice"
+                                min="700"
+                                required>
 
-                <span>05</span>
+                            <span>
+                                ريال
+                            </span>
 
-                <div>
+                        </div>
 
-                    <h2>
-                        أوقات العمل
-                    </h2>
-
-                    <p>
-                        حدد الوقت الذي تستقبل فيه الحجوزات.
-                    </p>
-
-                </div>
-
-            </div>
+                    </div>
 
 
-            <div class="form-grid">
+                    <div class="form-group">
 
-                <div class="form-group">
+                        <label>
+                            الخدمة
+                        </label>
 
-                    <label>
-                        من
-                    </label>
+                        <input
+                            type="text"
+                            id="profileService"
+                            required>
 
-                    <input
-                        type="time"
-                        id="openingTime"
-                        value="16:00">
+                    </div>
 
                 </div>
 
@@ -424,89 +273,49 @@
                 <div class="form-group">
 
                     <label>
-                        إلى
+                        صورة الورشة
+                    </label>
+
+                    <label
+                        class="change-image"
+                        for="profileImage">
+
+                        تغيير الصورة
+
                     </label>
 
                     <input
-                        type="time"
-                        id="closingTime"
-                        value="23:00">
+                        type="file"
+                        id="profileImage"
+                        accept="image/*"
+                        hidden>
 
                 </div>
 
-            </div>
+
+                <div
+                    id="profileMessage"
+                    class="profile-message">
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-profile">
+
+                    حفظ التعديلات
+
+                    <span>
+                        ←
+                    </span>
+
+                </button>
+
+            </form>
 
         </section>
 
-
-        <!-- الحالة -->
-
-        <section class="profile-section">
-
-            <div class="profile-section-title">
-
-                <span>06</span>
-
-                <div>
-
-                    <h2>
-                        حالة الورشة
-                    </h2>
-
-                    <p>
-                        تحكم في ظهور الورشة للعملاء.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <label class="visibility-toggle">
-
-                <input
-                    type="checkbox"
-                    id="workshopVisible"
-                    checked>
-
-                <span class="toggle"></span>
-
-                <div>
-
-                    <strong>
-                        الورشة ظاهرة للعملاء
-                    </strong>
-
-                    <small>
-                        يمكن للعملاء مشاهدة صفحتك وحجز دور.
-                    </small>
-
-                </div>
-
-            </label>
-
-        </section>
-
-
-        <!-- حفظ -->
-
-        <div class="save-area">
-
-            <button
-                type="submit"
-                class="save-button">
-
-                حفظ التغييرات
-                ←
-
-            </button>
-
-            <span id="saveMessage"></span>
-
-        </div>
-
-
-    </form>
+    </div>
 
 </main>
 
