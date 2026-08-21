@@ -1,0 +1,333 @@
+.workshop-login-page {
+
+    min-height: 100vh;
+
+    padding:
+        150px 20px 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.login-box {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    padding: 55px;
+
+    background:
+        rgba(17,17,15,.9);
+
+    border:
+        1px solid var(--line);
+
+}
+
+
+.login-heading {
+
+    margin-bottom: 45px;
+
+}
+
+
+.login-heading h1 {
+
+    font-size:
+        clamp(52px, 8vw, 78px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+}
+
+
+.login-heading h1 span {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+.login-heading p {
+
+    color:
+        var(--muted);
+
+    margin-top: 25px;
+
+    line-height: 1.9;
+
+    font-size: 13px;
+
+}
+
+
+/* FORM */
+
+.login-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group {
+
+    margin-bottom: 23px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color:
+        #d8d2c7;
+
+    font-size: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    padding: 17px;
+
+    background:
+        #0b0b0a;
+
+    border:
+        1px solid var(--line);
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+}
+
+
+.form-group input:focus {
+
+    border-color:
+        rgba(182,154,104,.6);
+
+}
+
+
+/* PASSWORD */
+
+.password-field {
+
+    position: relative;
+
+}
+
+
+.password-field input {
+
+    padding-left: 75px;
+
+}
+
+
+.password-field button {
+
+    position: absolute;
+
+    left: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: none;
+
+    border: 0;
+
+    color: var(--gold-light);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+/* OPTIONS */
+
+.login-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.login-options label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.login-options input {
+
+    accent-color: var(--gold);
+
+}
+
+
+.login-options a {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+/* BUTTON */
+
+.login-button {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: 0;
+
+    background:
+        var(--gold);
+
+    color:
+        #16120d;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.login-button:hover {
+
+    background:
+        var(--gold-light);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.login-button span {
+
+    margin-right: 15px;
+
+    font-size: 20px;
+
+}
+
+
+/* BOTTOM */
+
+.login-bottom {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid var(--line);
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.login-bottom a {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .workshop-login-page {
+
+        padding:
+            120px 18px 70px;
+
+    }
+
+
+    .login-box {
+
+        padding:
+            35px 23px;
+
+    }
+
+
+    .login-heading h1 {
+
+        letter-spacing:
+            -3px;
+
+    }
+
+}
