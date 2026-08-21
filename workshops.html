@@ -2,55 +2,483 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>الخراطين | ورش السعودية</title>
+    <title>الخراطين | ورش السعودية</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshops.css">
 </head>
 
 <body>
 
-<header class="navbar">
+    <!-- =========================
+         TOP BAR
+    ========================== -->
 
-<a href="index.html" class="logo">
-ورش السعودية
-</a>
+    <header class="topbar">
 
-<div class="menu">
+        <a href="index.html" class="brand">
 
-<button onclick="openMenu()">⋯</button>
+            <span class="brand-line"></span>
 
-<div id="menuList" class="menu-list">
+            <div>
+                <strong>ورش السعودية</strong>
+                <small>منصة الحرفة السعودية</small>
+            </div>
 
-<a href="workshops.html">الخراطين</a>
-<a href="workshop-register.html">اشترك معنا كخراط</a>
-<a href="login.html">تسجيل الدخول</a>
+        </a>
 
-</div>
 
-</div>
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
 
-</header>
+            <span></span>
+            <span></span>
+            <span></span>
 
-<section class="page-header">
+        </button>
 
-<h1>الخراطين</h1>
+    </header>
 
-<p>
-اكتشف الورش المسجلة في ورش السعودية
-</p>
 
-</section>
+    <!-- =========================
+         MENU
+    ========================== -->
 
-<main class="workshop-grid" id="workshopGrid"></main>
+    <aside
+        class="side-menu"
+        id="sideMenu">
 
-<script src="app.js"></script>
+        <div class="menu-head">
 
-<script>
-loadWorkshops();
-</script>
+            <span>القائمة</span>
+
+            <button onclick="toggleMenu()">×</button>
+
+        </div>
+
+
+        <div class="menu-links">
+
+            <a href="workshops.html">
+                <span>01</span>
+                الخراطين
+            </a>
+
+            <a href="workshop-register.html">
+                <span>02</span>
+                اشترك معنا كخراط
+            </a>
+
+            <a href="login.html">
+                <span>03</span>
+                تسجيل الدخول
+            </a>
+
+        </div>
+
+
+        <div class="menu-footer">
+            ورش السعودية
+        </div>
+
+    </aside>
+
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        onclick="toggleMenu()">
+    </div>
+
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <main>
+
+        <section class="workshops-hero">
+
+            <div class="workshops-hero-inner">
+
+                <div class="section-label">
+                    01 / الخراطين
+                </div>
+
+
+                <h1>
+
+                    أهل
+                    <span>الحرفة.</span>
+
+                </h1>
+
+
+                <p>
+
+                    اكتشف نخبة من خراط السبح،
+                    وتعرّف على أعمالهم وخدماتهم،
+                    واختر الورشة التي تناسبك.
+
+                </p>
+
+            </div>
+
+
+            <div class="page-index">
+                02
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             WORKSHOPS LIST
+        ========================== -->
+
+        <section class="workshops-list">
+
+
+            <!-- ورشة حرفة -->
+
+            <article class="workshop-row">
+
+                <div class="workshop-image">
+
+                    <img
+                        src="images/harfa.jpg"
+                        alt="ورشة حرفة"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="image-number">
+                        01
+                    </div>
+
+                </div>
+
+
+                <div class="workshop-content">
+
+                    <div class="workshop-top">
+
+                        <span>
+                            الرياض
+                        </span>
+
+                        <span>
+                            خرط سبـح
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        ورشة حرفة
+                    </h2>
+
+
+                    <p>
+
+                        ورشة متخصصة في صناعة وخرط
+                        السبح بعناية واهتمام بالتفاصيل،
+                        من اختيار الخامة إلى اللمسات
+                        النهائية.
+
+                    </p>
+
+
+                    <div class="workshop-bottom">
+
+                        <div>
+
+                            <small>
+                                الأسعار تبدأ من
+                            </small>
+
+                            <strong>
+                                700 ريال
+                            </strong>
+
+                        </div>
+
+
+                        <a
+                            href="workshop.html?id=harfa"
+                            class="workshop-button">
+
+                            عرض الورشة
+
+                            <span>←</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ورشة الميامين -->
+
+            <article class="workshop-row reverse-mobile">
+
+                <div class="workshop-image">
+
+                    <img
+                        src="images/mayameen.jpg"
+                        alt="ورشة الميامين"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="image-number">
+                        02
+                    </div>
+
+                </div>
+
+
+                <div class="workshop-content">
+
+                    <div class="workshop-top">
+
+                        <span>
+                            الرياض
+                        </span>
+
+                        <span>
+                            خرط سبـح
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        ورشة الميامين
+                    </h2>
+
+
+                    <p>
+
+                        حرفة أصيلة تجمع بين الخبرة
+                        والاهتمام بالتفاصيل لتقديم
+                        أعمال مميزة لعشاق السبح.
+
+                    </p>
+
+
+                    <div class="workshop-bottom">
+
+                        <div>
+
+                            <small>
+                                الأسعار تبدأ من
+                            </small>
+
+                            <strong>
+                                700 ريال
+                            </strong>
+
+                        </div>
+
+
+                        <a
+                            href="workshop.html?id=mayameen"
+                            class="workshop-button">
+
+                            عرض الورشة
+
+                            <span>←</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ورشة مدهال -->
+
+            <article class="workshop-row">
+
+                <div class="workshop-image">
+
+                    <img
+                        src="images/midhal.jpg"
+                        alt="ورشة مدهال"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="image-number">
+                        03
+                    </div>
+
+                </div>
+
+
+                <div class="workshop-content">
+
+                    <div class="workshop-top">
+
+                        <span>
+                            الرياض
+                        </span>
+
+                        <span>
+                            خرط سبـح
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        ورشة مدهال
+                    </h2>
+
+
+                    <p>
+
+                        ورشة تهتم بجودة الخامة
+                        ودقة العمل، وتقدم تجربة
+                        مميزة لمن يبحث عن صناعة
+                        سبحة بطابع خاص.
+
+                    </p>
+
+
+                    <div class="workshop-bottom">
+
+                        <div>
+
+                            <small>
+                                الأسعار تبدأ من
+                            </small>
+
+                            <strong>
+                                700 ريال
+                            </strong>
+
+                        </div>
+
+
+                        <a
+                            href="workshop.html?id=midhal"
+                            class="workshop-button">
+
+                            عرض الورشة
+
+                            <span>←</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             JOIN
+        ========================== -->
+
+        <section class="join-section">
+
+            <div class="join-line"></div>
+
+
+            <div class="section-label">
+                للخراطين
+            </div>
+
+
+            <h2>
+
+                عندك ورشة؟
+                <br>
+
+                <span>
+                    خل الناس تعرفك.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                انضم إلى ورش السعودية،
+                وأنشئ صفحتك الخاصة واستقبل
+                حجوزات العملاء من مكان واحد.
+
+            </p>
+
+
+            <a
+                href="workshop-register.html"
+                class="primary-button">
+
+                اشترك معنا كخراط
+
+                <span>←</span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-brand">
+            ورش السعودية
+        </div>
+
+
+        <p>
+            نقرّب الحرفة من صاحبها،
+            ونخلّي الوصول لأهلها أسهل.
+        </p>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                جميع الحقوق محفوظة
+            </span>
+
+            <span>
+                صنع بواسطة ورش السعودية
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="app.js"></script>
 
 </body>
+
 </html>
