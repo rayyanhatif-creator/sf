@@ -2,116 +2,375 @@
 <html lang="ar" dir="rtl">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>حجز دور | ورش السعودية</title>
 
-<title>حجز دور | ورش السعودية</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="booking.css">
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="topbar">
 
-<a href="index.html" class="logo">
-ورش السعودية
-</a>
+    <a href="index.html" class="brand">
+
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
 </header>
 
-<main class="auth-page">
 
-<div class="auth-card">
+<!-- القائمة -->
 
-<h1 id="bookingWorkshop">
-حجز دور
-</h1>
+<aside class="side-menu" id="sideMenu">
 
-<p>
-أكمل بيانات الحجز
-</p>
+    <div class="menu-head">
 
-<form onsubmit="createBooking(event)">
+        <span>القائمة</span>
 
-<input
-id="bookingName"
-placeholder="الاسم الكامل"
-required>
+        <button onclick="toggleMenu()">×</button>
 
-<input
-id="bookingPhone"
-placeholder="رقم الجوال"
-required>
+    </div>
 
-<select id="bookingService" required>
+    <div class="menu-links">
 
-<option value="">
-اختر نوع الخدمة
-</option>
+        <a href="workshops.html">
+            <span>01</span>
+            الخراطين
+        </a>
 
-<option>
-خرط سبحة جديدة
-</option>
+        <a href="workshop-register.html">
+            <span>02</span>
+            اشترك معنا كخراط
+        </a>
 
-<option>
-تعديل سبحة
-</option>
+        <a href="login.html">
+            <span>03</span>
+            تسجيل الدخول
+        </a>
 
-<option>
-تصميم خاص
-</option>
+    </div>
 
-</select>
+</aside>
 
-<input
-id="bookingCount"
-type="number"
-min="1"
-placeholder="عدد السبح"
-required>
-
-<input
-id="bookingDate"
-type="date"
-required>
-
-<select id="bookingTime" required>
-
-<option value="">
-اختر الوقت
-</option>
-
-<option>10:00 صباحًا</option>
-<option>12:00 ظهرًا</option>
-<option>2:00 مساءً</option>
-<option>5:00 مساءً</option>
-<option>8:00 مساءً</option>
-
-</select>
-
-<textarea
-id="bookingNotes"
-placeholder="ملاحظات إضافية">
-</textarea>
-
-<button class="main-btn">
-تأكيد الحجز
-</button>
-
-</form>
-
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
 </div>
+
+
+<main>
+
+    <!-- عنوان الصفحة -->
+
+    <section class="booking-header">
+
+        <div class="section-label">
+            01 / الحجز
+        </div>
+
+        <h1>
+            احجز
+            <span>دورك.</span>
+        </h1>
+
+        <p>
+            اختر الورشة والموعد المناسب لك،
+            ثم أرسل طلب الحجز.
+        </p>
+
+    </section>
+
+
+    <!-- الحجز -->
+
+    <section class="booking-container">
+
+        <!-- ملخص الورشة -->
+
+        <aside class="booking-summary">
+
+            <div class="summary-image">
+
+                <img
+                    src="images/harfa.jpg"
+                    alt="ورشة حرفة">
+
+            </div>
+
+            <div class="summary-content">
+
+                <span>
+                    الورشة المختارة
+                </span>
+
+                <h2>
+                    ورشة حرفة
+                </h2>
+
+                <p>
+                    الرياض
+                </p>
+
+                <div class="summary-price">
+
+                    <small>
+                        الأسعار تبدأ من
+                    </small>
+
+                    <strong>
+                        700 ريال
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- نموذج الحجز -->
+
+        <div class="booking-form">
+
+            <div class="form-title">
+
+                <span>
+                    02
+                </span>
+
+                <h2>
+                    تفاصيل الحجز
+                </h2>
+
+            </div>
+
+
+            <!-- تسجيل الدخول -->
+
+            <div
+                class="login-notice"
+                id="loginNotice">
+
+                <div>
+
+                    <strong>
+                        تسجيل الدخول مطلوب
+                    </strong>
+
+                    <p>
+                        لازم تسجل دخولك قبل تأكيد الحجز.
+                    </p>
+
+                </div>
+
+                <a href="login.html">
+                    تسجيل الدخول
+                    <span>←</span>
+                </a>
+
+            </div>
+
+
+            <form id="bookingForm">
+
+
+                <!-- الاسم -->
+
+                <div class="form-group">
+
+                    <label>
+                        الاسم الكامل
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bookingName"
+                        placeholder="اكتب اسمك الكامل"
+                        required>
+
+                </div>
+
+
+                <!-- رقم الجوال -->
+
+                <div class="form-group">
+
+                    <label>
+                        رقم الجوال
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="bookingPhone"
+                        placeholder="05xxxxxxxx"
+                        required>
+
+                </div>
+
+
+                <!-- التاريخ -->
+
+                <div class="form-group">
+
+                    <label>
+                        تاريخ الحجز
+                    </label>
+
+                    <input
+                        type="date"
+                        id="bookingDate"
+                        required>
+
+                </div>
+
+
+                <!-- الوقت -->
+
+                <div class="form-group">
+
+                    <label>
+                        الوقت المناسب
+                    </label>
+
+                    <select
+                        id="bookingTime"
+                        required>
+
+                        <option value="">
+                            اختر الوقت
+                        </option>
+
+                        <option>
+                            10:00 صباحًا
+                        </option>
+
+                        <option>
+                            12:00 ظهرًا
+                        </option>
+
+                        <option>
+                            02:00 مساءً
+                        </option>
+
+                        <option>
+                            04:00 مساءً
+                        </option>
+
+                        <option>
+                            06:00 مساءً
+                        </option>
+
+                        <option>
+                            08:00 مساءً
+                        </option>
+
+                        <option>
+                            10:00 مساءً
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ملاحظات -->
+
+                <div class="form-group">
+
+                    <label>
+                        ملاحظات
+                        <small>اختياري</small>
+                    </label>
+
+                    <textarea
+                        id="bookingNotes"
+                        placeholder="إذا عندك طلب أو ملاحظة اكتبها هنا"></textarea>
+
+                </div>
+
+
+                <!-- تنبيه -->
+
+                <div class="booking-info">
+
+                    <span>i</span>
+
+                    <p>
+                        بعد إرسال الطلب ستتم مراجعة
+                        الحجز من قبل الورشة وإرسال
+                        تفاصيل التأكيد لك.
+                    </p>
+
+                </div>
+
+
+                <!-- زر الحجز -->
+
+                <button
+                    type="submit"
+                    class="confirm-booking">
+
+                    تأكيد طلب الحجز
+
+                    <span>←</span>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
 
 </main>
 
-<script src="app.js"></script>
 
-<script>
-loadBookingPage();
-</script>
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="booking.js"></script>
 
 </body>
+
 </html>
