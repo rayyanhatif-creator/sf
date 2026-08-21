@@ -2,65 +2,281 @@
 <html lang="ar" dir="rtl">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>حسابي | ورش السعودية</title>
 
-<title>حسابي | ورش السعودية</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="customer-dashboard.css">
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="topbar">
 
-<div class="logo">
-ورش السعودية
-</div>
+    <a href="index.html" class="brand">
 
-<button onclick="logout()" class="logout-btn">
-تسجيل الخروج
-</button>
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </header>
 
-<main class="dashboard">
 
-<h1>
-مرحبًا <span id="customerDashboardName"></span>
-</h1>
+<main class="dashboard-page">
 
-<div class="stats">
+    <!-- الترحيب -->
 
-<div>
-<strong id="customerBookingCount">0</strong>
-<span>حجوزاتي</span>
-</div>
+    <section class="dashboard-head">
 
-<div>
-<strong>0</strong>
-<span>مكتملة</span>
-</div>
+        <div>
 
-</div>
+            <div class="section-label">
+                حساب العميل
+            </div>
 
-<section class="dashboard-section">
+            <h1>
+                أهلاً
+                <span id="userName">—</span>
+            </h1>
 
-<h2>حجوزاتي</h2>
+            <p>
+                من هنا تقدر تتابع حجوزاتك
+                وتدير بيانات حسابك.
+            </p>
 
-<div id="customerBookings"></div>
+        </div>
 
-</section>
+        <a
+            href="workshops.html"
+            class="new-booking">
+
+            + حجز جديد
+
+        </a>
+
+    </section>
+
+
+    <!-- الإحصائيات -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <span>
+                إجمالي الحجوزات
+            </span>
+
+            <strong id="totalBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                الحجوزات المعلقة
+            </span>
+
+            <strong id="pendingBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                الحجوزات المؤكدة
+            </span>
+
+            <strong id="confirmedBookings">
+                0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- المحتوى -->
+
+    <div class="dashboard-layout">
+
+
+        <!-- الحجوزات -->
+
+        <section class="bookings-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <div class="section-label">
+                        نشاطك
+                    </div>
+
+                    <h2>
+                        حجوزاتي
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="bookingsList"
+                class="bookings-list">
+
+            </div>
+
+
+            <div
+                id="emptyBookings"
+                class="empty-bookings">
+
+                <div class="empty-icon">
+                    —
+                </div>
+
+                <h3>
+                    ما عندك حجوزات للحين
+                </h3>
+
+                <p>
+                    ابدأ واختار الورشة اللي تناسبك.
+                </p>
+
+                <a href="workshops.html">
+                    تصفح الخراطين ←
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- الحساب -->
+
+        <aside class="account-card">
+
+            <div class="section-label">
+                بيانات الحساب
+            </div>
+
+            <div class="account-avatar">
+                <span id="avatarLetter">
+                    —
+                </span>
+            </div>
+
+
+            <h3 id="accountName">
+                —
+            </h3>
+
+            <p id="accountEmail">
+                —
+            </p>
+
+
+            <div class="account-divider"></div>
+
+
+            <div class="account-row">
+
+                <span>
+                    الجوال
+                </span>
+
+                <strong id="accountPhone">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="account-row">
+
+                <span>
+                    الموقع
+                </span>
+
+                <strong id="accountLocation">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="account-divider"></div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                تسجيل الخروج
+
+            </button>
+
+        </aside>
+
+    </div>
 
 </main>
 
-<script src="app.js"></script>
 
-<script>
-loadCustomerDashboard();
-</script>
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="customer-dashboard.js"></script>
 
 </body>
+
 </html>
