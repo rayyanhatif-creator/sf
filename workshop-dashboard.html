@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>لوحة الورشة | ورش السعودية</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">
+ورش السعودية
+</div>
+
+<button onclick="logout()" class="logout-btn">
+تسجيل الخروج
+</button>
+
+</header>
+
+<main class="dashboard">
+
+<h1>
+لوحة <span id="dashboardWorkshopName"></span>
+</h1>
+
+<div class="stats">
+
+<div>
+<strong id="workshopBookingCount">0</strong>
+<span>الحجوزات</span>
+</div>
+
+<div>
+<strong>0</strong>
+<span>طلبات جديدة</span>
+</div>
+
+<div>
+<strong>0</strong>
+<span>المكتملة</span>
+</div>
+
+</div>
+
+
+<section class="dashboard-section">
+
+<h2>تعديل صفحة الورشة</h2>
+
+<form onsubmit="updateWorkshop(event)">
+
+<input
+id="editWorkshopName"
+placeholder="اسم الورشة"
+required>
+
+<input
+id="editWorkshopCity"
+placeholder="المدينة"
+required>
+
+<textarea
+id="editWorkshopBio"
+placeholder="نبذة الورشة">
+</textarea>
+
+<input
+id="editWorkshopPrice"
+type="number"
+placeholder="السعر يبدأ من">
+
+<input
+id="editWorkshopImage"
+placeholder="رابط صورة الورشة">
+
+<button class="main-btn">
+حفظ التعديلات
+</button>
+
+</form>
+
+</section>
+
+
+<section class="dashboard-section">
+
+<h2>الحجوزات</h2>
+
+<div id="workshopBookings"></div>
+
+</section>
+
+</main>
+
+<script src="app.js"></script>
+
+<script>
+loadWorkshopDashboard();
+</script>
+
+</body>
+</html>
