@@ -26,137 +26,80 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <div class="workshop-header-name">
+
+        <span>لوحة الورشة</span>
+
+        <strong id="headerWorkshopName">
+            —
+        </strong>
+
+    </div>
+
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<aside class="side-menu" id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>لوحة الورشة</span>
-
-        <button onclick="toggleMenu()">×</button>
-
-    </div>
-
-    <div class="menu-links">
-
-        <a href="workshop-dashboard.html">
-            <span>01</span>
-            الرئيسية
-        </a>
-
-        <a href="workshop-bookings.html">
-            <span>02</span>
-            الحجوزات
-        </a>
-
-        <a href="workshop-profile.html">
-            <span>03</span>
-            صفحة الورشة
-        </a>
-
-        <a href="index.html">
-            <span>04</span>
-            الموقع
-        </a>
-
-    </div>
-
-    <div class="menu-footer">
-
-        <button onclick="workshopLogout()">
-            تسجيل الخروج
-        </button>
-
-    </div>
-
-</aside>
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
+<main class="workshop-dashboard">
 
 
-<main class="dashboard">
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    <!-- HEADER -->
-
-    <section class="dashboard-header">
+    <section class="workshop-welcome">
 
         <div>
 
             <div class="section-label">
-                لوحة الورشة
+                لوحة التحكم
             </div>
 
             <h1>
-                أهلاً،
-                <span id="workshopName">
-                    ورشتك
+                أهلاً بك في
+                <span id="welcomeWorkshopName">
+                    —
                 </span>
             </h1>
 
             <p>
-                من هنا تقدر تدير حجوزاتك
-                وتتحكم في صفحة ورشتك.
+                من هنا تقدر تدير حجوزات ورشتك
+                وتتحكم في بيانات العرض الخاصة بك.
             </p>
 
         </div>
 
-        <div class="workshop-status">
+        <a
+            href="workshop-profile.html"
+            class="edit-profile">
 
-            <span class="status-dot"></span>
+            تعديل صفحة الورشة
+            ←
 
-            الورشة ظاهرة للعملاء
-
-        </div>
+        </a>
 
     </section>
 
 
-    <!-- STATS -->
+    <!-- =========================
+         STATS
+    ========================== -->
 
-    <section class="dashboard-stats">
+    <section class="workshop-stats">
 
-        <div class="dashboard-stat">
-
-            <span>
-                حجوزات اليوم
-            </span>
-
-            <strong id="todayBookings">
-                0
-            </strong>
-
-        </div>
-
-
-        <div class="dashboard-stat">
+        <div class="workshop-stat">
 
             <span>
-                الحجوزات الجديدة
-            </span>
-
-            <strong id="newBookings">
-                0
-            </strong>
-
-        </div>
-
-
-        <div class="dashboard-stat">
-
-            <span>
-                إجمالي الحجوزات
+                كل الحجوزات
             </span>
 
             <strong id="totalBookings">
@@ -166,15 +109,40 @@
         </div>
 
 
-        <div class="dashboard-stat">
+        <div class="workshop-stat">
 
             <span>
-                السعر يبدأ من
+                الجديدة
             </span>
 
-            <strong>
-                700
-                <small>ريال</small>
+            <strong id="pendingBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="workshop-stat">
+
+            <span>
+                المؤكدة
+            </span>
+
+            <strong id="confirmedBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="workshop-stat">
+
+            <span>
+                الحجوزات القادمة
+            </span>
+
+            <strong id="upcomingBookings">
+                0
             </strong>
 
         </div>
@@ -182,150 +150,161 @@
     </section>
 
 
-    <!-- BOOKINGS -->
+    <!-- =========================
+         CONTENT
+    ========================== -->
 
-    <section class="dashboard-section">
+    <div class="workshop-dashboard-grid">
 
-        <div class="section-heading">
 
-            <div>
+        <!-- الحجوزات -->
 
-                <div class="section-label">
-                    الحجوزات
+        <section class="workshop-bookings">
+
+            <div class="dashboard-section-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        الحجوزات
+                    </div>
+
+                    <h2>
+                        آخر الطلبات
+                    </h2>
+
                 </div>
-
-                <h2>
-                    آخر الطلبات
-                </h2>
 
             </div>
 
-            <a
-                href="workshop-bookings.html"
-                class="view-all">
 
-                عرض الكل
-                <span>←</span>
-
-            </a>
-
-        </div>
-
-
-        <div
-            id="dashboardBookings"
-            class="dashboard-bookings">
-
-        </div>
-
-    </section>
-
-
-    <!-- QUICK ACTIONS -->
-
-    <section class="dashboard-section">
-
-        <div class="section-heading">
-
-            <div>
-
-                <div class="section-label">
-                    إدارة الورشة
-                </div>
-
-                <h2>
-                    اختصارات
-                </h2>
+            <div
+                id="workshopBookings"
+                class="workshop-bookings-list">
 
             </div>
 
-        </div>
+
+            <div
+                id="noBookings"
+                class="no-bookings">
+
+                <div class="no-bookings-icon">
+                    —
+                </div>
+
+                <h3>
+                    ما عندك حجوزات للحين
+                </h3>
+
+                <p>
+                    أول ما أحد يحجز عندك
+                    بيظهر الحجز هنا.
+                </p>
+
+            </div>
+
+        </section>
 
 
-        <div class="quick-actions">
+        <!-- معلومات الورشة -->
+
+        <aside class="workshop-info-card">
+
+            <div class="section-label">
+                ورشتك
+            </div>
+
+
+            <div
+                id="workshopImage"
+                class="workshop-image">
+
+            </div>
+
+
+            <h3 id="infoWorkshopName">
+                —
+            </h3>
+
+
+            <p
+                id="infoWorkshopBio"
+                class="workshop-bio">
+
+                —
+
+            </p>
+
+
+            <div class="workshop-info-divider"></div>
+
+
+            <div class="info-row">
+
+                <span>
+                    المدينة
+                </span>
+
+                <strong id="infoCity">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span>
+                    السعر يبدأ من
+                </span>
+
+                <strong>
+
+                    <span id="infoPrice">
+                        0
+                    </span>
+
+                    ريال
+
+                </strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span>
+                    الخدمة
+                </span>
+
+                <strong id="infoService">
+                    —
+                </strong>
+
+            </div>
+
 
             <a
                 href="workshop-profile.html"
-                class="quick-action">
+                class="manage-profile">
 
-                <span>01</span>
-
-                <strong>
-                    تعديل صفحة الورشة
-                </strong>
-
-                <small>
-                    الصور، النبذة، الموقع والأسعار
-                </small>
-
-                <b>←</b>
+                إدارة صفحة الورشة
 
             </a>
 
 
-            <a
-                href="workshop-bookings.html"
-                class="quick-action">
+            <button
+                onclick="logoutWorkshop()"
+                class="logout-workshop">
 
-                <span>02</span>
+                تسجيل الخروج
 
-                <strong>
-                    إدارة الحجوزات
-                </strong>
+            </button>
 
-                <small>
-                    مشاهدة وقبول طلبات العملاء
-                </small>
+        </aside>
 
-                <b>←</b>
-
-            </a>
-
-
-            <a
-                href="workshops.html"
-                class="quick-action">
-
-                <span>03</span>
-
-                <strong>
-                    مشاهدة صفحتي
-                </strong>
-
-                <small>
-                    شوف كيف تظهر ورشتك للعملاء
-                </small>
-
-                <b>←</b>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- INFO -->
-
-    <section class="dashboard-note">
-
-        <span>i</span>
-
-        <div>
-
-            <strong>
-                تنبيه مهم
-            </strong>
-
-            <p>
-                تأكد من تحديث أوقات العمل والأسعار
-                وبيانات التواصل حتى تظهر للعملاء
-                بشكل صحيح.
-            </p>
-
-        </div>
-
-    </section>
+    </div>
 
 </main>
 
