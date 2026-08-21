@@ -1,262 +1,406 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+.login-page {
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    min-height:
+        calc(100vh - 200px);
 
-    <title>تسجيل الدخول | ورش السعودية</title>
+    display: flex;
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
-</head>
+    justify-content: center;
 
-<body>
+    align-items: center;
 
-<header class="topbar">
+    padding:
+        150px 20px 100px;
 
-    <a href="index.html" class="brand">
+}
 
-        <span class="brand-line"></span>
 
-        <div>
-            <strong>ورش السعودية</strong>
-            <small>منصة الحرفة السعودية</small>
-        </div>
+.login-card {
 
-    </a>
+    width: 100%;
 
-    <button class="menu-button" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    max-width: 520px;
 
-</header>
+    padding: 55px 45px;
 
+    background: #11110f;
 
-<!-- القائمة -->
+    border:
+        1px solid var(--line);
 
-<aside class="side-menu" id="sideMenu">
+}
 
-    <div class="menu-head">
 
-        <span>القائمة</span>
+.login-heading {
 
-        <button onclick="toggleMenu()">×</button>
+    text-align: center;
 
-    </div>
+}
 
 
-    <div class="menu-links">
+.login-heading h1 {
 
-        <a href="workshops.html">
-            <span>01</span>
-            الخراطين
-        </a>
+    font-size:
+        clamp(50px, 8vw, 75px);
 
-        <a href="workshop-register.html">
-            <span>02</span>
-            اشترك معنا كخراط
-        </a>
+    font-weight: 400;
 
-        <a href="login.html">
-            <span>03</span>
-            تسجيل الدخول
-        </a>
+    line-height: .95;
 
-    </div>
+    letter-spacing: -4px;
 
+    margin-top: 15px;
 
-    <div class="menu-footer">
-        ورش السعودية
-    </div>
+}
 
-</aside>
 
+.login-heading h1 span {
 
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
+    color:
+        var(--gold-light);
 
+}
 
 
-<main class="login-page">
+.login-heading p {
 
-    <section class="login-box">
+    color:
+        var(--muted);
 
+    font-size: 11px;
 
-        <!-- العنوان -->
+    line-height: 1.9;
 
-        <div class="login-heading">
+    margin-top: 20px;
 
-            <div class="section-label">
-                01 / الحساب
-            </div>
+}
 
-            <h1>
-                أهلاً
-                <span>بك.</span>
-            </h1>
 
-            <p>
-                سجل دخولك للوصول إلى حجوزاتك
-                وإدارة حسابك في ورش السعودية.
-            </p>
+/* FORM */
 
-        </div>
+.login-form {
 
+    margin-top: 45px;
 
-        <!-- النموذج -->
+}
 
-        <form
-            id="loginForm"
-            class="login-form">
 
+.form-group {
 
-            <div class="form-group">
+    margin-bottom: 25px;
 
-                <label>
-                    رقم الجوال
-                </label>
+}
 
-                <input
-                    type="tel"
-                    id="loginPhone"
-                    placeholder="05xxxxxxxx"
-                    required>
 
-            </div>
+.form-group label {
 
+    display: block;
 
-            <div class="form-group">
+    color:
+        #d8d2c7;
 
-                <label>
-                    كلمة المرور
-                </label>
+    font-size: 11px;
 
-                <div class="password-field">
+    margin-bottom: 10px;
 
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        placeholder="أدخل كلمة المرور"
-                        required>
+}
 
-                    <button
-                        type="button"
-                        onclick="togglePassword()">
 
-                        إظهار
+.label-row {
 
-                    </button>
+    display: flex;
 
-                </div>
+    justify-content: space-between;
 
-            </div>
+    align-items: center;
 
+}
 
-            <div class="login-options">
 
-                <label>
+.label-row a {
 
-                    <input
-                        type="checkbox"
-                        id="rememberMe">
+    color:
+        var(--gold-light);
 
-                    تذكرني
+    font-size: 9px;
 
-                </label>
+}
 
 
-                <a href="#">
-                    نسيت كلمة المرور؟
-                </a>
+.form-group input {
 
-            </div>
+    width: 100%;
 
+    padding: 17px;
 
-            <button
-                type="submit"
-                class="login-button">
+    background:
+        #0b0b0a;
 
-                تسجيل الدخول
+    border:
+        1px solid var(--line);
 
-                <span>←</span>
+    color: white;
 
-            </button>
+    outline: none;
 
+    font-family: inherit;
 
-        </form>
+}
 
 
-        <!-- إنشاء حساب -->
+.form-group input:focus {
 
-        <div class="create-account">
+    border-color:
+        rgba(182,154,104,.6);
 
-            <span>
-                ما عندك حساب؟
-            </span>
+}
 
-            <a href="register.html">
-                إنشاء حساب جديد
-            </a>
 
-        </div>
+/* PHONE */
 
+.phone-input {
 
-        <!-- خراط -->
+    display: flex;
 
-        <div class="workshop-login">
+    direction: ltr;
 
-            <p>
-                أنت خراط؟
-            </p>
+}
 
-            <a href="workshop-register.html">
-                اشترك معنا كخراط
-                <span>←</span>
-            </a>
 
-        </div>
+.phone-input span {
 
+    display: flex;
 
-    </section>
+    align-items: center;
 
-</main>
+    padding: 0 15px;
 
+    background:
+        #171714;
 
-<footer>
+    border:
+        1px solid var(--line);
 
-    <div class="footer-brand">
-        ورش السعودية
-    </div>
+    border-left: 0;
 
-    <p>
-        نقرّب الحرفة من صاحبها،
-        ونخلّي الوصول لأهلها أسهل.
-    </p>
+    color:
+        var(--muted);
 
-    <div class="footer-bottom">
+    font-size: 11px;
 
-        <span>
-            جميع الحقوق محفوظة
-        </span>
+}
 
-        <span>
-            صنع بواسطة ورش السعودية
-        </span>
 
-    </div>
+.phone-input input {
 
-</footer>
+    direction: ltr;
 
+    text-align: left;
 
-<script src="app.js"></script>
-<script src="login.js"></script>
+}
 
-</body>
 
-</html>
+/* ERROR */
+
+.login-error {
+
+    display: none;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border:
+        1px solid rgba(180,80,80,.4);
+
+    background:
+        rgba(180,80,80,.05);
+
+    color:
+        #d99a9a;
+
+    font-size: 10px;
+
+}
+
+
+.login-error.show {
+
+    display: block;
+
+}
+
+
+/* BUTTON */
+
+.login-button {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: 0;
+
+    background:
+        var(--gold);
+
+    color:
+        #16120d;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.login-button:hover {
+
+    background:
+        var(--gold-light);
+
+    transform: translateY(-2px);
+
+}
+
+
+.login-button span {
+
+    margin-right: 10px;
+
+}
+
+
+/* REGISTER */
+
+.register-link {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 25px;
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+}
+
+
+.register-link a {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+/* WORKSHOP */
+
+.workshop-login {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 35px;
+
+    padding: 20px;
+
+    background:
+        #0b0b0a;
+
+    border:
+        1px solid var(--line);
+
+}
+
+
+.workshop-login strong {
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+}
+
+
+.workshop-login p {
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    margin-top: 6px;
+
+}
+
+
+.workshop-login a {
+
+    white-space: nowrap;
+
+    color:
+        var(--gold-light);
+
+    font-size: 10px;
+
+}
+
+
+@media(max-width:550px) {
+
+    .login-page {
+
+        padding:
+            120px 15px 70px;
+
+    }
+
+
+    .login-card {
+
+        padding:
+            40px 20px;
+
+    }
+
+
+    .workshop-login {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .workshop-login a {
+
+        width: 100%;
+
+        padding: 12px;
+
+        text-align: center;
+
+        border:
+            1px solid var(--line);
+
+    }
+
+}
