@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>الخراطين | ورش السعودية</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+ورش السعودية
+</a>
+
+<div class="menu">
+
+<button onclick="openMenu()">⋯</button>
+
+<div id="menuList" class="menu-list">
+
+<a href="workshops.html">الخراطين</a>
+<a href="workshop-register.html">اشترك معنا كخراط</a>
+<a href="login.html">تسجيل الدخول</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="page-header">
+
+<h1>الخراطين</h1>
+
+<p>
+اكتشف الورش المسجلة في ورش السعودية
+</p>
+
+</section>
+
+<main class="workshop-grid" id="workshopGrid"></main>
+
+<script src="app.js"></script>
+
+<script>
+loadWorkshops();
+</script>
+
+</body>
+</html>
