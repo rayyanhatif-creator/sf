@@ -1,9 +1,7 @@
 .workshop-login-page {
 
-    min-height: 100vh;
-
-    padding:
-        150px 20px 100px;
+    min-height:
+        calc(100vh - 200px);
 
     display: flex;
 
@@ -11,19 +9,21 @@
 
     justify-content: center;
 
+    padding:
+        150px 20px 100px;
+
 }
 
 
-.login-box {
+.workshop-login-card {
 
     width: 100%;
 
-    max-width: 560px;
+    max-width: 520px;
 
-    padding: 55px;
+    padding: 55px 45px;
 
-    background:
-        rgba(17,17,15,.9);
+    background: #11110f;
 
     border:
         1px solid var(--line);
@@ -31,17 +31,17 @@
 }
 
 
-.login-heading {
+.workshop-login-heading {
 
-    margin-bottom: 45px;
+    text-align: center;
 
 }
 
 
-.login-heading h1 {
+.workshop-login-heading h1 {
 
     font-size:
-        clamp(52px, 8vw, 78px);
+        clamp(50px, 8vw, 75px);
 
     font-weight: 400;
 
@@ -49,10 +49,12 @@
 
     letter-spacing: -4px;
 
+    margin-top: 15px;
+
 }
 
 
-.login-heading h1 span {
+.workshop-login-heading h1 span {
 
     color:
         var(--gold-light);
@@ -60,34 +62,30 @@
 }
 
 
-.login-heading p {
+.workshop-login-heading p {
 
     color:
         var(--muted);
 
-    margin-top: 25px;
+    font-size: 11px;
 
     line-height: 1.9;
 
-    font-size: 13px;
+    margin-top: 20px;
 
 }
 
 
-/* FORM */
+.workshop-login-form {
 
-.login-form {
-
-    display: flex;
-
-    flex-direction: column;
+    margin-top: 45px;
 
 }
 
 
 .form-group {
 
-    margin-bottom: 23px;
+    margin-bottom: 24px;
 
 }
 
@@ -99,7 +97,7 @@
     color:
         #d8d2c7;
 
-    font-size: 12px;
+    font-size: 11px;
 
     margin-bottom: 10px;
 
@@ -124,6 +122,8 @@
 
     font-family: inherit;
 
+    font-size: 12px;
+
 }
 
 
@@ -135,99 +135,88 @@
 }
 
 
-/* PASSWORD */
+/* PHONE */
 
-.password-field {
-
-    position: relative;
-
-}
-
-
-.password-field input {
-
-    padding-left: 75px;
-
-}
-
-
-.password-field button {
-
-    position: absolute;
-
-    left: 12px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    background: none;
-
-    border: 0;
-
-    color: var(--gold-light);
-
-    font-family: inherit;
-
-    font-size: 11px;
-
-    cursor: pointer;
-
-}
-
-
-/* OPTIONS */
-
-.login-options {
+.phone-input {
 
     display: flex;
 
-    justify-content: space-between;
-
-    align-items: center;
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    margin-bottom: 25px;
+    direction: ltr;
 
 }
 
 
-.login-options label {
+.phone-input span {
 
     display: flex;
 
     align-items: center;
 
-    gap: 7px;
+    padding: 0 15px;
 
-}
+    background:
+        #171714;
 
+    border:
+        1px solid var(--line);
 
-.login-options input {
-
-    accent-color: var(--gold);
-
-}
-
-
-.login-options a {
+    border-left: 0;
 
     color:
-        var(--gold-light);
+        var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.phone-input input {
+
+    direction: ltr;
+
+    text-align: left;
+
+}
+
+
+/* ERROR */
+
+.workshop-login-error {
+
+    display: none;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border:
+        1px solid rgba(180,80,80,.4);
+
+    background:
+        rgba(180,80,80,.05);
+
+    color:
+        #d99a9a;
+
+    font-size: 10px;
+
+}
+
+
+.workshop-login-error.show {
+
+    display: block;
 
 }
 
 
 /* BUTTON */
 
-.login-button {
+.workshop-login-button {
 
     width: 100%;
 
-    padding: 18px;
+    padding: 19px;
 
     border: 0;
 
@@ -239,7 +228,7 @@
 
     font-family: inherit;
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: 600;
 
@@ -250,83 +239,107 @@
 }
 
 
-.login-button:hover {
+.workshop-login-button:hover {
 
     background:
         var(--gold-light);
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
 }
 
 
-.login-button span {
+.workshop-login-button span {
 
-    margin-right: 15px;
-
-    font-size: 20px;
+    margin-right: 10px;
 
 }
 
 
-/* BOTTOM */
+/* REGISTER */
 
-.login-bottom {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 8px;
+.workshop-register {
 
     margin-top: 30px;
 
-    padding-top: 25px;
+    padding: 20px;
 
-    border-top:
+    background:
+        #0b0b0a;
+
+    border:
         1px solid var(--line);
+
+    text-align: center;
+
+}
+
+
+.workshop-register span {
+
+    display: block;
 
     color:
         var(--muted);
 
-    font-size: 12px;
+    font-size: 10px;
 
 }
 
 
-.login-bottom a {
+.workshop-register a {
+
+    display: inline-block;
 
     color:
         var(--gold-light);
 
+    font-size: 11px;
+
+    margin-top: 10px;
+
 }
 
 
-/* MOBILE */
+/* CUSTOMER */
+
+.customer-login {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+}
+
 
 @media(max-width:600px) {
 
     .workshop-login-page {
 
         padding:
-            120px 18px 70px;
+            120px 15px 70px;
 
     }
 
 
-    .login-box {
+    .workshop-login-card {
 
         padding:
-            35px 23px;
+            40px 20px;
 
     }
 
 
-    .login-heading h1 {
+    .workshop-login-heading h1 {
 
-        letter-spacing:
-            -3px;
+        letter-spacing: -3px;
 
     }
 
