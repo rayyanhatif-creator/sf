@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>اشترك معنا كخراط | ورش السعودية</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+ورش السعودية
+</a>
+
+</header>
+
+<main class="auth-page">
+
+<div class="auth-card">
+
+<h1>اشترك معنا كخراط</h1>
+
+<p>
+اعرض ورشتك واستقبل الحجوزات من عملائك
+</p>
+
+<form onsubmit="registerWorkshop(event)">
+
+<input
+id="workshopName"
+placeholder="اسم الورشة"
+required>
+
+<input
+id="workshopOwner"
+placeholder="اسم المسؤول"
+required>
+
+<input
+id="workshopPhone"
+placeholder="رقم الجوال"
+required>
+
+<input
+id="workshopEmail"
+type="email"
+placeholder="البريد الإلكتروني"
+required>
+
+<input
+id="workshopCity"
+placeholder="المدينة"
+required>
+
+<input
+id="workshopPassword"
+type="password"
+placeholder="كلمة المرور"
+required>
+
+<textarea
+id="workshopBio"
+placeholder="نبذة عن الورشة"
+required></textarea>
+
+<button class="main-btn">
+إنشاء حساب الورشة
+</button>
+
+</form>
+
+<div id="workshopMessage"></div>
+
+</div>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
