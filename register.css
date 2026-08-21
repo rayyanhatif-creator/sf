@@ -1,9 +1,7 @@
 .register-page {
 
-    min-height: 100vh;
-
-    padding:
-        150px 20px 100px;
+    min-height:
+        calc(100vh - 200px);
 
     display: flex;
 
@@ -11,26 +9,21 @@
 
     align-items: center;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(182,154,104,.06),
-            transparent 38%
-        );
+    padding:
+        150px 20px 100px;
 
 }
 
 
-.register-box {
+.register-card {
 
     width: 100%;
 
-    max-width: 600px;
+    max-width: 650px;
 
-    padding: 55px;
+    padding: 55px 45px;
 
-    background:
-        rgba(17,17,15,.85);
+    background: #11110f;
 
     border:
         1px solid var(--line);
@@ -40,7 +33,7 @@
 
 .register-heading {
 
-    margin-bottom: 45px;
+    text-align: center;
 
 }
 
@@ -48,13 +41,15 @@
 .register-heading h1 {
 
     font-size:
-        clamp(55px, 8vw, 80px);
-
-    line-height: .95;
+        clamp(50px, 8vw, 75px);
 
     font-weight: 400;
 
+    line-height: .95;
+
     letter-spacing: -4px;
+
+    margin-top: 15px;
 
 }
 
@@ -72,22 +67,18 @@
     color:
         var(--muted);
 
-    line-height: 2;
+    font-size: 11px;
 
-    margin-top: 25px;
+    line-height: 1.9;
 
-    font-size: 14px;
+    margin-top: 20px;
 
 }
 
 
-/* FORM */
-
 .register-form {
 
-    display: flex;
-
-    flex-direction: column;
+    margin-top: 45px;
 
 }
 
@@ -103,10 +94,10 @@
 
     display: block;
 
-    font-size: 12px;
-
     color:
         #d8d2c7;
+
+    font-size: 11px;
 
     margin-bottom: 10px;
 
@@ -131,7 +122,7 @@
 
     font-family: inherit;
 
-    transition: .3s;
+    font-size: 12px;
 
 }
 
@@ -144,44 +135,60 @@
 }
 
 
-/* PASSWORD */
+/* PHONE */
 
-.password-field {
+.phone-input {
 
-    position: relative;
+    display: flex;
 
-}
-
-
-.password-field input {
-
-    padding-left: 75px;
+    direction: ltr;
 
 }
 
 
-.password-field button {
+.phone-input span {
 
-    position: absolute;
+    display: flex;
 
-    left: 12px;
+    align-items: center;
 
-    top: 50%;
+    padding: 0 15px;
 
-    transform: translateY(-50%);
+    background:
+        #171714;
 
-    background: none;
+    border:
+        1px solid var(--line);
 
-    border: 0;
+    border-left: 0;
 
     color:
-        var(--gold-light);
-
-    font-family: inherit;
+        var(--muted);
 
     font-size: 11px;
 
-    cursor: pointer;
+}
+
+
+.phone-input input {
+
+    direction: ltr;
+
+    text-align: left;
+
+}
+
+
+/* GRID */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
 
 }
 
@@ -196,25 +203,65 @@
 
     gap: 10px;
 
+    margin: 25px 0;
+
     color:
         var(--muted);
 
-    font-size: 11px;
+    font-size: 10px;
 
-    line-height: 1.8;
+    line-height: 1.7;
 
-    margin:
-        5px 0 25px;
+    cursor: pointer;
 
 }
 
 
 .terms input {
 
-    margin-top: 4px;
+    margin-top: 2px;
 
     accent-color:
         var(--gold);
+
+}
+
+
+.terms a {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+/* ERROR */
+
+.register-error {
+
+    display: none;
+
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border:
+        1px solid rgba(180,80,80,.4);
+
+    background:
+        rgba(180,80,80,.05);
+
+    color:
+        #d99a9a;
+
+    font-size: 10px;
+
+}
+
+
+.register-error.show {
+
+    display: block;
 
 }
 
@@ -225,7 +272,7 @@
 
     width: 100%;
 
-    padding: 18px;
+    padding: 19px;
 
     border: 0;
 
@@ -237,7 +284,7 @@
 
     font-family: inherit;
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: 600;
 
@@ -248,132 +295,79 @@
 }
 
 
-.register-button span {
-
-    margin-right: 15px;
-
-    font-size: 20px;
-
-}
-
-
 .register-button:hover {
 
     background:
         var(--gold-light);
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
+
+}
+
+
+.register-button span {
+
+    margin-right: 10px;
 
 }
 
 
 /* LOGIN */
 
-.already-account {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    padding-top: 25px;
-
-    margin-top: 30px;
-
-    border-top:
-        1px solid var(--line);
-
-    color:
-        var(--muted);
-
-    font-size: 12px;
-
-}
-
-
-.already-account a {
-
-    color:
-        var(--gold-light);
-
-}
-
-
-/* WORKSHOP */
-
-.workshop-register-box {
+.login-link {
 
     text-align: center;
 
-    margin-top: 30px;
-
-    padding: 23px;
-
-    border:
-        1px solid
-        rgba(182,154,104,.12);
-
-    background:
-        rgba(182,154,104,.035);
-
-}
-
-
-.workshop-register-box p {
+    margin-top: 25px;
 
     color:
         var(--muted);
 
-    font-size: 11px;
+    font-size: 10px;
 
 }
 
 
-.workshop-register-box a {
-
-    display: inline-block;
+.login-link a {
 
     color:
         var(--gold-light);
 
-    margin-top: 9px;
-
-    font-size: 13px;
+    margin-right: 5px;
 
 }
 
-
-.workshop-register-box span {
-
-    margin-right: 8px;
-
-}
-
-
-/* MOBILE */
 
 @media(max-width:600px) {
 
     .register-page {
 
         padding:
-            120px 18px 70px;
+            120px 15px 70px;
 
     }
 
-    .register-box {
+
+    .register-card {
 
         padding:
-            35px 23px;
+            40px 20px;
 
     }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+    }
+
 
     .register-heading h1 {
 
-        letter-spacing:
-            -3px;
+        letter-spacing: -3px;
 
     }
 
