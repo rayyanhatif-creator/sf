@@ -26,106 +26,53 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<!-- القائمة -->
-
-<aside class="side-menu" id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>القائمة</span>
-
-        <button onclick="toggleMenu()">×</button>
-
-    </div>
-
-    <div class="menu-links">
-
-        <a href="workshops.html">
-            <span>01</span>
-            الخراطين
-        </a>
-
-        <a href="workshop-register.html">
-            <span>02</span>
-            اشترك معنا كخراط
-        </a>
-
-        <a href="login.html">
-            <span>03</span>
-            تسجيل الدخول
-        </a>
-
-    </div>
-
-</aside>
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
-
-
 <main class="workshop-register-page">
 
-    <section class="workshop-register-box">
-
-
-        <!-- العنوان -->
+    <section class="workshop-register-card">
 
         <div class="register-heading">
 
             <div class="section-label">
-                01 / للشركاء
+                انضم إلى المنصة
             </div>
 
             <h1>
-                خل ورشتك
-                <span>معنا.</span>
+                اشترك معنا
+                <span>كخراط.</span>
             </h1>
 
             <p>
-                خل عملاء أكثر يوصلون لك،
-                واستقبل حجوزاتك من مكان واحد.
+                عرّف الناس بورشتك واستقبل حجوزاتك
+                من خلال ورش السعودية.
             </p>
 
         </div>
 
-
-        <!-- النموذج -->
 
         <form
             id="workshopRegisterForm"
             class="workshop-register-form">
 
 
-            <!-- اسم الخراط -->
+            <!-- بيانات الورشة -->
 
-            <div class="form-group">
-
-                <label>
-                    اسم الخراط
-                </label>
-
-                <input
-                    type="text"
-                    id="ownerName"
-                    placeholder="مثال: محمد العتيبي"
-                    required>
-
+            <div class="form-section-title">
+                معلومات الورشة
             </div>
 
-
-            <!-- اسم الورشة -->
 
             <div class="form-group">
 
@@ -142,105 +89,6 @@
             </div>
 
 
-            <!-- الجوال -->
-
-            <div class="form-group">
-
-                <label>
-                    رقم الجوال
-                </label>
-
-                <input
-                    type="tel"
-                    id="workshopPhone"
-                    placeholder="05xxxxxxxx"
-                    required>
-
-            </div>
-
-
-            <!-- البريد -->
-
-            <div class="form-group">
-
-                <label>
-                    البريد الإلكتروني
-                </label>
-
-                <input
-                    type="email"
-                    id="workshopEmail"
-                    placeholder="example@email.com"
-                    required>
-
-            </div>
-
-
-            <!-- الموقع -->
-
-            <div class="form-group">
-
-                <label>
-                    موقع الورشة
-                </label>
-
-                <input
-                    type="text"
-                    id="workshopLocation"
-                    placeholder="الرياض - الحي"
-                    required>
-
-            </div>
-
-
-            <!-- كلمة المرور -->
-
-            <div class="form-group">
-
-                <label>
-                    كلمة المرور
-                </label>
-
-                <div class="password-field">
-
-                    <input
-                        type="password"
-                        id="workshopPassword"
-                        placeholder="أنشئ كلمة مرور"
-                        required>
-
-                    <button
-                        type="button"
-                        onclick="toggleWorkshopPassword()">
-
-                        إظهار
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- تأكيد كلمة المرور -->
-
-            <div class="form-group">
-
-                <label>
-                    تأكيد كلمة المرور
-                </label>
-
-                <input
-                    type="password"
-                    id="workshopPasswordConfirm"
-                    placeholder="أعد كتابة كلمة المرور"
-                    required>
-
-            </div>
-
-
-            <!-- نبذة -->
-
             <div class="form-group">
 
                 <label>
@@ -249,37 +97,234 @@
 
                 <textarea
                     id="workshopBio"
-                    placeholder="اكتب نبذة قصيرة عن ورشتك وخبرتك..."
+                    placeholder="اكتب نبذة بسيطة عن ورشتك وخبرتك في خرط السبح..."
+                    maxlength="500"
                     required></textarea>
 
             </div>
 
 
-            <!-- الشروط -->
+            <div class="form-grid">
 
-            <label class="terms">
+                <div class="form-group">
+
+                    <label>
+                        المدينة
+                    </label>
+
+                    <input
+                        type="text"
+                        id="workshopCity"
+                        placeholder="الرياض"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        الحي
+                    </label>
+
+                    <input
+                        type="text"
+                        id="workshopDistrict"
+                        placeholder="مثال: العارض"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    رابط موقع الورشة
+                </label>
 
                 <input
-                    type="checkbox"
+                    type="url"
+                    id="workshopLocation"
+                    placeholder="رابط الموقع في خرائط Google"
                     required>
 
-                <span>
-                    أوافق على شروط الانضمام إلى
-                    منصة ورش السعودية.
-                </span>
-
-            </label>
+            </div>
 
 
-            <!-- الزر -->
+            <!-- السعر -->
+
+            <div class="form-section-title">
+                معلومات الخدمة
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        السعر يبدأ من
+                    </label>
+
+                    <div class="price-input">
+
+                        <input
+                            type="number"
+                            id="workshopPrice"
+                            min="700"
+                            placeholder="700"
+                            required>
+
+                        <span>
+                            ريال
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        نوع الخدمة
+                    </label>
+
+                    <input
+                        type="text"
+                        id="workshopService"
+                        value="خرط السبح"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- بيانات الدخول -->
+
+            <div class="form-section-title">
+                بيانات الدخول
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    رقم الجوال
+                </label>
+
+                <div class="phone-input">
+
+                    <span>
+                        +966
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="workshopPhone"
+                        placeholder="5XXXXXXXX"
+                        maxlength="9"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        كلمة المرور
+                    </label>
+
+                    <input
+                        type="password"
+                        id="workshopPassword"
+                        minlength="6"
+                        placeholder="••••••••"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        تأكيد كلمة المرور
+                    </label>
+
+                    <input
+                        type="password"
+                        id="workshopPasswordConfirm"
+                        minlength="6"
+                        placeholder="••••••••"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- الصور -->
+
+            <div class="form-section-title">
+                صور الورشة
+            </div>
+
+
+            <div class="image-upload">
+
+                <label
+                    for="workshopImage"
+                    class="upload-box">
+
+                    <span class="upload-icon">
+                        +
+                    </span>
+
+                    <strong>
+                        أضف صورة للورشة
+                    </strong>
+
+                    <small>
+                        صورة واضحة تظهر للزبائن
+                    </small>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="workshopImage"
+                    accept="image/*">
+
+                <div
+                    id="imagePreview"
+                    class="image-preview">
+                </div>
+
+            </div>
+
+
+            <div
+                id="registerError"
+                class="register-error">
+            </div>
+
 
             <button
                 type="submit"
-                class="register-workshop-button">
+                class="register-button">
 
                 إنشاء حساب الورشة
 
-                <span>←</span>
+                <span>
+                    ←
+                </span>
 
             </button>
 
@@ -288,16 +333,13 @@
 
         <div class="already-account">
 
-            <span>
-                عندك حساب ورشة؟
-            </span>
+            عندك حساب؟
 
             <a href="workshop-login.html">
-                تسجيل الدخول
+                تسجيل دخول الورشة
             </a>
 
         </div>
-
 
     </section>
 
