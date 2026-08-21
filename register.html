@@ -1,75 +1,202 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>إنشاء حساب | ورش السعودية</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+<body class="dark-page">
 
-<header class="navbar">
-<a href="index.html" class="logo">ورش السعودية</a>
-</header>
 
-<main class="auth-page">
+<header class="top-logo">
 
-<div class="auth-card">
-
-<h1>إنشاء حساب</h1>
-
-<p>سجل معنا حتى تقدر تحجز دورك</p>
-
-<form onsubmit="registerCustomer(event)">
-
-<input id="customerName"
-placeholder="الاسم الكامل"
-required>
-
-<input id="customerPhone"
-placeholder="رقم الجوال"
-required>
-
-<input id="customerEmail"
-type="email"
-placeholder="البريد الإلكتروني"
-required>
-
-<input id="customerCity"
-placeholder="المدينة"
-required>
-
-<input id="customerPassword"
-type="password"
-placeholder="كلمة المرور"
-required>
-
-<input id="customerPassword2"
-type="password"
-placeholder="تأكيد كلمة المرور"
-required>
-
-<button class="main-btn">
-إنشاء الحساب
-</button>
-
-</form>
-
-<div id="registerMessage"></div>
+<h1>
+ورش السعودية
+</h1>
 
 <p>
+منصة تجمع الحرفيين والعملاء في مكان واحد
+</p>
+
+</header>
+
+
+
+<main class="register-container">
+
+
+<div class="register-card">
+
+
+<div class="step">
+
+<span>
+01
+</span>
+
+<h2>
+اختر نوع الحساب
+</h2>
+
+<p>
+حدد طريقة استخدامك للمنصة
+</p>
+
+
+<div class="account-option">
+
+<input type="radio" name="type" value="customer">
+
+<label>
+👤 حساب عميل
+<br>
+<span>
+لحجز خدمات الورش
+</span>
+</label>
+
+</div>
+
+
+
+<div class="account-option">
+
+<input type="radio" name="type" value="workshop">
+
+<label>
+
+🏭 حساب خراط
+<br>
+
+<span>
+لعرض ورشتك واستقبال الحجوزات
+</span>
+
+</label>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="step">
+
+
+<span>
+02
+</span>
+
+
+<h2>
+المعلومات الشخصية
+</h2>
+
+
+
+<input placeholder="الاسم الكامل">
+
+
+<input placeholder="رقم الجوال">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="step">
+
+
+<span>
+03
+</span>
+
+
+<h2>
+بيانات الدخول
+</h2>
+
+
+
+<input placeholder="البريد الإلكتروني">
+
+
+<input 
+type="password"
+placeholder="كلمة المرور">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="step">
+
+
+<span>
+04
+</span>
+
+
+<h2>
+موقعك
+</h2>
+
+
+<input placeholder="المدينة">
+
+
+<input placeholder="المنطقة">
+
+
+</div>
+
+
+
+
+
+
+
+<button class="luxury-btn">
+
+إنشاء الحساب
+
+</button>
+
+
+
+<p class="login-link">
+
 لديك حساب؟
-<a href="login.html" class="text-link">
+<a href="login.html">
 تسجيل الدخول
 </a>
+
 </p>
+
+
 
 </div>
 
 </main>
 
-<script src="app.js"></script>
 
 </body>
 </html>
