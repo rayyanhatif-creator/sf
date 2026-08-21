@@ -26,10 +26,14 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
@@ -37,26 +41,34 @@
 
 <!-- القائمة -->
 
-<aside class="side-menu" id="sideMenu">
+<aside
+    class="side-menu"
+    id="sideMenu">
 
     <div class="menu-head">
 
         <span>القائمة</span>
 
-        <button onclick="toggleMenu()">×</button>
+        <button
+            onclick="toggleMenu()">
+
+            ×
+
+        </button>
 
     </div>
 
+
     <div class="menu-links">
 
-        <a href="workshops.html">
+        <a href="index.html">
             <span>01</span>
-            الخراطين
+            الرئيسية
         </a>
 
-        <a href="workshop-register.html">
+        <a href="workshops.html">
             <span>02</span>
-            اشترك معنا كخراط
+            الخراطين
         </a>
 
         <a href="login.html">
@@ -68,6 +80,7 @@
 
 </aside>
 
+
 <div
     class="menu-overlay"
     id="menuOverlay"
@@ -75,14 +88,16 @@
 </div>
 
 
-<main>
 
-    <!-- عنوان الصفحة -->
+<main class="booking-page">
+
+
+    <!-- العنوان -->
 
     <section class="booking-header">
 
         <div class="section-label">
-            01 / الحجز
+            حجز جديد
         </div>
 
         <h1>
@@ -91,107 +106,27 @@
         </h1>
 
         <p>
-            اختر الورشة والموعد المناسب لك،
-            ثم أرسل طلب الحجز.
+            اختر الموعد المناسب لك
+            وأرسل طلبك للورشة.
         </p>
 
     </section>
 
 
-    <!-- الحجز -->
 
-    <section class="booking-container">
-
-        <!-- ملخص الورشة -->
-
-        <aside class="booking-summary">
-
-            <div class="summary-image">
-
-                <img
-                    src="images/harfa.jpg"
-                    alt="ورشة حرفة">
-
-            </div>
-
-            <div class="summary-content">
-
-                <span>
-                    الورشة المختارة
-                </span>
-
-                <h2>
-                    ورشة حرفة
-                </h2>
-
-                <p>
-                    الرياض
-                </p>
-
-                <div class="summary-price">
-
-                    <small>
-                        الأسعار تبدأ من
-                    </small>
-
-                    <strong>
-                        700 ريال
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </aside>
+    <div class="booking-layout">
 
 
-        <!-- نموذج الحجز -->
+        <!-- النموذج -->
 
-        <div class="booking-form">
-
-            <div class="form-title">
-
-                <span>
-                    02
-                </span>
-
-                <h2>
-                    تفاصيل الحجز
-                </h2>
-
-            </div>
+        <section class="booking-form-box">
 
 
-            <!-- تسجيل الدخول -->
-
-            <div
-                class="login-notice"
-                id="loginNotice">
-
-                <div>
-
-                    <strong>
-                        تسجيل الدخول مطلوب
-                    </strong>
-
-                    <p>
-                        لازم تسجل دخولك قبل تأكيد الحجز.
-                    </p>
-
-                </div>
-
-                <a href="login.html">
-                    تسجيل الدخول
-                    <span>←</span>
-                </a>
-
-            </div>
+            <form
+                id="bookingForm">
 
 
-            <form id="bookingForm">
-
-
-                <!-- الاسم -->
+                <!-- اسم العميل -->
 
                 <div class="form-group">
 
@@ -201,14 +136,14 @@
 
                     <input
                         type="text"
-                        id="bookingName"
-                        placeholder="اكتب اسمك الكامل"
+                        id="customerName"
+                        placeholder="اكتب اسمك"
                         required>
 
                 </div>
 
 
-                <!-- رقم الجوال -->
+                <!-- الجوال -->
 
                 <div class="form-group">
 
@@ -218,7 +153,7 @@
 
                     <input
                         type="tel"
-                        id="bookingPhone"
+                        id="customerPhone"
                         placeholder="05xxxxxxxx"
                         required>
 
@@ -230,7 +165,7 @@
                 <div class="form-group">
 
                     <label>
-                        تاريخ الحجز
+                        اختر اليوم
                     </label>
 
                     <input
@@ -257,31 +192,31 @@
                             اختر الوقت
                         </option>
 
-                        <option>
-                            10:00 صباحًا
+                        <option value="16:00">
+                            4:00 مساءً
                         </option>
 
-                        <option>
-                            12:00 ظهرًا
+                        <option value="17:00">
+                            5:00 مساءً
                         </option>
 
-                        <option>
-                            02:00 مساءً
+                        <option value="18:00">
+                            6:00 مساءً
                         </option>
 
-                        <option>
-                            04:00 مساءً
+                        <option value="19:00">
+                            7:00 مساءً
                         </option>
 
-                        <option>
-                            06:00 مساءً
+                        <option value="20:00">
+                            8:00 مساءً
                         </option>
 
-                        <option>
-                            08:00 مساءً
+                        <option value="21:00">
+                            9:00 مساءً
                         </option>
 
-                        <option>
+                        <option value="22:00">
                             10:00 مساءً
                         </option>
 
@@ -290,56 +225,156 @@
                 </div>
 
 
-                <!-- ملاحظات -->
+                <!-- الخدمة -->
 
                 <div class="form-group">
 
                     <label>
-                        ملاحظات
-                        <small>اختياري</small>
+                        الخدمة
                     </label>
 
-                    <textarea
-                        id="bookingNotes"
-                        placeholder="إذا عندك طلب أو ملاحظة اكتبها هنا"></textarea>
+                    <select
+                        id="bookingService"
+                        required>
+
+                        <option value="خرط السبح">
+                            خرط السبح
+                        </option>
+
+                    </select>
 
                 </div>
 
 
-                <!-- تنبيه -->
+                <!-- الملاحظات -->
 
-                <div class="booking-info">
+                <div class="form-group">
+
+                    <label>
+                        ملاحظات إضافية
+                        <small>
+                            اختياري
+                        </small>
+                    </label>
+
+                    <textarea
+                        id="bookingNotes"
+                        placeholder="مثلاً: نوع السبح، عدد الحبات، أو أي طلب خاص..."></textarea>
+
+                </div>
+
+
+                <div class="booking-warning">
 
                     <span>i</span>
 
                     <p>
-                        بعد إرسال الطلب ستتم مراجعة
-                        الحجز من قبل الورشة وإرسال
-                        تفاصيل التأكيد لك.
+                        إرسال الطلب لا يعني تأكيد الحجز.
+                        سيتم مراجعة طلبك من الورشة
+                        والتواصل معك.
                     </p>
 
                 </div>
 
 
-                <!-- زر الحجز -->
-
                 <button
                     type="submit"
-                    class="confirm-booking">
+                    class="submit-booking">
 
-                    تأكيد طلب الحجز
+                    إرسال طلب الحجز
 
                     <span>←</span>
 
                 </button>
 
+
             </form>
 
-        </div>
+        </section>
 
-    </section>
+
+
+        <!-- ملخص الورشة -->
+
+        <aside class="booking-summary">
+
+
+            <div class="summary-label">
+                أنت تحجز لدى
+            </div>
+
+
+            <div
+                class="summary-image"
+                id="summaryImage">
+
+            </div>
+
+
+            <h2 id="summaryName">
+                ورشة حرفة
+            </h2>
+
+
+            <p id="summaryLocation">
+                الرياض
+            </p>
+
+
+            <div class="summary-divider"></div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    الخدمة
+                </span>
+
+                <strong id="summaryService">
+                    خرط السبح
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    السعر يبدأ من
+                </span>
+
+                <strong>
+
+                    <b id="summaryPrice">
+                        700
+                    </b>
+
+                    ريال
+
+                </strong>
+
+            </div>
+
+
+            <div class="summary-divider"></div>
+
+
+            <a
+                href="workshop-details.html"
+                class="change-workshop">
+
+                ← تغيير الورشة
+
+            </a>
+
+
+        </aside>
+
+
+    </div>
 
 </main>
+
 
 
 <footer>
