@@ -1,0 +1,380 @@
+.register-page {
+
+    min-height: 100vh;
+
+    padding:
+        150px 20px 100px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(182,154,104,.06),
+            transparent 38%
+        );
+
+}
+
+
+.register-box {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    padding: 55px;
+
+    background:
+        rgba(17,17,15,.85);
+
+    border:
+        1px solid var(--line);
+
+}
+
+
+.register-heading {
+
+    margin-bottom: 45px;
+
+}
+
+
+.register-heading h1 {
+
+    font-size:
+        clamp(55px, 8vw, 80px);
+
+    line-height: .95;
+
+    font-weight: 400;
+
+    letter-spacing: -4px;
+
+}
+
+
+.register-heading h1 span {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+.register-heading p {
+
+    color:
+        var(--muted);
+
+    line-height: 2;
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+}
+
+
+/* FORM */
+
+.register-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group {
+
+    margin-bottom: 23px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-size: 12px;
+
+    color:
+        #d8d2c7;
+
+    margin-bottom: 10px;
+
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    padding: 17px;
+
+    background:
+        #0b0b0a;
+
+    border:
+        1px solid var(--line);
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+    transition: .3s;
+
+}
+
+
+.form-group input:focus {
+
+    border-color:
+        rgba(182,154,104,.6);
+
+}
+
+
+/* PASSWORD */
+
+.password-field {
+
+    position: relative;
+
+}
+
+
+.password-field input {
+
+    padding-left: 75px;
+
+}
+
+
+.password-field button {
+
+    position: absolute;
+
+    left: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: none;
+
+    border: 0;
+
+    color:
+        var(--gold-light);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+/* TERMS */
+
+.terms {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    margin:
+        5px 0 25px;
+
+}
+
+
+.terms input {
+
+    margin-top: 4px;
+
+    accent-color:
+        var(--gold);
+
+}
+
+
+/* BUTTON */
+
+.register-button {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: 0;
+
+    background:
+        var(--gold);
+
+    color:
+        #16120d;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.register-button span {
+
+    margin-right: 15px;
+
+    font-size: 20px;
+
+}
+
+
+.register-button:hover {
+
+    background:
+        var(--gold-light);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* LOGIN */
+
+.already-account {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding-top: 25px;
+
+    margin-top: 30px;
+
+    border-top:
+        1px solid var(--line);
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.already-account a {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+/* WORKSHOP */
+
+.workshop-register-box {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    padding: 23px;
+
+    border:
+        1px solid
+        rgba(182,154,104,.12);
+
+    background:
+        rgba(182,154,104,.035);
+
+}
+
+
+.workshop-register-box p {
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.workshop-register-box a {
+
+    display: inline-block;
+
+    color:
+        var(--gold-light);
+
+    margin-top: 9px;
+
+    font-size: 13px;
+
+}
+
+
+.workshop-register-box span {
+
+    margin-right: 8px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .register-page {
+
+        padding:
+            120px 18px 70px;
+
+    }
+
+    .register-box {
+
+        padding:
+            35px 23px;
+
+    }
+
+    .register-heading h1 {
+
+        letter-spacing:
+            -3px;
+
+    }
+
+}
