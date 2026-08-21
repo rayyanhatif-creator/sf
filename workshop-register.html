@@ -2,86 +2,337 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>اشترك معنا كخراط | ورش السعودية</title>
+    <title>اشترك معنا كخراط | ورش السعودية</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop-register.css">
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="topbar">
 
-<a href="index.html" class="logo">
-ورش السعودية
-</a>
+    <a href="index.html" class="brand">
+
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
 </header>
 
-<main class="auth-page">
 
-<div class="auth-card">
+<!-- القائمة -->
 
-<h1>اشترك معنا كخراط</h1>
+<aside class="side-menu" id="sideMenu">
 
-<p>
-اعرض ورشتك واستقبل الحجوزات من عملائك
-</p>
+    <div class="menu-head">
 
-<form onsubmit="registerWorkshop(event)">
+        <span>القائمة</span>
 
-<input
-id="workshopName"
-placeholder="اسم الورشة"
-required>
+        <button onclick="toggleMenu()">×</button>
 
-<input
-id="workshopOwner"
-placeholder="اسم المسؤول"
-required>
+    </div>
 
-<input
-id="workshopPhone"
-placeholder="رقم الجوال"
-required>
+    <div class="menu-links">
 
-<input
-id="workshopEmail"
-type="email"
-placeholder="البريد الإلكتروني"
-required>
+        <a href="workshops.html">
+            <span>01</span>
+            الخراطين
+        </a>
 
-<input
-id="workshopCity"
-placeholder="المدينة"
-required>
+        <a href="workshop-register.html">
+            <span>02</span>
+            اشترك معنا كخراط
+        </a>
 
-<input
-id="workshopPassword"
-type="password"
-placeholder="كلمة المرور"
-required>
+        <a href="login.html">
+            <span>03</span>
+            تسجيل الدخول
+        </a>
 
-<textarea
-id="workshopBio"
-placeholder="نبذة عن الورشة"
-required></textarea>
+    </div>
 
-<button class="main-btn">
-إنشاء حساب الورشة
-</button>
+</aside>
 
-</form>
-
-<div id="workshopMessage"></div>
-
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
 </div>
+
+
+<main class="workshop-register-page">
+
+    <section class="workshop-register-box">
+
+
+        <!-- العنوان -->
+
+        <div class="register-heading">
+
+            <div class="section-label">
+                01 / للشركاء
+            </div>
+
+            <h1>
+                خل ورشتك
+                <span>معنا.</span>
+            </h1>
+
+            <p>
+                خل عملاء أكثر يوصلون لك،
+                واستقبل حجوزاتك من مكان واحد.
+            </p>
+
+        </div>
+
+
+        <!-- النموذج -->
+
+        <form
+            id="workshopRegisterForm"
+            class="workshop-register-form">
+
+
+            <!-- اسم الخراط -->
+
+            <div class="form-group">
+
+                <label>
+                    اسم الخراط
+                </label>
+
+                <input
+                    type="text"
+                    id="ownerName"
+                    placeholder="مثال: محمد العتيبي"
+                    required>
+
+            </div>
+
+
+            <!-- اسم الورشة -->
+
+            <div class="form-group">
+
+                <label>
+                    اسم الورشة
+                </label>
+
+                <input
+                    type="text"
+                    id="workshopName"
+                    placeholder="مثال: ورشة حرفة"
+                    required>
+
+            </div>
+
+
+            <!-- الجوال -->
+
+            <div class="form-group">
+
+                <label>
+                    رقم الجوال
+                </label>
+
+                <input
+                    type="tel"
+                    id="workshopPhone"
+                    placeholder="05xxxxxxxx"
+                    required>
+
+            </div>
+
+
+            <!-- البريد -->
+
+            <div class="form-group">
+
+                <label>
+                    البريد الإلكتروني
+                </label>
+
+                <input
+                    type="email"
+                    id="workshopEmail"
+                    placeholder="example@email.com"
+                    required>
+
+            </div>
+
+
+            <!-- الموقع -->
+
+            <div class="form-group">
+
+                <label>
+                    موقع الورشة
+                </label>
+
+                <input
+                    type="text"
+                    id="workshopLocation"
+                    placeholder="الرياض - الحي"
+                    required>
+
+            </div>
+
+
+            <!-- كلمة المرور -->
+
+            <div class="form-group">
+
+                <label>
+                    كلمة المرور
+                </label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="workshopPassword"
+                        placeholder="أنشئ كلمة مرور"
+                        required>
+
+                    <button
+                        type="button"
+                        onclick="toggleWorkshopPassword()">
+
+                        إظهار
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- تأكيد كلمة المرور -->
+
+            <div class="form-group">
+
+                <label>
+                    تأكيد كلمة المرور
+                </label>
+
+                <input
+                    type="password"
+                    id="workshopPasswordConfirm"
+                    placeholder="أعد كتابة كلمة المرور"
+                    required>
+
+            </div>
+
+
+            <!-- نبذة -->
+
+            <div class="form-group">
+
+                <label>
+                    نبذة عن الورشة
+                </label>
+
+                <textarea
+                    id="workshopBio"
+                    placeholder="اكتب نبذة قصيرة عن ورشتك وخبرتك..."
+                    required></textarea>
+
+            </div>
+
+
+            <!-- الشروط -->
+
+            <label class="terms">
+
+                <input
+                    type="checkbox"
+                    required>
+
+                <span>
+                    أوافق على شروط الانضمام إلى
+                    منصة ورش السعودية.
+                </span>
+
+            </label>
+
+
+            <!-- الزر -->
+
+            <button
+                type="submit"
+                class="register-workshop-button">
+
+                إنشاء حساب الورشة
+
+                <span>←</span>
+
+            </button>
+
+        </form>
+
+
+        <div class="already-account">
+
+            <span>
+                عندك حساب ورشة؟
+            </span>
+
+            <a href="workshop-login.html">
+                تسجيل الدخول
+            </a>
+
+        </div>
+
+
+    </section>
 
 </main>
 
+
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
 <script src="app.js"></script>
+<script src="workshop-register.js"></script>
 
 </body>
+
 </html>
