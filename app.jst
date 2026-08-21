@@ -1,0 +1,1072 @@
+/* =========================
+   DATA
+========================= */
+
+function getUsers(){
+    return JSON.parse(localStorage.getItem("users") || "[]");
+}
+
+function saveUsers(users){
+    localStorage.setItem("users", JSON.stringify(users));
+}
+
+function getWorkshops(){
+    return JSON.parse(localStorage.getItem("workshops") || "[]");
+}
+
+function saveWorkshops(data){
+    localStorage.setItem("workshops", JSON.stringify(data));
+}
+
+function getBookings(){
+    return JSON.parse(localStorage.getItem("bookings") || "[]");
+}
+
+function saveBookings(data){
+    localStorage.setItem("bookings", JSON.stringify(data));
+}
+
+
+/* =========================
+   DEMO DATA
+========================= */
+
+function createDemoData(){
+
+    let users = getUsers();
+
+    if(users.length === 0){
+
+        users = [
+
+            {
+                id:"customer1",
+                type:"customer",
+                name:"ريان الخليفي",
+                phone:"0500000000",
+                email:"customer@example.com",
+                city:"الرياض",
+                password:"123456"
+            },
+
+            {
+                id:"admin1",
+                type:"admin",
+                name:"إدارة ورش السعودية",
+                email:"admin@warsh.sa",
+                password:"admin123"
+            },
+
+            {
+                id:"workshop1",
+                type:"workshop",
+                name:"ورشة حرفة",
+                owner:"محمد",
+                phone:"0500000001",
+                email:"harfa@example.com",
+                city:"الرياض",
+                password:"123456",
+                bio:"ورشة متخصصة في صناعة السبح والتفاصيل اليدوية الراقية.",
+                price:700,
+                image:"images/harfa.jpg"
+            }
+
+        ];
+
+        saveUsers(users);
+    }
+
+
+    let workshops = getWorkshops();
+
+    if(workshops.length === 0){
+
+        workshops = [
+
+            {
+                id:"workshop1",
+                name:"ورشة حرفة",
+                city:"الرياض",
+                bio:"ورشة متخصصة في صناعة السبح والتفاصيل اليدوية الراقية.",
+                price:700,
+                image:"images/harfa.jpg"
+            },
+
+            {
+                id:"workshop2",
+                name:"ورشة الميامين",
+                city:"الرياض",
+                bio:"تصاميم خاصة وخامات مختارة بعناية.",
+                price:700,
+                image:"images/mayameen.jpg"
+            },
+
+            {
+                id:"workshop3",
+                name:"ورشة مدهال",
+                city:"الرياض",
+                bio:"تنفيذ سبح حسب الطلب مع اهتمام بالتفاصيل.",
+                price:700,
+                image:"images/midhal.jpg"
+            }
+
+        ];
+
+        saveWorkshops(workshops);
+    }
+
+}
+
+createDemoData();
+
+
+/* =========================
+   MENU
+========================= */
+
+function openMenu(){
+
+    const menu = document.getElementById("menuList");
+
+    if(!menu) return;
+
+    menu.style.display =
+        menu.style.display === "block"
+        ? "none"
+        : "block";
+}
+
+
+/* =========================
+   REGISTER CUSTOMER
+========================= */
+
+function registerCustomer(event){
+
+    event.preventDefault();
+
+    const users = getUsers();
+
+    const password =
+        document.getElementById("customerPassword").value;
+
+    const password2 =
+        document.getElementById("customerPassword2").value;
+
+    if(password !== password2){
+
+        document.getElementById("registerMessage").innerText =
+        "كلمتا المرور غير متطابقتين.";
+
+        return;
+    }
+
+    const user = {
+
+        id:"customer_" + Date.now(),
+
+        type:"customer",
+
+        name:
+        document.getElementById("customerName").value,
+
+        phone:
+        document.getElementById("customerPhone").value,
+
+        email:
+        document.getElementById("customerEmail").value,
+
+        city:
+        document.getElementById("customerCity").value,
+
+        password:password
+    };
+
+    users.push(user);
+
+    saveUsers(users);
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+    );
+
+    window.location.href =
+        "customer-dashboard.html";
+}
+
+
+/* =========================
+   REGISTER WORKSHOP
+========================= */
+
+function registerWorkshop(event){
+
+    event.preventDefault();
+
+    const users = getUsers();
+
+    const user = {
+
+        id:"workshop_" + Date.now(),
+
+        type:"workshop",
+
+        name:
+        document.getElementById("workshopName").value,
+
+        owner:
+        document.getElementById("workshopOwner").value,
+
+        phone:
+        document.getElementById("workshopPhone").value,
+
+        email:
+        document.getElementById("workshopEmail").value,
+
+        city:
+        document.getElementById("workshopCity").value,
+
+        password:
+        document.getElementById("workshopPassword").value,
+
+        bio:
+        document.getElementById("workshopBio").value,
+
+        price:700,
+
+        image:"images/default-workshop.jpg"
+    };
+
+    users.push(user);
+
+    saveUsers(users);
+
+
+    const workshops = getWorkshops();
+
+    workshops.push({
+
+        id:user.id,
+
+        name:user.name,
+
+        city:user.city,
+
+        bio:user.bio,
+
+        price:700,
+
+        image:"images/default-workshop.jpg"
+
+    });
+
+    saveWorkshops(workshops);
+
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+    );
+
+
+    window.location.href =
+        "workshop-dashboard.html";
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(event){
+
+    event.preventDefault();
+
+    const value =
+        document.getElementById("loginEmail").value;
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    const users = getUsers();
+
+    const user = users.find(u =>
+
+        (
+            u.email === value ||
+            u.phone === value
+        )
+        &&
+        u.password === password
+
+    );
+
+
+    if(!user){
+
+        document.getElementById("loginMessage").innerText =
+        "بيانات الدخول غير صحيحة.";
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+    );
+
+
+    if(user.type === "admin"){
+
+        window.location.href =
+            "admin-dashboard.html";
+
+    }
+
+    else if(user.type === "workshop"){
+
+        window.location.href =
+            "workshop-dashboard.html";
+
+    }
+
+    else{
+
+        window.location.href =
+            "customer-dashboard.html";
+
+    }
+
+}
+
+
+/* =========================
+   AUTH
+========================= */
+
+function getCurrentUser(){
+
+    return JSON.parse(
+        localStorage.getItem("currentUser") || "null"
+    );
+
+}
+
+
+function logout(){
+
+    localStorage.removeItem("currentUser");
+
+    window.location.href =
+        "index.html";
+}
+
+
+/* =========================
+   WORKSHOPS LIST
+========================= */
+
+function loadWorkshops(){
+
+    const container =
+        document.getElementById("workshopGrid");
+
+    if(!container) return;
+
+    const workshops =
+        getWorkshops();
+
+    container.innerHTML = "";
+
+    workshops.forEach(workshop => {
+
+        container.innerHTML += `
+
+        <article class="workshop-card">
+
+            <img
+            src="${workshop.image}"
+            onerror="this.src='images/default-workshop.jpg'"
+            >
+
+            <div class="workshop-card-content">
+
+                <h2>
+                    ${workshop.name}
+                </h2>
+
+                <p>
+                    ${workshop.city}
+                </p>
+
+                <p>
+                    ${workshop.bio}
+                </p>
+
+                <strong>
+                    تبدأ من ${workshop.price || 700} ريال
+                </strong>
+
+                <a
+                class="main-btn"
+                href="workshop.html?id=${workshop.id}"
+                >
+                    عرض الورشة
+                </a>
+
+            </div>
+
+        </article>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   WORKSHOP PAGE
+========================= */
+
+function loadWorkshopPage(){
+
+    const params =
+        new URLSearchParams(location.search);
+
+    const id =
+        params.get("id");
+
+    const workshops =
+        getWorkshops();
+
+    const workshop =
+        workshops.find(w => w.id === id);
+
+    const page =
+        document.getElementById("workshopPage");
+
+    if(!workshop){
+
+        page.innerHTML =
+        "<h2>الورشة غير موجودة</h2>";
+
+        return;
+    }
+
+
+    page.innerHTML = `
+
+        <section class="workshop-detail">
+
+            <img
+            src="${workshop.image}"
+            onerror="this.src='images/default-workshop.jpg'"
+            >
+
+            <div class="workshop-detail-content">
+
+                <p>
+                ${workshop.city}
+                </p>
+
+                <h1>
+                ${workshop.name}
+                </h1>
+
+                <p class="large-text">
+                ${workshop.bio}
+                </p>
+
+                <h3>
+                الأسعار تبدأ من
+                </h3>
+
+                <strong class="big-price">
+                ${workshop.price || 700} ريال
+                </strong>
+
+                <br><br>
+
+                <a
+                href="booking.html?workshop=${workshop.id}"
+                class="main-btn"
+                >
+                احجز الآن
+                </a>
+
+            </div>
+
+        </section>
+
+    `;
+
+}
+
+
+/* =========================
+   BOOKING PAGE
+========================= */
+
+function loadBookingPage(){
+
+    const user =
+        getCurrentUser();
+
+    if(!user){
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    const params =
+        new URLSearchParams(location.search);
+
+    const id =
+        params.get("workshop");
+
+    const workshops =
+        getWorkshops();
+
+    const workshop =
+        workshops.find(w => w.id === id);
+
+    if(!workshop) return;
+
+
+    document.getElementById(
+        "bookingWorkshop"
+    ).innerText =
+        "حجزك لدى " + workshop.name;
+
+
+    document
+    .getElementById("bookingName")
+    .value =
+        user.name || "";
+
+
+    document
+    .getElementById("bookingPhone")
+    .value =
+        user.phone || "";
+
+}
+
+
+/* =========================
+   CREATE BOOKING
+========================= */
+
+function createBooking(event){
+
+    event.preventDefault();
+
+    const user =
+        getCurrentUser();
+
+    if(!user){
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    const params =
+        new URLSearchParams(location.search);
+
+    const workshopId =
+        params.get("workshop");
+
+    const workshops =
+        getWorkshops();
+
+    const workshop =
+        workshops.find(
+            w => w.id === workshopId
+        );
+
+
+    const bookings =
+        getBookings();
+
+
+    const booking = {
+
+        id:"BOOK-" + Date.now(),
+
+        customerId:user.id,
+
+        customerName:
+        document.getElementById("bookingName").value,
+
+        phone:
+        document.getElementById("bookingPhone").value,
+
+        workshopId:workshop.id,
+
+        workshopName:workshop.name,
+
+        service:
+        document.getElementById("bookingService").value,
+
+        count:
+        document.getElementById("bookingCount").value,
+
+        date:
+        document.getElementById("bookingDate").value,
+
+        time:
+        document.getElementById("bookingTime").value,
+
+        notes:
+        document.getElementById("bookingNotes").value,
+
+        status:"جديد"
+
+    };
+
+
+    bookings.push(booking);
+
+    saveBookings(bookings);
+
+
+    window.location.href =
+        "customer-dashboard.html";
+
+}
+
+
+/* =========================
+   CUSTOMER DASHBOARD
+========================= */
+
+function loadCustomerDashboard(){
+
+    const user =
+        getCurrentUser();
+
+    if(!user){
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    if(user.type !== "customer"){
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    document.getElementById(
+        "customerDashboardName"
+    ).innerText =
+        user.name;
+
+
+    const bookings =
+        getBookings().filter(
+            b => b.customerId === user.id
+        );
+
+
+    document.getElementById(
+        "customerBookingCount"
+    ).innerText =
+        bookings.length;
+
+
+    const container =
+        document.getElementById(
+            "customerBookings"
+        );
+
+
+    if(bookings.length === 0){
+
+        container.innerHTML =
+        "<p>ما عندك حجوزات حتى الآن.</p>";
+
+        return;
+    }
+
+
+    container.innerHTML =
+        bookings.map(b => `
+
+        <div class="booking-card">
+
+            <h3>
+            ${b.workshopName}
+            </h3>
+
+            <p>
+            ${b.service}
+            </p>
+
+            <p>
+            ${b.date} — ${b.time}
+            </p>
+
+            <span>
+            ${b.status}
+            </span>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================
+   WORKSHOP DASHBOARD
+========================= */
+
+function loadWorkshopDashboard(){
+
+    const user =
+        getCurrentUser();
+
+    if(!user || user.type !== "workshop"){
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    document.getElementById(
+        "dashboardWorkshopName"
+    ).innerText =
+        user.name;
+
+
+    document.getElementById(
+        "editWorkshopName"
+    ).value =
+        user.name;
+
+
+    document.getElementById(
+        "editWorkshopCity"
+    ).value =
+        user.city;
+
+
+    document.getElementById(
+        "editWorkshopBio"
+    ).value =
+        user.bio || "";
+
+
+    document.getElementById(
+        "editWorkshopPrice"
+    ).value =
+        user.price || 700;
+
+
+    document.getElementById(
+        "editWorkshopImage"
+    ).value =
+        user.image || "";
+
+
+    const bookings =
+        getBookings().filter(
+            b => b.workshopId === user.id
+        );
+
+
+    document.getElementById(
+        "workshopBookingCount"
+    ).innerText =
+        bookings.length;
+
+
+    const container =
+        document.getElementById(
+            "workshopBookings"
+        );
+
+
+    if(bookings.length === 0){
+
+        container.innerHTML =
+        "<p>لا توجد حجوزات حتى الآن.</p>";
+
+        return;
+    }
+
+
+    container.innerHTML =
+        bookings.map(b => `
+
+        <div class="booking-card">
+
+            <h3>
+            ${b.customerName}
+            </h3>
+
+            <p>
+            ${b.phone}
+            </p>
+
+            <p>
+            ${b.service}
+            </p>
+
+            <p>
+            ${b.date} — ${b.time}
+            </p>
+
+            <strong>
+            ${b.status}
+            </strong>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================
+   UPDATE WORKSHOP
+========================= */
+
+function updateWorkshop(event){
+
+    event.preventDefault();
+
+    const user =
+        getCurrentUser();
+
+    const users =
+        getUsers();
+
+    const index =
+        users.findIndex(
+            u => u.id === user.id
+        );
+
+
+    users[index].name =
+        document.getElementById(
+            "editWorkshopName"
+        ).value;
+
+
+    users[index].city =
+        document.getElementById(
+            "editWorkshopCity"
+        ).value;
+
+
+    users[index].bio =
+        document.getElementById(
+            "editWorkshopBio"
+        ).value;
+
+
+    users[index].price =
+        document.getElementById(
+            "editWorkshopPrice"
+        ).value;
+
+
+    users[index].image =
+        document.getElementById(
+            "editWorkshopImage"
+        ).value;
+
+
+    saveUsers(users);
+
+
+    const workshops =
+        getWorkshops();
+
+    const workshopIndex =
+        workshops.findIndex(
+            w => w.id === user.id
+        );
+
+
+    if(workshopIndex !== -1){
+
+        workshops[workshopIndex] = {
+
+            ...workshops[workshopIndex],
+
+            name:users[index].name,
+
+            city:users[index].city,
+
+            bio:users[index].bio,
+
+            price:users[index].price,
+
+            image:users[index].image
+
+        };
+
+    }
+
+
+    saveWorkshops(workshops);
+
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(users[index])
+    );
+
+
+    alert("تم حفظ بيانات الورشة بنجاح");
+
+}
+
+
+/* =========================
+   ADMIN DASHBOARD
+========================= */
+
+function loadAdminDashboard(){
+
+    const user =
+        getCurrentUser();
+
+    if(!user || user.type !== "admin"){
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    const users =
+        getUsers();
+
+    const workshops =
+        getWorkshops();
+
+    const bookings =
+        getBookings();
+
+
+    document.getElementById(
+        "adminCustomers"
+    ).innerText =
+        users.filter(
+            u => u.type === "customer"
+        ).length;
+
+
+    document.getElementById(
+        "adminWorkshops"
+    ).innerText =
+        workshops.length;
+
+
+    document.getElementById(
+        "adminBookings"
+    ).innerText =
+        bookings.length;
+
+
+    document.getElementById(
+        "adminUsers"
+    ).innerHTML =
+
+        users.map(u => `
+
+        <div class="booking-card">
+
+            <strong>
+            ${u.name}
+            </strong>
+
+            <p>
+            ${u.phone || u.email || ""}
+            </p>
+
+            <small>
+            نوع الحساب: ${u.type}
+            </small>
+
+        </div>
+
+        `).join("");
+
+
+    document.getElementById(
+        "adminWorkshopList"
+    ).innerHTML =
+
+        workshops.map(w => `
+
+        <div class="booking-card">
+
+            <h3>
+            ${w.name}
+            </h3>
+
+            <p>
+            ${w.city}
+            </p>
+
+            <p>
+            تبدأ من ${w.price} ريال
+            </p>
+
+        </div>
+
+        `).join("");
+
+
+    document.getElementById(
+        "adminBookingsList"
+    ).innerHTML =
+
+        bookings.map(b => `
+
+        <div class="booking-card">
+
+            <h3>
+            ${b.customerName}
+            </h3>
+
+            <p>
+            الورشة: ${b.workshopName}
+            </p>
+
+            <p>
+            ${b.date} — ${b.time}
+            </p>
+
+            <strong>
+            ${b.status}
+            </strong>
+
+        </div>
+
+        `).join("");
+
+}
