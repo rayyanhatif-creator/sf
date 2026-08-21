@@ -1,45 +1,25 @@
 .success-page {
 
-    min-height:
-        calc(100vh - 200px);
+    max-width: 700px;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
+    margin: auto;
 
     padding:
-        150px 20px 100px;
-
-}
-
-
-.success-card {
-
-    width: 100%;
-
-    max-width: 650px;
+        160px 20px 100px;
 
     text-align: center;
-
-    padding: 55px 45px;
-
-    background: #11110f;
-
-    border:
-        1px solid var(--line);
 
 }
 
 
 .success-icon {
 
-    width: 62px;
+    width: 55px;
 
-    height: 62px;
+    height: 55px;
 
-    margin: 0 auto 30px;
+    margin:
+        0 auto 25px;
 
     display: flex;
 
@@ -48,35 +28,35 @@
     justify-content: center;
 
     border:
-        1px solid var(--gold);
+        1px solid rgba(190,165,110,.4);
+
+    border-radius: 50%;
 
     color:
         var(--gold-light);
 
-    border-radius: 50%;
-
-    font-size: 25px;
+    font-size: 22px;
 
 }
 
 
-.success-card h1 {
+.success-page h1 {
 
     font-size:
-        clamp(55px, 8vw, 85px);
+        clamp(55px, 10vw, 90px);
 
     font-weight: 400;
 
-    line-height: .95;
-
     letter-spacing: -5px;
+
+    line-height: .9;
 
     margin-top: 15px;
 
 }
 
 
-.success-card h1 span {
+.success-page h1 span {
 
     color:
         var(--gold-light);
@@ -84,80 +64,43 @@
 }
 
 
-.success-description {
+.success-intro {
 
-    max-width: 480px;
+    max-width: 450px;
 
-    margin: 25px auto 0;
-
-    color:
-        var(--muted);
-
-    font-size: 12px;
-
-    line-height: 2;
-
-}
-
-
-/* BOOKING NUMBER */
-
-.booking-number-box {
-
-    margin-top: 40px;
-
-    padding: 25px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        #0b0b0a;
-
-}
-
-
-.booking-number-box span {
-
-    display: block;
+    margin:
+        25px auto 0;
 
     color:
         var(--muted);
 
     font-size: 10px;
 
-}
-
-
-.booking-number-box strong {
-
-    display: block;
-
-    margin-top: 8px;
-
-    color:
-        var(--gold-light);
-
-    font-size: 25px;
-
-    letter-spacing: 2px;
+    line-height: 2;
 
 }
 
 
-/* INFO */
+/* TICKET */
 
-.booking-info {
+.booking-ticket {
 
-    margin-top: 25px;
+    margin-top: 45px;
 
-    border-top:
+    padding: 30px;
+
+    text-align: right;
+
+    background:
+        #11110f;
+
+    border:
         1px solid var(--line);
 
 }
 
 
-.info-row {
+.ticket-top {
 
     display: flex;
 
@@ -167,39 +110,147 @@
 
     gap: 20px;
 
-    padding: 18px 0;
-
-    border-bottom:
-        1px solid var(--line);
-
-    text-align: right;
-
 }
 
 
-.info-row span {
+.ticket-top > div:first-child span {
+
+    display: block;
 
     color:
         var(--muted);
 
-    font-size: 10px;
+    font-size: 8px;
 
 }
 
 
-.info-row strong {
+.ticket-top strong {
 
-    font-size: 12px;
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--gold-light);
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+}
+
+
+.pending-status {
+
+    padding:
+        9px 13px;
+
+    color:
+        #c7ad77;
+
+    background:
+        rgba(190,165,110,.07);
+
+    border:
+        1px solid rgba(190,165,110,.15);
+
+    font-size: 8px;
+
+}
+
+
+.ticket-line {
+
+    height: 1px;
+
+    margin:
+        25px 0;
+
+    background:
+        var(--line);
+
+}
+
+
+.ticket-details {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+}
+
+
+.ticket-item span {
+
+    display: block;
+
+    color:
+        var(--muted);
+
+    font-size: 8px;
+
+}
+
+
+.ticket-item strong {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color:
+        #e5e0d7;
+
+    font-size: 11px;
 
     font-weight: 400;
 
 }
 
 
-.info-row .pending {
+.ticket-note {
+
+    margin-top: 30px;
+
+    padding:
+        15px;
+
+    background:
+        rgba(190,165,110,.04);
+
+    border:
+        1px solid rgba(190,165,110,.1);
+
+}
+
+
+.ticket-note strong {
 
     color:
-        #c8a96c;
+        var(--gold-light);
+
+    font-size: 8px;
+
+}
+
+
+.ticket-note p {
+
+    color:
+        var(--muted);
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    margin-top: 5px;
 
 }
 
@@ -215,7 +266,7 @@
 
     gap: 12px;
 
-    margin-top: 35px;
+    margin-top: 20px;
 
 }
 
@@ -223,11 +274,14 @@
 .primary-button,
 .secondary-button {
 
-    padding: 17px;
+    padding:
+        16px;
 
-    font-size: 11px;
+    font-family: inherit;
 
-    text-decoration: none;
+    font-size: 9px;
+
+    text-align: center;
 
 }
 
@@ -238,7 +292,7 @@
         var(--gold);
 
     color:
-        #16120d;
+        #17130e;
 
 }
 
@@ -249,93 +303,49 @@
         1px solid var(--line);
 
     color:
-        #d8d2c7;
-
-}
-
-
-/* NOTE */
-
-.success-note {
-
-    margin-top: 30px;
-
-    padding: 18px;
-
-    background:
-        rgba(182,154,104,.05);
-
-    border:
-        1px solid var(--line);
-
-    text-align: right;
-
-}
-
-
-.success-note strong {
-
-    color:
-        var(--gold-light);
-
-    font-size: 10px;
-
-}
-
-
-.success-note p {
-
-    color:
         var(--muted);
 
-    font-size: 10px;
+}
 
-    line-height: 1.8;
 
-    margin-top: 6px;
+.primary-button span {
+
+    margin-right: 8px;
 
 }
 
 
-@media(max-width:600px) {
+@media(max-width:550px) {
 
     .success-page {
 
         padding:
-            120px 15px 70px;
+            130px 15px 70px;
 
     }
 
 
-    .success-card {
+    .booking-ticket {
 
-        padding:
-            40px 20px;
+        padding: 22px;
 
     }
 
 
-    .success-card h1 {
+    .ticket-details {
 
-        letter-spacing: -3px;
+        grid-template-columns:
+            1fr;
+
+        gap: 18px;
 
     }
 
 
     .success-actions {
 
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .info-row {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 7px;
+        grid-template-columns:
+            1fr;
 
     }
 
