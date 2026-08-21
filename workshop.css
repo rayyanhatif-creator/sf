@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ورشة حرفة | ورش السعودية</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+        <a href="index.html" class="brand">
+            <span class="brand-line"></span>
+
+            <div>
+                <strong>ورش السعودية</strong>
+                <small>منصة الحرفة السعودية</small>
+            </div>
+        </a>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <!-- MENU -->
+    <aside class="side-menu" id="sideMenu">
+
+        <div class="menu-head">
+            <span>القائمة</span>
+            <button onclick="toggleMenu()">×</button>
+        </div>
+
+        <div class="menu-links">
+
+            <a href="workshops.html">
+                <span>01</span>
+                الخراطين
+            </a>
+
+            <a href="workshop-register.html">
+                <span>02</span>
+                اشترك معنا كخراط
+            </a>
+
+            <a href="login.html">
+                <span>03</span>
+                تسجيل الدخول
+            </a>
+
+        </div>
+
+        <div class="menu-footer">
+            ورش السعودية
+        </div>
+
+    </aside>
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        onclick="toggleMenu()">
+    </div>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="workshop-hero">
+
+            <div class="workshop-hero-image">
+
+                <img
+                    src="images/harfa.jpg"
+                    alt="ورشة حرفة">
+
+            </div>
+
+            <div class="workshop-hero-overlay"></div>
+
+
+            <div class="workshop-hero-content">
+
+                <div class="section-label">
+                    01 / ورشة
+                </div>
+
+                <h1>
+                    ورشة
+                    <span>حرفة</span>
+                </h1>
+
+                <div class="workshop-location">
+                    الرياض
+                    <span></span>
+                    خرط السبح
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTRO -->
+        <section class="workshop-intro">
+
+            <div class="section-label">
+                عن الورشة
+            </div>
+
+            <div class="workshop-intro-grid">
+
+                <h2>
+                    حرفة تعرف
+                    <br>
+                    <span>قيمة التفاصيل.</span>
+                </h2>
+
+                <div>
+
+                    <p>
+                        ورشة حرفة متخصصة في خرط السبح
+                        وصناعة القطع بعناية واهتمام
+                        بالتفاصيل.
+                    </p>
+
+                    <p>
+                        نؤمن أن جودة السبحة تبدأ من
+                        اختيار الخامة، وتكتمل بيد
+                        تعرف كيف تتعامل معها.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY -->
+        <section class="workshop-gallery">
+
+            <div class="section-label">
+                صور من الورشة
+            </div>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-main">
+
+                    <img
+                        src="images/harfa-1.jpg"
+                        alt="من أعمال ورشة حرفة">
+
+                </div>
+
+                <div class="gallery-small">
+
+                    <img
+                        src="images/harfa-2.jpg"
+                        alt="أعمال ورشة حرفة">
+
+                </div>
+
+                <div class="gallery-small">
+
+                    <img
+                        src="images/harfa-3.jpg"
+                        alt="سبح ورشة حرفة">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+        <section class="services-section">
+
+            <div class="section-label">
+                الخدمات
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service">
+
+                    <span>01</span>
+
+                    <h3>
+                        خرط السبح
+                    </h3>
+
+                    <p>
+                        تنفيذ وخرط السبحة حسب
+                        الخامة والتصميم المطلوب.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span>02</span>
+
+                    <h3>
+                        اختيار الخامة
+                    </h3>
+
+                    <p>
+                        المساعدة في اختيار الخامة
+                        المناسبة حسب الطلب.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span>03</span>
+
+                    <h3>
+                        التشطيب
+                    </h3>
+
+                    <p>
+                        الاهتمام بالتفاصيل النهائية
+                        للوصول إلى الشكل المطلوب.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRICE -->
+        <section class="price-section">
+
+            <div>
+
+                <div class="section-label">
+                    الأسعار
+                </div>
+
+                <h2>
+                    تبدأ من
+                    <span>700 ريال</span>
+                </h2>
+
+                <p>
+                    تختلف الأسعار حسب نوع الخامة
+                    والتصميم والخدمة المطلوبة.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORKING HOURS -->
+        <section class="hours-section">
+
+            <div class="section-label">
+                أوقات العمل
+            </div>
+
+            <div class="hours-box">
+
+                <div>
+                    <span>الأحد — الخميس</span>
+                    <strong>10:00 ص — 10:00 م</strong>
+                </div>
+
+                <div>
+                    <span>الجمعة — السبت</span>
+                    <strong>4:00 م — 11:00 م</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOOKING CTA -->
+        <section class="booking-cta">
+
+            <div class="booking-number">
+                07
+            </div>
+
+            <div class="section-label">
+                جاهز؟
+            </div>
+
+            <h2>
+                خذ دورك
+                <br>
+                <span>مع ورشة حرفة.</span>
+            </h2>
+
+            <p>
+                احجز موعدك مع الورشة،
+                وسنرتب لك تفاصيل الحجز.
+            </p>
+
+            <a
+                href="booking.html?workshop=harfa"
+                class="booking-button">
+
+                احجز دورك
+
+                <span>←</span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-brand">
+            ورش السعودية
+        </div>
+
+        <p>
+            نقرّب الحرفة من صاحبها،
+            ونخلّي الوصول لأهلها أسهل.
+        </p>
+
+        <div class="footer-bottom">
+
+            <span>
+                جميع الحقوق محفوظة
+            </span>
+
+            <span>
+                صنع بواسطة ورش السعودية
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
