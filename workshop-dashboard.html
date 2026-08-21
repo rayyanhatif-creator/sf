@@ -2,110 +2,363 @@
 <html lang="ar" dir="rtl">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>لوحة الورشة | ورش السعودية</title>
 
-<title>لوحة الورشة | ورش السعودية</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop-dashboard.css">
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="topbar">
 
-<div class="logo">
-ورش السعودية
-</div>
+    <a href="index.html" class="brand">
 
-<button onclick="logout()" class="logout-btn">
-تسجيل الخروج
-</button>
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
 </header>
 
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="menu-head">
+
+        <span>لوحة الورشة</span>
+
+        <button onclick="toggleMenu()">×</button>
+
+    </div>
+
+    <div class="menu-links">
+
+        <a href="workshop-dashboard.html">
+            <span>01</span>
+            الرئيسية
+        </a>
+
+        <a href="workshop-bookings.html">
+            <span>02</span>
+            الحجوزات
+        </a>
+
+        <a href="workshop-profile.html">
+            <span>03</span>
+            صفحة الورشة
+        </a>
+
+        <a href="index.html">
+            <span>04</span>
+            الموقع
+        </a>
+
+    </div>
+
+    <div class="menu-footer">
+
+        <button onclick="workshopLogout()">
+            تسجيل الخروج
+        </button>
+
+    </div>
+
+</aside>
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
+</div>
+
+
 <main class="dashboard">
 
-<h1>
-لوحة <span id="dashboardWorkshopName"></span>
-</h1>
+    <!-- HEADER -->
 
-<div class="stats">
+    <section class="dashboard-header">
 
-<div>
-<strong id="workshopBookingCount">0</strong>
-<span>الحجوزات</span>
-</div>
+        <div>
 
-<div>
-<strong>0</strong>
-<span>طلبات جديدة</span>
-</div>
+            <div class="section-label">
+                لوحة الورشة
+            </div>
 
-<div>
-<strong>0</strong>
-<span>المكتملة</span>
-</div>
+            <h1>
+                أهلاً،
+                <span id="workshopName">
+                    ورشتك
+                </span>
+            </h1>
 
-</div>
+            <p>
+                من هنا تقدر تدير حجوزاتك
+                وتتحكم في صفحة ورشتك.
+            </p>
 
+        </div>
 
-<section class="dashboard-section">
+        <div class="workshop-status">
 
-<h2>تعديل صفحة الورشة</h2>
+            <span class="status-dot"></span>
 
-<form onsubmit="updateWorkshop(event)">
+            الورشة ظاهرة للعملاء
 
-<input
-id="editWorkshopName"
-placeholder="اسم الورشة"
-required>
+        </div>
 
-<input
-id="editWorkshopCity"
-placeholder="المدينة"
-required>
-
-<textarea
-id="editWorkshopBio"
-placeholder="نبذة الورشة">
-</textarea>
-
-<input
-id="editWorkshopPrice"
-type="number"
-placeholder="السعر يبدأ من">
-
-<input
-id="editWorkshopImage"
-placeholder="رابط صورة الورشة">
-
-<button class="main-btn">
-حفظ التعديلات
-</button>
-
-</form>
-
-</section>
+    </section>
 
 
-<section class="dashboard-section">
+    <!-- STATS -->
 
-<h2>الحجوزات</h2>
+    <section class="dashboard-stats">
 
-<div id="workshopBookings"></div>
+        <div class="dashboard-stat">
 
-</section>
+            <span>
+                حجوزات اليوم
+            </span>
+
+            <strong id="todayBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <span>
+                الحجوزات الجديدة
+            </span>
+
+            <strong id="newBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <span>
+                إجمالي الحجوزات
+            </span>
+
+            <strong id="totalBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-stat">
+
+            <span>
+                السعر يبدأ من
+            </span>
+
+            <strong>
+                700
+                <small>ريال</small>
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOOKINGS -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    الحجوزات
+                </div>
+
+                <h2>
+                    آخر الطلبات
+                </h2>
+
+            </div>
+
+            <a
+                href="workshop-bookings.html"
+                class="view-all">
+
+                عرض الكل
+                <span>←</span>
+
+            </a>
+
+        </div>
+
+
+        <div
+            id="dashboardBookings"
+            class="dashboard-bookings">
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    إدارة الورشة
+                </div>
+
+                <h2>
+                    اختصارات
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+            <a
+                href="workshop-profile.html"
+                class="quick-action">
+
+                <span>01</span>
+
+                <strong>
+                    تعديل صفحة الورشة
+                </strong>
+
+                <small>
+                    الصور، النبذة، الموقع والأسعار
+                </small>
+
+                <b>←</b>
+
+            </a>
+
+
+            <a
+                href="workshop-bookings.html"
+                class="quick-action">
+
+                <span>02</span>
+
+                <strong>
+                    إدارة الحجوزات
+                </strong>
+
+                <small>
+                    مشاهدة وقبول طلبات العملاء
+                </small>
+
+                <b>←</b>
+
+            </a>
+
+
+            <a
+                href="workshops.html"
+                class="quick-action">
+
+                <span>03</span>
+
+                <strong>
+                    مشاهدة صفحتي
+                </strong>
+
+                <small>
+                    شوف كيف تظهر ورشتك للعملاء
+                </small>
+
+                <b>←</b>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFO -->
+
+    <section class="dashboard-note">
+
+        <span>i</span>
+
+        <div>
+
+            <strong>
+                تنبيه مهم
+            </strong>
+
+            <p>
+                تأكد من تحديث أوقات العمل والأسعار
+                وبيانات التواصل حتى تظهر للعملاء
+                بشكل صحيح.
+            </p>
+
+        </div>
+
+    </section>
 
 </main>
 
-<script src="app.js"></script>
 
-<script>
-loadWorkshopDashboard();
-</script>
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="workshop-dashboard.js"></script>
 
 </body>
+
 </html>
