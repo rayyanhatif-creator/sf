@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حسابي | ورش السعودية</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="account.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<!-- القائمة -->
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="menu-head">
+
+        <span>القائمة</span>
+
+        <button onclick="toggleMenu()">×</button>
+
+    </div>
+
+    <div class="menu-links">
+
+        <a href="workshops.html">
+            <span>01</span>
+            الخراطين
+        </a>
+
+        <a href="workshop-register.html">
+            <span>02</span>
+            اشترك معنا كخراط
+        </a>
+
+        <a href="account.html">
+            <span>03</span>
+            حسابي
+        </a>
+
+    </div>
+
+    <div class="menu-footer">
+        ورش السعودية
+    </div>
+
+</aside>
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
+</div>
+
+
+<main class="account-page">
+
+
+    <!-- HEADER -->
+
+    <section class="account-header">
+
+        <div>
+
+            <div class="section-label">
+                حسابي
+            </div>
+
+            <h1>
+                أهلاً،
+                <span id="userName">
+                    ...
+                </span>
+            </h1>
+
+            <p>
+                من هنا تقدر تتابع حجوزاتك
+                وتدير بيانات حسابك.
+            </p>
+
+        </div>
+
+
+        <button
+            class="logout-button"
+            onclick="logout()">
+
+            تسجيل الخروج
+
+        </button>
+
+    </section>
+
+
+
+    <!-- STATS -->
+
+    <section class="account-stats">
+
+        <div class="stat">
+
+            <span>
+                الحجوزات
+            </span>
+
+            <strong id="totalBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span>
+                القادمة
+            </span>
+
+            <strong id="upcomingBookings">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span>
+                المكتملة
+            </span>
+
+            <strong id="completedBookings">
+                0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BOOKINGS -->
+
+    <section class="account-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    حجوزاتي
+                </div>
+
+                <h2>
+                    المواعيد
+                </h2>
+
+            </div>
+
+            <a
+                href="workshops.html"
+                class="new-booking">
+
+                حجز جديد
+                <span>←</span>
+
+            </a>
+
+        </div>
+
+
+        <div
+            id="bookingsList"
+            class="bookings-list">
+
+            <!-- يتم إنشاء الحجوزات بالجافاسكربت -->
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PROFILE -->
+
+    <section class="account-section profile-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    بيانات الحساب
+                </div>
+
+                <h2>
+                    معلوماتي
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+            <div class="profile-item">
+
+                <span>
+                    الاسم
+                </span>
+
+                <strong id="profileName">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <span>
+                    رقم الجوال
+                </span>
+
+                <strong id="profilePhone">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <span>
+                    البريد الإلكتروني
+                </span>
+
+                <strong id="profileEmail">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <span>
+                    الموقع
+                </span>
+
+                <strong id="profileLocation">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="account.js"></script>
+
+</body>
+
+</html>
