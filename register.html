@@ -2,201 +2,326 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>إنشاء حساب | ورش السعودية</title>
+    <title>إنشاء حساب | ورش السعودية</title>
 
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="register.css">
 </head>
 
-<body class="dark-page">
+<body>
 
+<header class="topbar">
 
-<header class="top-logo">
+    <a href="index.html" class="brand">
 
-<h1>
-ورش السعودية
-</h1>
+        <span class="brand-line"></span>
 
-<p>
-منصة تجمع الحرفيين والعملاء في مكان واحد
-</p>
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
 </header>
 
 
+<!-- القائمة -->
 
-<main class="register-container">
+<aside class="side-menu" id="sideMenu">
 
+    <div class="menu-head">
 
-<div class="register-card">
+        <span>القائمة</span>
 
+        <button onclick="toggleMenu()">×</button>
 
-<div class="step">
+    </div>
 
-<span>
-01
-</span>
+    <div class="menu-links">
 
-<h2>
-اختر نوع الحساب
-</h2>
+        <a href="workshops.html">
+            <span>01</span>
+            الخراطين
+        </a>
 
-<p>
-حدد طريقة استخدامك للمنصة
-</p>
+        <a href="workshop-register.html">
+            <span>02</span>
+            اشترك معنا كخراط
+        </a>
 
+        <a href="login.html">
+            <span>03</span>
+            تسجيل الدخول
+        </a>
 
-<div class="account-option">
+    </div>
 
-<input type="radio" name="type" value="customer">
+</aside>
 
-<label>
-👤 حساب عميل
-<br>
-<span>
-لحجز خدمات الورش
-</span>
-</label>
-
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
 </div>
 
 
+<main class="register-page">
 
-<div class="account-option">
+    <section class="register-box">
 
-<input type="radio" name="type" value="workshop">
 
-<label>
+        <!-- العنوان -->
 
-🏭 حساب خراط
-<br>
+        <div class="register-heading">
 
-<span>
-لعرض ورشتك واستقبال الحجوزات
-</span>
+            <div class="section-label">
+                01 / حساب جديد
+            </div>
 
-</label>
+            <h1>
+                أنشئ
+                <span>حسابك.</span>
+            </h1>
 
-</div>
+            <p>
+                سجّل بياناتك مرة واحدة،
+                وبعدها تقدر تحجز وتتابع
+                جميع حجوزاتك بسهولة.
+            </p>
 
+        </div>
 
-</div>
 
+        <!-- النموذج -->
 
+        <form
+            id="registerForm"
+            class="register-form">
 
 
+            <!-- الاسم -->
 
-<div class="step">
+            <div class="form-group">
 
+                <label>
+                    الاسم الكامل
+                </label>
 
-<span>
-02
-</span>
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="اكتب اسمك الكامل"
+                    required>
 
+            </div>
 
-<h2>
-المعلومات الشخصية
-</h2>
 
+            <!-- الجوال -->
 
+            <div class="form-group">
 
-<input placeholder="الاسم الكامل">
+                <label>
+                    رقم الجوال
+                </label>
 
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    placeholder="05xxxxxxxx"
+                    required>
 
-<input placeholder="رقم الجوال">
+            </div>
 
 
-</div>
+            <!-- البريد -->
 
+            <div class="form-group">
 
+                <label>
+                    البريد الإلكتروني
+                </label>
 
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="example@email.com"
+                    required>
 
+            </div>
 
 
+            <!-- الموقع -->
 
-<div class="step">
+            <div class="form-group">
 
+                <label>
+                    موقعك
+                </label>
 
-<span>
-03
-</span>
+                <input
+                    type="text"
+                    id="registerLocation"
+                    placeholder="المدينة / الحي"
+                    required>
 
+            </div>
 
-<h2>
-بيانات الدخول
-</h2>
 
+            <!-- كلمة المرور -->
 
+            <div class="form-group">
 
-<input placeholder="البريد الإلكتروني">
+                <label>
+                    كلمة المرور
+                </label>
 
+                <div class="password-field">
 
-<input 
-type="password"
-placeholder="كلمة المرور">
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="أنشئ كلمة مرور"
+                        required>
 
+                    <button
+                        type="button"
+                        onclick="toggleRegisterPassword()">
 
-</div>
+                        إظهار
 
+                    </button>
 
+                </div>
 
+            </div>
 
 
+            <!-- تأكيد كلمة المرور -->
 
+            <div class="form-group">
 
-<div class="step">
+                <label>
+                    تأكيد كلمة المرور
+                </label>
 
+                <input
+                    type="password"
+                    id="registerPasswordConfirm"
+                    placeholder="أعد كتابة كلمة المرور"
+                    required>
 
-<span>
-04
-</span>
+            </div>
 
 
-<h2>
-موقعك
-</h2>
+            <!-- الموافقة -->
 
+            <label class="terms">
 
-<input placeholder="المدينة">
+                <input
+                    type="checkbox"
+                    id="registerTerms"
+                    required>
 
+                <span>
+                    أوافق على شروط استخدام المنصة
+                    وسياسة الخصوصية.
+                </span>
 
-<input placeholder="المنطقة">
+            </label>
 
 
-</div>
+            <!-- إنشاء -->
 
+            <button
+                type="submit"
+                class="register-button">
 
+                إنشاء الحساب
 
+                <span>←</span>
 
+            </button>
 
+        </form>
 
 
-<button class="luxury-btn">
+        <!-- تسجيل الدخول -->
 
-إنشاء الحساب
+        <div class="already-account">
 
-</button>
+            <span>
+                عندك حساب؟
+            </span>
 
+            <a href="login.html">
+                تسجيل الدخول
+            </a>
 
+        </div>
 
-<p class="login-link">
 
-لديك حساب؟
-<a href="login.html">
-تسجيل الدخول
-</a>
+        <!-- الخراط -->
 
-</p>
+        <div class="workshop-register-box">
 
+            <p>
+                أنت صاحب ورشة؟
+            </p>
 
+            <a href="workshop-register.html">
 
-</div>
+                سجل معنا كخراط
+
+                <span>←</span>
+
+            </a>
+
+        </div>
+
+    </section>
 
 </main>
 
 
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="register.js"></script>
+
 </body>
+
 </html>
