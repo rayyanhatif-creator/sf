@@ -1,20 +1,36 @@
-const workshop =
+/*
+    =========================
+    جلب الورشة
+    =========================
+*/
+
+const workshopId =
+    localStorage.getItem(
+        "selectedWorkshopId"
+    );
+
+
+const workshops =
     JSON.parse(
         localStorage.getItem(
-            "workshopAccount"
-        ) || "{}"
+            "workshops"
+        ) || "[]"
+    );
+
+
+const workshop =
+    workshops.find(
+        item =>
+            String(item.id) ===
+            String(workshopId)
     );
 
 
 /*
-    إذا ما فيه ورشة محفوظة
+    إذا ما حصلنا الورشة
 */
 
-if (!workshop.workshopName) {
-
-    alert(
-        "لم يتم العثور على بيانات الورشة."
-    );
+if (!workshop) {
 
     window.location.href =
         "workshops.html";
@@ -22,102 +38,110 @@ if (!workshop.workshopName) {
 }
 
 
-/* =========================
-   البيانات
-========================= */
+/*
+    =========================
+    تعبئة البيانات
+    =========================
+*/
+
+document.title =
+    `${workshop.name} | ورش السعودية`;
+
 
 document.getElementById(
-    "workshopTitle"
+    "detailsName"
 ).textContent =
-    workshop.workshopName ||
-    "ورشة حرفة";
+    workshop.name;
 
 
 document.getElementById(
-    "workshopLocation"
+    "detailsCity"
 ).textContent =
-    workshop.location ||
-    "السعودية";
+    `${workshop.city || "السعودية"}${
+        workshop.district
+            ? " - " + workshop.district
+            : ""
+    }`;
+
+
+document.getElementById(
+    "detailsBio"
+).textContent =
+    workshop.bio;
+
+
+document.getElementById(
+    "fullBio"
+).textContent =
+    workshop.bio;
+
+
+document.getElementById(
+    "detailsService"
+).textContent =
+    workshop.service;
+
+
+document.getElementById(
+    "serviceName"
+).textContent =
+    workshop.service;
+
+
+document.getElementById(
+    "detailsPrice"
+).textContent =
+    Number(
+        workshop.price || 700
+    ).toLocaleString("ar-SA");
 
 
 document.getElementById(
     "locationText"
 ).textContent =
     workshop.location ||
-    "السعودية";
+    `${workshop.city || "السعودية"}${
+        workshop.district
+            ? " - " + workshop.district
+            : ""
+    }`;
 
 
-document.getElementById(
-    "workshopBio"
-).textContent =
-    workshop.bio ||
-    "ورشة متخصصة في صناعة وخرط السبح، نهتم بالتفاصيل ونقدم أعمالاً مصنوعة بعناية.";
+/*
+    =========================
+    الصورة
+    =========================
+*/
 
-
-document.getElementById(
-    "workshopService"
-).textContent =
-    workshop.service ||
-    "خرط السبح";
-
-
-const price =
-    workshop.price ||
-    700;
-
-
-document.getElementById(
-    "workshopPrice"
-).textContent =
-    price;
-
-
-document.getElementById(
-    "sidebarPrice"
-).textContent =
-    price;
-
-
-document.getElementById(
-    "openingTime"
-).textContent =
-    workshop.openingTime ||
-    "16:00";
-
-
-document.getElementById(
-    "closingTime"
-).textContent =
-    workshop.closingTime ||
-    "23:00";
-
-
-
-/* =========================
-   الصورة
-========================= */
-
-const hero =
+const image =
     document.getElementById(
-        "workshopHeroImage"
+        "detailsImage"
     );
 
 
 if (workshop.image) {
 
-    hero.innerHTML = `
+    image.innerHTML = `
 
         <img
             src="${workshop.image}"
-            alt="${workshop.workshopName}">
+            alt="${workshop.name}">
 
     `;
 
 } else {
 
-    hero.innerHTML = `
+    image.innerHTML = `
 
-        <div class="image-loading">
+        <div style="
+            height:100%;
+            min-height:560px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#6f6b63;
+            font-size:11px;
+        ">
 
             صورة الورشة
 
@@ -128,35 +152,94 @@ if (workshop.image) {
 }
 
 
+/*
+    =========================
+    الخرائط
+    =========================
+*/
 
-/* =========================
-   زر الحجز
-========================= */
+const locationLink =
+    document.getElementById(
+        "locationLink"
+    );
 
-document
-    .getElementById("bookButton")
-    .addEventListener(
-        "click",
-        function() {
 
-            /*
-                نحفظ الورشة المختارة
-                حتى صفحة الحجز تعرف
-                أي ورشة اختار العميل.
-            */
+if (workshop.location) {
 
-            localStorage.setItem(
-                "selectedWorkshop",
-                JSON.stringify(workshop)
+    locationLink.href =
+        workshop.location;
+
+} else {
+
+    locationLink.style.display =
+        "none";
+
+}
+
+
+/*
+    =========================
+    زر الحجز
+    =========================
+*/
+
+document.getElementById(
+    "bookButton"
+).addEventListener(
+    "click",
+    function() {
+
+        /*
+            نحفظ الورشة المختارة
+            قبل الانتقال للحجز
+        */
+
+        localStorage.setItem(
+            "selectedWorkshopId",
+            workshop.id
+        );
+
+
+        /*
+            هل العميل مسجل؟
+        */
+
+        const currentCustomer =
+            JSON.parse(
+                localStorage.getItem(
+                    "currentCustomer"
+                ) || "null"
             );
 
 
+        if (!currentCustomer) {
+
             /*
-                الانتقال لصفحة الحجز
+                نحفظ الصفحة التي
+                جاء منها العميل
             */
 
+            localStorage.setItem(
+                "afterLogin",
+                "booking.html"
+            );
+
+
             window.location.href =
-                "booking.html";
+                "login.html";
+
+            return;
 
         }
-    );
+
+
+        /*
+            إذا كان مسجل
+            يروح مباشرة للحجز
+        */
+
+        window.location.href =
+            "booking.html";
+
+    }
+);
