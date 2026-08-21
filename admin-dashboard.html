@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>لوحة الإدارة | ورش السعودية</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">
+ورش السعودية — الإدارة
+</div>
+
+<button onclick="logout()" class="logout-btn">
+تسجيل الخروج
+</button>
+
+</header>
+
+<main class="dashboard">
+
+<h1>
+لوحة الإدارة
+</h1>
+
+<div class="stats">
+
+<div>
+<strong id="adminCustomers">0</strong>
+<span>الزبائن</span>
+</div>
+
+<div>
+<strong id="adminWorkshops">0</strong>
+<span>الورش</span>
+</div>
+
+<div>
+<strong id="adminBookings">0</strong>
+<span>الحجوزات</span>
+</div>
+
+</div>
+
+
+<section class="dashboard-section">
+
+<h2>
+المستخدمون
+</h2>
+
+<div id="adminUsers"></div>
+
+</section>
+
+
+<section class="dashboard-section">
+
+<h2>
+الورش
+</h2>
+
+<div id="adminWorkshopList"></div>
+
+</section>
+
+
+<section class="dashboard-section">
+
+<h2>
+جميع الحجوزات
+</h2>
+
+<div id="adminBookingsList"></div>
+
+</section>
+
+</main>
+
+<script src="app.js"></script>
+
+<script>
+loadAdminDashboard();
+</script>
+
+</body>
+</html>
