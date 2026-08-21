@@ -1,18 +1,15 @@
-function openMenu(){
+function toggleMenu() {
 
-let menu = document.getElementById("menuList");
+    const menu =
+        document.getElementById("sideMenu");
 
+    const overlay =
+        document.getElementById("menuOverlay");
 
-if(menu.style.display === "block"){
+    if (!menu || !overlay) return;
 
-menu.style.display="none";
+    menu.classList.toggle("active");
 
-}
-
-else{
-
-menu.style.display="block";
-
-}
+    overlay.classList.toggle("active");
 
 }
