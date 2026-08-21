@@ -26,289 +26,228 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<!-- القائمة -->
-
-<aside class="side-menu" id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>القائمة</span>
-
-        <button onclick="toggleMenu()">×</button>
-
-    </div>
-
-    <div class="menu-links">
-
-        <a href="index.html">
-            <span>01</span>
-            الرئيسية
-        </a>
-
-        <a href="workshops.html">
-            <span>02</span>
-            الخراطين
-        </a>
-
-        <a href="login.html">
-            <span>03</span>
-            تسجيل الدخول
-        </a>
-
-    </div>
-
-</aside>
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
-
-
 <main class="workshop-details-page">
 
+    <!-- رجوع -->
 
-    <!-- صورة الورشة -->
+    <a
+        href="workshops.html"
+        class="back-link">
 
-    <section class="workshop-hero">
+        ← العودة للخراطين
+
+    </a>
+
+
+    <!-- معلومات الورشة -->
+
+    <section class="workshop-details-hero">
 
         <div
-            class="workshop-hero-image"
-            id="workshopHeroImage">
-
-            <div class="image-loading">
-                تحميل...
-            </div>
+            id="detailsImage"
+            class="details-image">
 
         </div>
 
-        <div class="hero-overlay"></div>
 
-
-        <div class="workshop-hero-content">
+        <div class="details-content">
 
             <div class="section-label">
-                ورشة سعودية
+                تفاصيل الورشة
             </div>
 
-            <h1 id="workshopTitle">
-                ورشة حرفة
+            <span
+                id="detailsCity"
+                class="details-city">
+                —
+            </span>
+
+            <h1 id="detailsName">
+                —
             </h1>
 
-            <p id="workshopLocation">
-                الرياض
+            <p id="detailsBio">
+                —
             </p>
+
+
+            <div class="details-tags">
+
+                <span id="detailsService">
+                    —
+                </span>
+
+                <span>
+                    صناعة يدوية
+                </span>
+
+                <span>
+                    حرفة سعودية
+                </span>
+
+            </div>
+
+
+            <div class="details-price">
+
+                <span>
+                    السعر يبدأ من
+                </span>
+
+                <strong id="detailsPrice">
+                    0
+                </strong>
+
+                <small>
+                    ريال
+                </small>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- المعلومات -->
+    <!-- التفاصيل -->
 
-    <section class="workshop-content">
+    <section class="details-information">
 
+        <div class="information-block">
 
-        <div class="workshop-main">
+            <div class="section-label">
+                عن الورشة
+            </div>
 
+            <h2>
+                الحرفة تبدأ
+                <span>من التفاصيل.</span>
+            </h2>
 
-            <!-- النبذة -->
-
-            <section class="details-section">
-
-                <div class="section-label">
-                    عن الورشة
-                </div>
-
-                <h2>
-                    الحرفة تبدأ
-                    <span>من التفاصيل.</span>
-                </h2>
-
-                <p
-                    id="workshopBio"
-                    class="workshop-bio">
-
-                    —
-
-                </p>
-
-            </section>
-
-
-            <!-- الخدمة -->
-
-            <section class="details-section">
-
-                <div class="section-label">
-                    الخدمة
-                </div>
-
-                <div class="service-row">
-
-                    <div>
-
-                        <strong id="workshopService">
-                            خرط السبح
-                        </strong>
-
-                        <small>
-                            الخدمة المقدمة
-                        </small>
-
-                    </div>
-
-                    <div class="service-price">
-
-                        <span>
-                            يبدأ من
-                        </span>
-
-                        <strong>
-                            <b id="workshopPrice">
-                                700
-                            </b>
-                            ريال
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- أوقات العمل -->
-
-            <section class="details-section">
-
-                <div class="section-label">
-                    أوقات العمل
-                </div>
-
-                <div class="working-hours">
-
-                    <div>
-
-                        <span>
-                            من
-                        </span>
-
-                        <strong id="openingTime">
-                            16:00
-                        </strong>
-
-                    </div>
-
-                    <div class="hours-line"></div>
-
-                    <div>
-
-                        <span>
-                            إلى
-                        </span>
-
-                        <strong id="closingTime">
-                            23:00
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- الموقع -->
-
-            <section class="details-section">
-
-                <div class="section-label">
-                    موقع الورشة
-                </div>
-
-                <div class="location-box">
-
-                    <strong id="locationText">
-                        الرياض
-                    </strong>
-
-                    <span>
-                        موقع الورشة يظهر بعد تأكيد الحجز
-                    </span>
-
-                </div>
-
-            </section>
+            <p id="fullBio">
+                —
+            </p>
 
         </div>
 
 
-        <!-- الجانب -->
+        <div class="information-block">
 
-        <aside class="booking-sidebar">
-
-            <div class="sidebar-label">
-                جاهز تبدأ؟
+            <div class="section-label">
+                موقع الورشة
             </div>
 
-            <h3>
-                احجز دورك
-                <span>معنا.</span>
-            </h3>
+            <h2>
+                وين تلقاها؟
+            </h2>
 
-            <p>
-                اختر الموعد المناسب لك
-                وأرسل طلب الحجز للورشة.
+            <p id="locationText">
+                —
             </p>
 
-            <div class="sidebar-price">
 
-                <span>
-                    السعر يبدأ من
-                </span>
+            <a
+                id="locationLink"
+                href="#"
+                target="_blank"
+                class="location-button">
 
-                <strong>
+                فتح الموقع في الخرائط
+                ←
 
-                    <b id="sidebarPrice">
-                        700
-                    </b>
+            </a>
 
-                    ريال
+        </div>
 
-                </strong>
+    </section>
+
+
+    <!-- معلومات الخدمة -->
+
+    <section class="service-section">
+
+        <div class="section-label">
+            الخدمة
+        </div>
+
+        <h2>
+            وش تقدم الورشة؟
+        </h2>
+
+
+        <div class="service-card">
+
+            <div class="service-number">
+                01
+            </div>
+
+            <div>
+
+                <h3 id="serviceName">
+                    خرط السبح
+                </h3>
+
+                <p>
+                    يتم تنفيذ الطلب حسب تفاصيل الحجز
+                    المتفق عليها مع الورشة.
+                </p>
 
             </div>
 
+        </div>
 
-            <!-- هذا هو آخر شيء في الصفحة -->
+    </section>
 
-            <button
-                id="bookButton"
-                class="book-button">
 
+    <!-- =========================
+         الحجز — آخر شيء
+    ========================== -->
+
+    <section class="booking-cta">
+
+        <div>
+
+            <div class="section-label">
+                جاهز؟
+            </div>
+
+            <h2>
                 احجز دورك
+                <span>مع الورشة.</span>
+            </h2>
 
-                <span>←</span>
+            <p>
+                اختر موعدك وأرسل طلب الحجز
+                للورشة.
+            </p>
 
-            </button>
+        </div>
 
-            <small class="booking-note">
-                لا يتم تأكيد الحجز إلا بعد
-                مراجعة الورشة.
-            </small>
 
-        </aside>
+        <button
+            id="bookButton"
+            class="book-button">
+
+            احجز دورك الآن
+
+            <span>
+                ←
+            </span>
+
+        </button>
 
     </section>
 
