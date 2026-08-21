@@ -1,165 +1,30 @@
 .workshop-details-page {
 
-    padding-top: 80px;
-
-}
-
-
-/* HERO */
-
-.workshop-hero {
-
-    height: 620px;
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-
-.workshop-hero-image {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #191814,
-            #0c0c0a
-        );
-
-}
-
-
-.workshop-hero-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-
-.hero-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(7,7,6,.95),
-            rgba(7,7,6,.15),
-            rgba(7,7,6,.25)
-        );
-
-}
-
-
-.workshop-hero-content {
-
-    position: absolute;
-
-    right: 7%;
-
-    bottom: 70px;
-
-    z-index: 2;
-
-}
-
-
-.workshop-hero-content h1 {
-
-    font-size:
-        clamp(55px, 9vw, 110px);
-
-    font-weight: 400;
-
-    line-height: .9;
-
-    letter-spacing: -5px;
-
-    margin-top: 15px;
-
-}
-
-
-.workshop-hero-content p {
-
-    color:
-        #c9c2b5;
-
-    margin-top: 20px;
-
-    font-size: 13px;
-
-}
-
-
-
-/* CONTENT */
-
-.workshop-content {
-
-    max-width: 1200px;
+    max-width: 1150px;
 
     margin: auto;
 
     padding:
-        100px 25px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 350px;
-
-    gap: 90px;
+        140px 25px 100px;
 
 }
 
 
-.details-section {
+.back-link {
 
-    padding:
-        60px 0;
+    display: inline-block;
 
-    border-bottom:
-        1px solid var(--line);
+    color:
+        var(--muted);
 
-}
+    font-size: 10px;
 
-
-.details-section:first-child {
-
-    padding-top: 0;
+    margin-bottom: 35px;
 
 }
 
 
-.details-section h2 {
-
-    font-size:
-        clamp(35px,5vw,55px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    margin-top: 20px;
-
-    letter-spacing: -2px;
-
-}
-
-
-.details-section h2 span {
+.back-link:hover {
 
     color:
         var(--gold-light);
@@ -167,261 +32,139 @@
 }
 
 
-.workshop-bio {
+/* HERO */
 
-    color:
-        var(--muted);
+.workshop-details-hero {
 
-    font-size: 14px;
+    display: grid;
 
-    line-height: 2;
+    grid-template-columns:
+        1fr 1fr;
 
-    margin-top: 30px;
+    min-height: 560px;
 
-    max-width: 700px;
+    background:
+        #11110f;
 
-}
-
-
-
-/* SERVICE */
-
-.service-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-top: 30px;
+    border:
+        1px solid var(--line);
 
 }
 
 
-.service-row strong {
+.details-image {
+
+    min-height: 560px;
+
+    background:
+        #0b0b0a;
+
+    overflow: hidden;
+
+}
+
+
+.details-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
 
     display: block;
 
-    font-size: 20px;
-
-    font-weight: 400;
-
 }
 
 
-.service-row small {
+.details-content {
 
-    display: block;
-
-    color: var(--muted);
-
-    margin-top: 8px;
-
-    font-size: 10px;
-
-}
-
-
-.service-price {
-
-    text-align: left;
-
-}
-
-
-.service-price span {
-
-    display: block;
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-}
-
-
-.service-price strong {
-
-    color: var(--gold-light);
-
-    margin-top: 5px;
-
-}
-
-
-.service-price b {
-
-    font-weight: 400;
-
-    font-size: 30px;
-
-}
-
-
-
-/* HOURS */
-
-.working-hours {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 30px;
-
-    margin-top: 35px;
-
-}
-
-
-.working-hours div:not(.hours-line) {
+    padding:
+        60px 50px;
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 8px;
+    justify-content: center;
 
 }
 
 
-.working-hours span {
+.details-city {
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
-    font-size: 10px;
+    font-size: 9px;
+
+    margin-top: 25px;
 
 }
 
 
-.working-hours strong {
+.details-content h1 {
 
-    font-size: 20px;
+    font-size:
+        clamp(45px, 7vw, 80px);
 
     font-weight: 400;
 
-}
+    line-height: .95;
 
+    letter-spacing: -5px;
 
-.hours-line {
-
-    width: 80px;
-
-    height: 1px;
-
-    background: var(--line);
+    margin-top: 12px;
 
 }
 
 
+.details-content p {
 
-/* LOCATION */
-
-.location-box {
-
-    margin-top: 30px;
-
-    padding: 25px;
-
-    background: #10100e;
-
-    border:
-        1px solid var(--line);
-
-}
-
-
-.location-box strong {
-
-    display: block;
-
-    font-size: 17px;
-
-    font-weight: 400;
-
-}
-
-
-.location-box span {
-
-    display: block;
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    margin-top: 8px;
-
-}
-
-
-
-/* SIDEBAR */
-
-.booking-sidebar {
-
-    position: sticky;
-
-    top: 120px;
-
-    align-self: start;
-
-    padding: 35px;
-
-    background: #11110f;
-
-    border:
-        1px solid var(--line);
-
-}
-
-
-.sidebar-label {
-
-    color: var(--gold);
-
-    font-size: 10px;
-
-}
-
-
-.booking-sidebar h3 {
-
-    font-size: 40px;
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    margin-top: 15px;
-
-    letter-spacing: -2px;
-
-}
-
-
-.booking-sidebar h3 span {
-
-    color: var(--gold-light);
-
-}
-
-
-.booking-sidebar > p {
-
-    color: var(--muted);
+    color:
+        var(--muted);
 
     font-size: 11px;
 
-    line-height: 1.8;
+    line-height: 2;
 
-    margin-top: 20px;
+    margin-top: 22px;
+
+    max-width: 450px;
 
 }
 
 
-.sidebar-price {
+.details-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 25px;
+
+}
+
+
+.details-tags span {
+
+    padding:
+        8px 11px;
+
+    background:
+        rgba(190,165,110,.07);
+
+    color:
+        var(--gold-light);
+
+    font-size: 8px;
+
+}
+
+
+.details-price {
 
     margin-top: 35px;
 
@@ -433,183 +176,348 @@
 }
 
 
-.sidebar-price span {
+.details-price span {
 
     display: block;
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
-    font-size: 10px;
+    font-size: 9px;
 
 }
 
 
-.sidebar-price strong {
+.details-price strong {
 
-    display: block;
-
-    color: var(--gold-light);
-
-    margin-top: 7px;
-
-    font-weight: 400;
-
-}
-
-
-.sidebar-price b {
+    color:
+        var(--gold-light);
 
     font-size: 35px;
 
     font-weight: 400;
 
+    margin-top: 5px;
+
+    display: inline-block;
+
 }
 
 
+.details-price small {
 
-/* BOOK BUTTON */
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    margin-right: 5px;
+
+}
+
+
+/* INFORMATION */
+
+.details-information {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 60px;
+
+    margin-top: 90px;
+
+    padding-bottom: 80px;
+
+    border-bottom:
+        1px solid var(--line);
+
+}
+
+
+.information-block h2 {
+
+    font-size: 35px;
+
+    font-weight: 400;
+
+    margin-top: 12px;
+
+}
+
+
+.information-block h2 span {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+.information-block p {
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    margin-top: 20px;
+
+    max-width: 500px;
+
+}
+
+
+.location-button {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding:
+        13px 20px;
+
+    border:
+        1px solid var(--line);
+
+    color:
+        var(--gold-light);
+
+    font-size: 9px;
+
+}
+
+
+/* SERVICE */
+
+.service-section {
+
+    margin-top: 80px;
+
+}
+
+
+.service-section h2 {
+
+    font-size: 35px;
+
+    font-weight: 400;
+
+    margin-top: 10px;
+
+}
+
+
+.service-card {
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding: 30px;
+
+    background:
+        #11110f;
+
+    border:
+        1px solid var(--line);
+
+}
+
+
+.service-number {
+
+    color:
+        var(--gold-light);
+
+    font-size: 11px;
+
+}
+
+
+.service-card h3 {
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+}
+
+
+.service-card p {
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    margin-top: 8px;
+
+}
+
+
+/* BOOKING */
+
+.booking-cta {
+
+    margin-top: 100px;
+
+    padding:
+        55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    background:
+        #11110f;
+
+    border:
+        1px solid var(--line);
+
+}
+
+
+.booking-cta h2 {
+
+    font-size:
+        clamp(35px, 5vw, 55px);
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+    margin-top: 10px;
+
+}
+
+
+.booking-cta h2 span {
+
+    color:
+        var(--gold-light);
+
+}
+
+
+.booking-cta p {
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 12px;
+
+}
+
 
 .book-button {
 
-    width: 100%;
+    min-width: 220px;
 
-    margin-top: 30px;
-
-    padding: 19px;
+    padding: 20px;
 
     border: 0;
 
-    background: var(--gold);
+    background:
+        var(--gold);
 
-    color: #16120d;
+    color:
+        #16120d;
 
     font-family: inherit;
 
-    font-size: 14px;
-
-    font-weight: 600;
+    font-size: 11px;
 
     cursor: pointer;
-
-    transition: .3s;
 
 }
 
 
 .book-button:hover {
 
-    background: var(--gold-light);
-
-    transform: translateY(-2px);
+    background:
+        var(--gold-light);
 
 }
 
 
 .book-button span {
 
-    margin-right: 12px;
+    margin-right: 10px;
 
 }
-
-
-.booking-note {
-
-    display: block;
-
-    color: var(--muted);
-
-    text-align: center;
-
-    font-size: 9px;
-
-    line-height: 1.7;
-
-    margin-top: 15px;
-
-}
-
 
 
 /* MOBILE */
 
-@media(max-width:850px) {
-
-    .workshop-hero {
-
-        height: 500px;
-
-    }
-
-
-    .workshop-content {
-
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-
-    }
-
-
-    .booking-sidebar {
-
-        position: relative;
-
-        top: auto;
-
-        order: -1;
-
-    }
-
-}
-
-
-@media(max-width:600px) {
+@media(max-width:800px) {
 
     .workshop-details-page {
 
-        padding-top: 70px;
-
-    }
-
-
-    .workshop-hero-content {
-
-        right: 25px;
-
-        bottom: 45px;
-
-    }
-
-
-    .workshop-hero-content h1 {
-
-        letter-spacing: -3px;
-
-    }
-
-
-    .workshop-content {
-
         padding:
-            70px 20px;
+            120px 15px 70px;
 
     }
 
 
-    .service-row {
+    .workshop-details-hero {
 
-        align-items: flex-start;
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .details-image {
+
+        min-height: 300px;
+
+    }
+
+
+    .details-content {
+
+        padding: 40px 25px;
+
+    }
+
+
+    .details-information {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .booking-cta {
 
         flex-direction: column;
 
-        gap: 25px;
+        align-items: stretch;
+
+        padding: 35px 25px;
 
     }
 
 
-    .service-price {
+    .book-button {
 
-        text-align: right;
+        width: 100%;
 
     }
 
