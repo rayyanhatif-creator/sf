@@ -1,19 +1,29 @@
-const lastBooking =
-    JSON.parse(
-        localStorage.getItem(
-            "lastBooking"
-        ) || "null"
+const lastBookingId =
+    localStorage.getItem(
+        "lastBookingId"
     );
 
 
-/*
-    إذا ما فيه حجز سابق
-*/
+const bookings =
+    JSON.parse(
+        localStorage.getItem(
+            "bookings"
+        ) || "[]"
+    );
 
-if (!lastBooking) {
+
+const booking =
+    bookings.find(
+        item =>
+            item.id ===
+            lastBookingId
+    );
+
+
+if (!booking) {
 
     window.location.href =
-        "workshops.html";
+        "index.html";
 
 }
 
@@ -23,10 +33,9 @@ if (!lastBooking) {
 */
 
 document.getElementById(
-    "bookingNumber"
+    "bookingId"
 ).textContent =
-    "WS-" +
-    String(lastBooking.id).slice(-6);
+    booking.id;
 
 
 /*
@@ -34,26 +43,35 @@ document.getElementById(
 */
 
 document.getElementById(
-    "successWorkshop"
+    "bookingWorkshop"
 ).textContent =
-    lastBooking.workshop;
+    booking.workshopName;
+
+
+/*
+    العميل
+*/
+
+document.getElementById(
+    "bookingCustomer"
+).textContent =
+    booking.customerName;
 
 
 /*
     التاريخ
 */
 
-const date =
+const bookingDate =
     new Date(
-        lastBooking.date +
-        "T00:00:00"
+        booking.date + "T00:00:00"
     );
 
 
 document.getElementById(
-    "successDate"
+    "bookingDate"
 ).textContent =
-    date.toLocaleDateString(
+    bookingDate.toLocaleDateString(
         "ar-SA",
         {
             weekday: "long",
@@ -65,57 +83,10 @@ document.getElementById(
 
 
 /*
-    الوقت
-*/
-
-let timeText =
-    lastBooking.time;
-
-
-if (lastBooking.time) {
-
-    const [
-        hours,
-        minutes
-    ] =
-        lastBooking.time
-            .split(":")
-            .map(Number);
-
-
-    const time =
-        new Date();
-
-
-    time.setHours(
-        hours,
-        minutes
-    );
-
-
-    timeText =
-        time.toLocaleTimeString(
-            "ar-SA",
-            {
-                hour: "numeric",
-                minute: "2-digit"
-            }
-        );
-
-}
-
-
-document.getElementById(
-    "successTime"
-).textContent =
-    timeText;
-
-
-/*
-    الخدمة
+    عدد السبح
 */
 
 document.getElementById(
-    "successService"
+    "bookingBeads"
 ).textContent =
-    lastBooking.service;
+    `${booking.beadCount} سبحة`;
