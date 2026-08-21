@@ -4,36 +4,10 @@ const workshopLoginForm =
     );
 
 
-function toggleLoginPassword() {
-
-    const password =
-        document.getElementById(
-            "loginPassword"
-        );
-
-    const button =
-        document.querySelector(
-            ".password-field button"
-        );
-
-
-    if (password.type === "password") {
-
-        password.type = "text";
-
-        button.textContent =
-            "إخفاء";
-
-    } else {
-
-        password.type = "password";
-
-        button.textContent =
-            "إظهار";
-
-    }
-
-}
+const loginError =
+    document.getElementById(
+        "workshopLoginError"
+    );
 
 
 workshopLoginForm.addEventListener(
@@ -43,73 +17,86 @@ workshopLoginForm.addEventListener(
         event.preventDefault();
 
 
-        const identifier =
+        const name =
             document.getElementById(
-                "loginIdentifier"
+                "workshopName"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "workshopPhone"
             ).value.trim();
 
 
         const password =
             document.getElementById(
-                "loginPassword"
+                "workshopPassword"
             ).value;
 
 
-        const savedWorkshop =
-            localStorage.getItem(
-                "workshopAccount"
-            );
-
-
-        if (!savedWorkshop) {
-
-            alert(
-                "لا يوجد حساب ورشة مسجل. سجل ورشتك أولاً."
-            );
-
-            window.location.href =
-                "workshop-register.html";
-
-            return;
-
-        }
-
-
-        const workshop =
-            JSON.parse(savedWorkshop);
-
-
-        /*
-         * في النسخة التجريبية:
-         * نتحقق من الجوال أو البريد.
-         */
-
-        const identifierCorrect =
-            identifier === workshop.phone ||
-            identifier === workshop.email;
-
-
-        if (!identifierCorrect) {
-
-            alert(
-                "رقم الجوال أو البريد الإلكتروني غير صحيح."
-            );
-
-            return;
-
-        }
-
-
-        /*
-         * في النسخة التجريبية
-         * يتم الدخول بعد التحقق.
-         */
-
-        localStorage.setItem(
-            "workshopLoggedIn",
-            "true"
+        loginError.classList.remove(
+            "show"
         );
 
+
+        /*
+            جلب الورش المسجلة
+        */
+
+        const workshops =
+            JSON.parse(
+                localStorage.getItem(
+                    "workshops"
+                ) || "[]"
+            );
+
+
+        /*
+            البحث عن الورشة
+        */
+
+        const workshop =
+            workshops.find(
+                item =>
+
+                    item.name === name &&
+                    item.phone === phone &&
+                    item.password === password
+            );
+
+
+        /*
+            الورشة غير موجودة
+        */
+
+        if (!workshop) {
+
+            loginError.textContent =
+                "بيانات الدخول غير صحيحة.";
+
+            loginError.classList.add(
+                "show"
+            );
+
+            return;
+
+        }
+
+
+        /*
+            تسجيل دخول الورشة
+        */
+
+        localStorage.setItem(
+            "currentWorkshop",
+            JSON.stringify(workshop)
+        );
+
+
+        /*
+            الانتقال للوحة الورشة
+        */
 
         window.location.href =
             "workshop-dashboard.html";
