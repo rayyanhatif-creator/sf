@@ -2,113 +2,404 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ورش السعودية</title>
+    <title>ورش السعودية | منصة الحرفة</title>
 
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- شريط علوي -->
+    <header class="topbar">
 
-<header class="navbar">
+        <a href="index.html" class="brand">
+            <span class="brand-line"></span>
 
-<div class="logo">
-ورش السعودية
-</div>
+            <div>
+                <strong>ورش السعودية</strong>
+                <small>منصة الحرفة السعودية</small>
+            </div>
+        </a>
 
+        <!-- زر القائمة -->
+        <button class="menu-button" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-<div class="menu">
-
-<button onclick="openMenu()">⋯</button>
-
-
-<div id="menuList" class="menu-list">
-
-<a href="workshops.html">
-الخراطين
-</a>
-
-<a href="workshop-register.html">
-اشترك معنا كخراط
-</a>
-
-<a href="login.html">
-تسجيل الدخول
-</a>
-
-</div>
-
-</div>
-
-</header>
+    </header>
 
 
+    <!-- القائمة -->
+    <aside class="side-menu" id="sideMenu">
 
-<section class="hero">
+        <div class="menu-head">
 
-<div>
+            <span>القائمة</span>
 
-<h1>
-ورش السعودية
-</h1>
+            <button onclick="toggleMenu()">×</button>
 
+        </div>
 
-<p>
-منصة تجمعك بأفضل ورش السبح والحرفيين في المملكة
-</p>
+        <div class="menu-links">
 
+            <a href="workshops.html">
+                <span>01</span>
+                الخراطين
+            </a>
 
-<a href="workshops.html">
-استكشف الورش
-</a>
+            <a href="workshop-register.html">
+                <span>02</span>
+                اشترك معنا كخراط
+            </a>
 
+            <a href="login.html">
+                <span>03</span>
+                تسجيل الدخول
+            </a>
 
-</div>
+        </div>
 
-</section>
+        <div class="menu-footer">
+            ورش السعودية
+        </div>
 
-
-
-
-
-<section class="about">
-
-<h2>
-من نحن
-</h2>
-
-
-<p>
-
-ورش السعودية منصة تربط العملاء بأهل الحرفة،
-وتسهل الوصول إلى الورش المميزة وحجز الخدمات
-بكل سهولة وراحة.
-
-</p>
+    </aside>
 
 
-</section>
+    <!-- خلفية القائمة -->
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        onclick="toggleMenu()">
+    </div>
 
 
+    <!-- المحتوى الرئيسي -->
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-glow"></div>
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span></span>
+                    منصة سعودية للحرفيين
+                </div>
+
+                <h1>
+                    الحرفة تبدأ
+                    <br>
+                    <em>من يدٍ تعرفها.</em>
+                </h1>
+
+                <p>
+                    اكتشف خراط السبح في السعودية،
+                    تعرّف على أعمالهم واحجز دورك
+                    بكل سهولة.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        href="workshops.html"
+                        class="primary-button">
+
+                        استكشف الخراطين
+
+                        <span>←</span>
+
+                    </a>
+
+                    <a
+                        href="#about"
+                        class="secondary-button">
+
+                        تعرف علينا
+
+                    </a>
+
+                </div>
+
+            </div>
 
 
+            <!-- رقم زخرفي -->
+            <div class="hero-number">
+                01
+            </div>
 
-<footer>
-
-<p>
-صنع بواسطة ورش السعودية
-</p>
-
-</footer>
+        </section>
 
 
+        <!-- INTRO -->
+        <section class="intro-section">
 
-<script src="app.js"></script>
+            <div class="section-label">
+                02 / عن المنصة
+            </div>
+
+            <div class="intro-content">
+
+                <h2>
+                    نجمعك
+                    <br>
+                    <span>بأهل الحرفة.</span>
+                </h2>
+
+                <p>
+                    ورش السعودية منصة تجمع الخراطين
+                    وأصحاب الحرفة مع الأشخاص الباحثين
+                    عن الجودة والتفاصيل الأصيلة.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORKSHOPS -->
+        <section class="featured-section">
+
+            <div class="section-top">
+
+                <div>
+
+                    <div class="section-label">
+                        03 / خراطونا
+                    </div>
+
+                    <h2>
+                        ورش مختارة
+                    </h2>
+
+                </div>
+
+                <a href="workshops.html">
+                    مشاهدة جميع الورش
+                    <span>←</span>
+                </a>
+
+            </div>
+
+
+            <div class="featured-workshops">
+
+                <!-- حرفة -->
+                <article class="featured-card">
+
+                    <div class="card-image">
+
+                        <img
+                            src="images/harfa.jpg"
+                            alt="ورشة حرفة"
+                            onerror="this.style.display='none'"
+                        >
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <div>
+
+                            <h3>
+                                ورشة حرفة
+                            </h3>
+
+                            <p>
+                                الرياض
+                            </p>
+
+                        </div>
+
+                        <strong>
+                            من 700 ريال
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="workshop.html?id=harfa"
+                        class="card-link">
+
+                        عرض الورشة
+                        <span>←</span>
+
+                    </a>
+
+                </article>
+
+
+                <!-- الميامين -->
+                <article class="featured-card">
+
+                    <div class="card-image">
+
+                        <img
+                            src="images/mayameen.jpg"
+                            alt="ورشة الميامين"
+                            onerror="this.style.display='none'"
+                        >
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <div>
+
+                            <h3>
+                                ورشة الميامين
+                            </h3>
+
+                            <p>
+                                الرياض
+                            </p>
+
+                        </div>
+
+                        <strong>
+                            من 700 ريال
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="workshop.html?id=mayameen"
+                        class="card-link">
+
+                        عرض الورشة
+                        <span>←</span>
+
+                    </a>
+
+                </article>
+
+
+                <!-- مدهال -->
+                <article class="featured-card">
+
+                    <div class="card-image">
+
+                        <img
+                            src="images/midhal.jpg"
+                            alt="ورشة مدهال"
+                            onerror="this.style.display='none'"
+                        >
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <div>
+
+                            <h3>
+                                ورشة مدهال
+                            </h3>
+
+                            <p>
+                                الرياض
+                            </p>
+
+                        </div>
+
+                        <strong>
+                            من 700 ريال
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="workshop.html?id=midhal"
+                        class="card-link">
+
+                        عرض الورشة
+                        <span>←</span>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section
+            class="about-section"
+            id="about">
+
+            <div class="about-line"></div>
+
+            <div class="section-label">
+                04 / من نحن
+            </div>
+
+            <h2>
+                الحرفة السعودية
+                <br>
+                <span>تستحق أن تُرى.</span>
+            </h2>
+
+            <p>
+                نؤمن أن وراء كل سبحة حكاية،
+                ووراء كل قطعة يدًا تعرف قيمة
+                التفاصيل. لذلك صنعنا مكانًا يجمع
+                أهل الحرفة بمن يبحث عنهم.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-brand">
+            ورش السعودية
+        </div>
+
+        <p>
+            نقرّب الحرفة من صاحبها،
+            ونخلّي الوصول لأهلها أسهل.
+        </p>
+
+        <div class="footer-bottom">
+
+            <span>
+                جميع الحقوق محفوظة
+            </span>
+
+            <span>
+                صنع بواسطة ورش السعودية
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="app.js"></script>
 
 </body>
 
