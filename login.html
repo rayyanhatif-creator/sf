@@ -26,38 +26,47 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<!-- القائمة -->
+<!-- القائمة الجانبية -->
 
-<aside class="side-menu" id="sideMenu">
+<aside
+    class="side-menu"
+    id="sideMenu">
 
     <div class="menu-head">
 
         <span>القائمة</span>
 
-        <button onclick="toggleMenu()">×</button>
+        <button
+            onclick="toggleMenu()">
+            ×
+        </button>
 
     </div>
 
 
     <div class="menu-links">
 
-        <a href="workshops.html">
+        <a href="index.html">
             <span>01</span>
-            الخراطين
+            الرئيسية
         </a>
 
-        <a href="workshop-register.html">
+        <a href="workshops.html">
             <span>02</span>
-            اشترك معنا كخراط
+            الخراطين
         </a>
 
         <a href="login.html">
@@ -65,11 +74,11 @@
             تسجيل الدخول
         </a>
 
-    </div>
+        <a href="register.html">
+            <span>04</span>
+            إنشاء حساب
+        </a>
 
-
-    <div class="menu-footer">
-        ورش السعودية
     </div>
 
 </aside>
@@ -85,36 +94,35 @@
 
 <main class="login-page">
 
-    <section class="login-box">
+    <section class="login-card">
 
-
-        <!-- العنوان -->
 
         <div class="login-heading">
 
             <div class="section-label">
-                01 / الحساب
+                أهلاً بك
             </div>
 
             <h1>
-                أهلاً
-                <span>بك.</span>
+                تسجيل
+                <span>الدخول.</span>
             </h1>
 
             <p>
-                سجل دخولك للوصول إلى حجوزاتك
-                وإدارة حسابك في ورش السعودية.
+                سجّل دخولك لإدارة حجوزاتك
+                ومتابعة طلباتك.
             </p>
 
         </div>
 
 
-        <!-- النموذج -->
 
         <form
             id="loginForm"
             class="login-form">
 
+
+            <!-- رقم الجوال -->
 
             <div class="form-group">
 
@@ -122,61 +130,59 @@
                     رقم الجوال
                 </label>
 
-                <input
-                    type="tel"
-                    id="loginPhone"
-                    placeholder="05xxxxxxxx"
-                    required>
+                <div class="phone-input">
 
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    كلمة المرور
-                </label>
-
-                <div class="password-field">
+                    <span>
+                        +966
+                    </span>
 
                     <input
-                        type="password"
-                        id="loginPassword"
-                        placeholder="أدخل كلمة المرور"
+                        type="tel"
+                        id="loginPhone"
+                        placeholder="5XXXXXXXX"
+                        maxlength="9"
                         required>
-
-                    <button
-                        type="button"
-                        onclick="togglePassword()">
-
-                        إظهار
-
-                    </button>
 
                 </div>
 
             </div>
 
 
-            <div class="login-options">
+            <!-- كلمة المرور -->
 
-                <label>
+            <div class="form-group">
 
-                    <input
-                        type="checkbox"
-                        id="rememberMe">
+                <div class="label-row">
 
-                    تذكرني
+                    <label>
+                        كلمة المرور
+                    </label>
 
-                </label>
+                    <a href="#">
+                        نسيت كلمة المرور؟
+                    </a>
 
+                </div>
 
-                <a href="#">
-                    نسيت كلمة المرور؟
-                </a>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="••••••••"
+                    required>
 
             </div>
 
+
+            <!-- خطأ -->
+
+            <div
+                id="loginError"
+                class="login-error">
+
+            </div>
+
+
+            <!-- الدخول -->
 
             <button
                 type="submit"
@@ -184,7 +190,9 @@
 
                 تسجيل الدخول
 
-                <span>←</span>
+                <span>
+                    ←
+                </span>
 
             </button>
 
@@ -192,9 +200,10 @@
         </form>
 
 
-        <!-- إنشاء حساب -->
 
-        <div class="create-account">
+        <!-- التسجيل -->
+
+        <div class="register-link">
 
             <span>
                 ما عندك حساب؟
@@ -207,17 +216,27 @@
         </div>
 
 
-        <!-- خراط -->
+
+        <!-- الخراط -->
 
         <div class="workshop-login">
 
-            <p>
-                أنت خراط؟
-            </p>
+            <div>
 
-            <a href="workshop-register.html">
-                اشترك معنا كخراط
-                <span>←</span>
+                <strong>
+                    أنت خراط؟
+                </strong>
+
+                <p>
+                    ادخل إلى لوحة ورشتك
+                    وأدر حجوزاتك.
+                </p>
+
+            </div>
+
+            <a href="workshop-login.html">
+                دخول الخراط
+                ←
             </a>
 
         </div>
@@ -226,6 +245,7 @@
     </section>
 
 </main>
+
 
 
 <footer>
