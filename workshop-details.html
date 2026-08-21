@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تفاصيل الورشة | ورش السعودية</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop-details.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<!-- القائمة -->
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="menu-head">
+
+        <span>القائمة</span>
+
+        <button onclick="toggleMenu()">×</button>
+
+    </div>
+
+    <div class="menu-links">
+
+        <a href="index.html">
+            <span>01</span>
+            الرئيسية
+        </a>
+
+        <a href="workshops.html">
+            <span>02</span>
+            الخراطين
+        </a>
+
+        <a href="login.html">
+            <span>03</span>
+            تسجيل الدخول
+        </a>
+
+    </div>
+
+</aside>
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
+</div>
+
+
+<main class="workshop-details-page">
+
+
+    <!-- صورة الورشة -->
+
+    <section class="workshop-hero">
+
+        <div
+            class="workshop-hero-image"
+            id="workshopHeroImage">
+
+            <div class="image-loading">
+                تحميل...
+            </div>
+
+        </div>
+
+        <div class="hero-overlay"></div>
+
+
+        <div class="workshop-hero-content">
+
+            <div class="section-label">
+                ورشة سعودية
+            </div>
+
+            <h1 id="workshopTitle">
+                ورشة حرفة
+            </h1>
+
+            <p id="workshopLocation">
+                الرياض
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- المعلومات -->
+
+    <section class="workshop-content">
+
+
+        <div class="workshop-main">
+
+
+            <!-- النبذة -->
+
+            <section class="details-section">
+
+                <div class="section-label">
+                    عن الورشة
+                </div>
+
+                <h2>
+                    الحرفة تبدأ
+                    <span>من التفاصيل.</span>
+                </h2>
+
+                <p
+                    id="workshopBio"
+                    class="workshop-bio">
+
+                    —
+
+                </p>
+
+            </section>
+
+
+            <!-- الخدمة -->
+
+            <section class="details-section">
+
+                <div class="section-label">
+                    الخدمة
+                </div>
+
+                <div class="service-row">
+
+                    <div>
+
+                        <strong id="workshopService">
+                            خرط السبح
+                        </strong>
+
+                        <small>
+                            الخدمة المقدمة
+                        </small>
+
+                    </div>
+
+                    <div class="service-price">
+
+                        <span>
+                            يبدأ من
+                        </span>
+
+                        <strong>
+                            <b id="workshopPrice">
+                                700
+                            </b>
+                            ريال
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- أوقات العمل -->
+
+            <section class="details-section">
+
+                <div class="section-label">
+                    أوقات العمل
+                </div>
+
+                <div class="working-hours">
+
+                    <div>
+
+                        <span>
+                            من
+                        </span>
+
+                        <strong id="openingTime">
+                            16:00
+                        </strong>
+
+                    </div>
+
+                    <div class="hours-line"></div>
+
+                    <div>
+
+                        <span>
+                            إلى
+                        </span>
+
+                        <strong id="closingTime">
+                            23:00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- الموقع -->
+
+            <section class="details-section">
+
+                <div class="section-label">
+                    موقع الورشة
+                </div>
+
+                <div class="location-box">
+
+                    <strong id="locationText">
+                        الرياض
+                    </strong>
+
+                    <span>
+                        موقع الورشة يظهر بعد تأكيد الحجز
+                    </span>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- الجانب -->
+
+        <aside class="booking-sidebar">
+
+            <div class="sidebar-label">
+                جاهز تبدأ؟
+            </div>
+
+            <h3>
+                احجز دورك
+                <span>معنا.</span>
+            </h3>
+
+            <p>
+                اختر الموعد المناسب لك
+                وأرسل طلب الحجز للورشة.
+            </p>
+
+            <div class="sidebar-price">
+
+                <span>
+                    السعر يبدأ من
+                </span>
+
+                <strong>
+
+                    <b id="sidebarPrice">
+                        700
+                    </b>
+
+                    ريال
+
+                </strong>
+
+            </div>
+
+
+            <!-- هذا هو آخر شيء في الصفحة -->
+
+            <button
+                id="bookButton"
+                class="book-button">
+
+                احجز دورك
+
+                <span>←</span>
+
+            </button>
+
+            <small class="booking-note">
+                لا يتم تأكيد الحجز إلا بعد
+                مراجعة الورشة.
+            </small>
+
+        </aside>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="workshop-details.js"></script>
+
+</body>
+
+</html>
