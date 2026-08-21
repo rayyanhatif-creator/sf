@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>دخول الورشة | ورش السعودية</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop-login.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="menu-head">
+
+        <span>القائمة</span>
+
+        <button onclick="toggleMenu()">×</button>
+
+    </div>
+
+    <div class="menu-links">
+
+        <a href="workshops.html">
+            <span>01</span>
+            الخراطين
+        </a>
+
+        <a href="workshop-register.html">
+            <span>02</span>
+            اشترك معنا كخراط
+        </a>
+
+        <a href="login.html">
+            <span>03</span>
+            تسجيل الدخول
+        </a>
+
+    </div>
+
+</aside>
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
+</div>
+
+
+<main class="workshop-login-page">
+
+    <section class="login-box">
+
+        <div class="login-heading">
+
+            <div class="section-label">
+                بوابة الورشة
+            </div>
+
+            <h1>
+                مرحبًا
+                <span>بعودتك.</span>
+            </h1>
+
+            <p>
+                سجّل دخولك لإدارة ورشتك
+                ومتابعة حجوزات العملاء.
+            </p>
+
+        </div>
+
+
+        <form
+            id="workshopLoginForm"
+            class="login-form">
+
+
+            <div class="form-group">
+
+                <label>
+                    رقم الجوال أو البريد الإلكتروني
+                </label>
+
+                <input
+                    type="text"
+                    id="loginIdentifier"
+                    placeholder="05xxxxxxxx أو البريد الإلكتروني"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    كلمة المرور
+                </label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="كلمة المرور"
+                        required>
+
+                    <button
+                        type="button"
+                        onclick="toggleLoginPassword()">
+
+                        إظهار
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="login-options">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="rememberWorkshop">
+
+                    تذكرني
+
+                </label>
+
+                <a href="#">
+                    نسيت كلمة المرور؟
+                </a>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-button">
+
+                دخول لوحة الورشة
+
+                <span>←</span>
+
+            </button>
+
+        </form>
+
+
+        <div class="login-bottom">
+
+            <span>
+                ما عندك حساب؟
+            </span>
+
+            <a href="workshop-register.html">
+                سجل ورشتك معنا
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="workshop-login.js"></script>
+
+</body>
+
+</html>
