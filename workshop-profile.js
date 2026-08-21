@@ -1,110 +1,214 @@
-const profileForm =
-    document.getElementById(
-        "workshopProfileForm"
-    );
-
-
-let workshop =
+const workshop =
     JSON.parse(
         localStorage.getItem(
-            "workshopAccount"
-        ) || "{}"
+            "currentWorkshop"
+        ) || "null"
     );
 
 
-/* =========================
-   تحميل البيانات
-========================= */
+/*
+    =========================
+    التحقق من الدخول
+    =========================
+*/
 
-document.getElementById(
-    "profileWorkshopName"
-).value =
-    workshop.workshopName || "";
+if (!workshop) {
 
-
-document.getElementById(
-    "profileOwnerName"
-).value =
-    workshop.ownerName || "";
-
-
-document.getElementById(
-    "profilePhone"
-).value =
-    workshop.phone || "";
-
-
-document.getElementById(
-    "profileLocation"
-).value =
-    workshop.location || "";
-
-
-document.getElementById(
-    "profileBio"
-).value =
-    workshop.bio || "";
-
-
-document.getElementById(
-    "profilePrice"
-).value =
-    workshop.price || 700;
-
-
-document.getElementById(
-    "profileService"
-).value =
-    workshop.service || "خرط السبح";
-
-
-document.getElementById(
-    "openingTime"
-).value =
-    workshop.openingTime || "16:00";
-
-
-document.getElementById(
-    "closingTime"
-).value =
-    workshop.closingTime || "23:00";
-
-
-document.getElementById(
-    "workshopVisible"
-).checked =
-    workshop.visible !== false;
-
-
-
-/* =========================
-   الصورة
-========================= */
-
-const imageInput =
-    document.getElementById(
-        "workshopImage"
-    );
-
-
-const imagePreview =
-    document.getElementById(
-        "imagePreview"
-    );
-
-
-if (workshop.image) {
-
-    imagePreview.innerHTML = `
-
-        <img
-            src="${workshop.image}"
-            alt="صورة الورشة">
-
-    `;
+    window.location.href =
+        "workshop-login.html";
 
 }
 
+
+/*
+    =========================
+    العناصر
+    =========================
+*/
+
+const form =
+    document.getElementById(
+        "profileForm"
+    );
+
+
+const message =
+    document.getElementById(
+        "profileMessage"
+    );
+
+
+const imageInput =
+    document.getElementById(
+        "profileImage"
+    );
+
+
+/*
+    =========================
+    تعبئة البيانات
+    =========================
+*/
+
+function loadWorkshopData() {
+
+    document.getElementById(
+        "profileName"
+    ).value =
+        workshop.name || "";
+
+
+    document.getElementById(
+        "profileBio"
+    ).value =
+        workshop.bio || "";
+
+
+    document.getElementById(
+        "profileCity"
+    ).value =
+        workshop.city || "";
+
+
+    document.getElementById(
+        "profileDistrict"
+    ).value =
+        workshop.district || "";
+
+
+    document.getElementById(
+        "profileLocation"
+    ).value =
+        workshop.location || "";
+
+
+    document.getElementById(
+        "profilePrice"
+    ).value =
+        workshop.price || 700;
+
+
+    document.getElementById(
+        "profileService"
+    ).value =
+        workshop.service || "خرط السبح";
+
+
+    updatePreview();
+
+}
+
+
+loadWorkshopData();
+
+
+/*
+    =========================
+    تحديث المعاينة
+    =========================
+*/
+
+function updatePreview() {
+
+    const name =
+        document.getElementById(
+            "profileName"
+        ).value;
+
+
+    const bio =
+        document.getElementById(
+            "profileBio"
+        ).value;
+
+
+    const city =
+        document.getElementById(
+            "profileCity"
+        ).value;
+
+
+    const district =
+        document.getElementById(
+            "profileDistrict"
+        ).value;
+
+
+    const price =
+        document.getElementById(
+            "profilePrice"
+        ).value;
+
+
+    const service =
+        document.getElementById(
+            "profileService"
+        ).value;
+
+
+    document.getElementById(
+        "previewName"
+    ).textContent =
+        name;
+
+
+    document.getElementById(
+        "previewBio"
+    ).textContent =
+        bio;
+
+
+    document.getElementById(
+        "previewCity"
+    ).textContent =
+        city +
+        " - " +
+        district;
+
+
+    document.getElementById(
+        "previewPrice"
+    ).textContent =
+        Number(price)
+            .toLocaleString("ar-SA");
+
+
+    document.getElementById(
+        "previewService"
+    ).textContent =
+        service;
+
+
+    const previewImage =
+        document.getElementById(
+            "previewImage"
+        );
+
+
+    if (workshop.image) {
+
+        previewImage.innerHTML = `
+
+            <img
+                src="${workshop.image}"
+                alt="${name}">
+
+        `;
+
+    } else {
+
+        previewImage.innerHTML = "";
+
+    }
+
+}
+
+
+/*
+    =========================
+    تغيير الصورة
+    =========================
+*/
 
 imageInput.addEventListener(
     "change",
@@ -123,21 +227,10 @@ imageInput.addEventListener(
         reader.onload =
             function(event) {
 
-                const image =
+                workshop.image =
                     event.target.result;
 
-
-                workshop.image =
-                    image;
-
-
-                imagePreview.innerHTML = `
-
-                    <img
-                        src="${image}"
-                        alt="صورة الورشة">
-
-                `;
+                updatePreview();
 
             };
 
@@ -148,39 +241,57 @@ imageInput.addEventListener(
 );
 
 
+/*
+    =========================
+    تحديث المعاينة
+    =========================
+*/
 
-/* =========================
-   حفظ
-========================= */
+form.addEventListener(
+    "input",
+    updatePreview
+);
 
-profileForm.addEventListener(
+
+/*
+    =========================
+    حفظ التعديلات
+    =========================
+*/
+
+form.addEventListener(
     "submit",
     function(event) {
 
         event.preventDefault();
 
 
-        workshop.workshopName =
+        const price =
+            Number(
+                document.getElementById(
+                    "profilePrice"
+                ).value
+            );
+
+
+        if (price < 700) {
+
+            showMessage(
+                "السعر يجب أن يبدأ من 700 ريال."
+            );
+
+            return;
+
+        }
+
+
+        /*
+            تحديث البيانات
+        */
+
+        workshop.name =
             document.getElementById(
-                "profileWorkshopName"
-            ).value.trim();
-
-
-        workshop.ownerName =
-            document.getElementById(
-                "profileOwnerName"
-            ).value.trim();
-
-
-        workshop.phone =
-            document.getElementById(
-                "profilePhone"
-            ).value.trim();
-
-
-        workshop.location =
-            document.getElementById(
-                "profileLocation"
+                "profileName"
             ).value.trim();
 
 
@@ -190,10 +301,26 @@ profileForm.addEventListener(
             ).value.trim();
 
 
-        workshop.price =
+        workshop.city =
             document.getElementById(
-                "profilePrice"
-            ).value;
+                "profileCity"
+            ).value.trim();
+
+
+        workshop.district =
+            document.getElementById(
+                "profileDistrict"
+            ).value.trim();
+
+
+        workshop.location =
+            document.getElementById(
+                "profileLocation"
+            ).value.trim();
+
+
+        workshop.price =
+            price;
 
 
         workshop.service =
@@ -202,48 +329,87 @@ profileForm.addEventListener(
             ).value.trim();
 
 
-        workshop.openingTime =
-            document.getElementById(
-                "openingTime"
-            ).value;
+        /*
+            تحديث قائمة الورش
+        */
 
-
-        workshop.closingTime =
-            document.getElementById(
-                "closingTime"
-            ).value;
-
-
-        workshop.visible =
-            document.getElementById(
-                "workshopVisible"
-            ).checked;
-
-
-        localStorage.setItem(
-            "workshopAccount",
-            JSON.stringify(workshop)
-        );
-
-
-        const message =
-            document.getElementById(
-                "saveMessage"
+        const workshops =
+            JSON.parse(
+                localStorage.getItem(
+                    "workshops"
+                ) || "[]"
             );
 
 
-        message.textContent =
-            "تم حفظ التغييرات ✓";
+        const index =
+            workshops.findIndex(
+                item =>
+                    item.id ===
+                    workshop.id
+            );
 
 
-        setTimeout(
-            () => {
+        if (index !== -1) {
 
-                message.textContent = "";
+            workshops[index] =
+                workshop;
 
-            },
-            3000
+        }
+
+
+        localStorage.setItem(
+            "workshops",
+            JSON.stringify(
+                workshops
+            )
+        );
+
+
+        /*
+            تحديث الجلسة الحالية
+        */
+
+        localStorage.setItem(
+            "currentWorkshop",
+            JSON.stringify(
+                workshop
+            )
+        );
+
+
+        showMessage(
+            "تم حفظ تعديلات الورشة بنجاح."
         );
 
     }
 );
+
+
+/*
+    =========================
+    الرسالة
+    =========================
+*/
+
+function showMessage(text) {
+
+    message.textContent =
+        text;
+
+    message.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        () => {
+
+            message.classList.remove(
+                "show"
+            );
+
+        },
+        3500
+    );
+
+}
