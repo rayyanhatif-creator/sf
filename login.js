@@ -1,44 +1,14 @@
 const loginForm =
-    document.getElementById("loginForm");
+    document.getElementById(
+        "loginForm"
+    );
 
 
-/*
-    إظهار وإخفاء كلمة المرور
-*/
+const loginError =
+    document.getElementById(
+        "loginError"
+    );
 
-function togglePassword() {
-
-    const password =
-        document.getElementById("loginPassword");
-
-    const button =
-        document.querySelector(
-            ".password-field button"
-        );
-
-
-    if (password.type === "password") {
-
-        password.type = "text";
-
-        button.textContent =
-            "إخفاء";
-
-    } else {
-
-        password.type = "password";
-
-        button.textContent =
-            "إظهار";
-
-    }
-
-}
-
-
-/*
-    تسجيل الدخول المؤقت
-*/
 
 loginForm.addEventListener(
     "submit",
@@ -59,10 +29,51 @@ loginForm.addEventListener(
             ).value;
 
 
-        if (!phone || !password) {
+        loginError.classList.remove(
+            "show"
+        );
 
-            alert(
-                "فضلاً أكمل البيانات."
+
+        /*
+            جلب المستخدمين
+        */
+
+        const users =
+            JSON.parse(
+                localStorage.getItem(
+                    "users"
+                ) || "[]"
+            );
+
+
+        /*
+            البحث عن الحساب
+        */
+
+        const user =
+            users.find(
+                function(item) {
+
+                    return (
+                        item.phone === phone &&
+                        item.password === password
+                    );
+
+                }
+            );
+
+
+        /*
+            الحساب غير موجود
+        */
+
+        if (!user) {
+
+            loginError.textContent =
+                "رقم الجوال أو كلمة المرور غير صحيحة.";
+
+            loginError.classList.add(
+                "show"
             );
 
             return;
@@ -71,61 +82,37 @@ loginForm.addEventListener(
 
 
         /*
-            مؤقتًا نحفظ المستخدم
-            داخل المتصفح.
-
-            لاحقًا نستبدل هذا
-            بقاعدة البيانات.
+            تسجيل دخول المستخدم
         */
 
-        const user = {
-
-            phone: phone,
-
-            type: "customer",
-
-            loginAt:
-                new Date().toISOString()
-
-        };
-
-
         localStorage.setItem(
-            "workshopUser",
+            "currentUser",
             JSON.stringify(user)
         );
 
 
         /*
-            إذا جاء من صفحة الحجز
-            يرجعه للحجز.
+            إذا كان فيه ورشة
+            اختارها المستخدم قبل الدخول
         */
 
-        const params =
-            new URLSearchParams(
-                window.location.search
+        const selectedWorkshop =
+            localStorage.getItem(
+                "selectedWorkshop"
             );
 
 
-        if (
-            params.get("redirect")
-            === "booking"
-        ) {
+        if (selectedWorkshop) {
 
             window.location.href =
                 "booking.html";
 
-            return;
+        } else {
+
+            window.location.href =
+                "customer-dashboard.html";
 
         }
-
-
-        /*
-            إذا دخول طبيعي
-        */
-
-        window.location.href =
-            "account.html";
 
     }
 );
