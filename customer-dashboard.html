@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>حسابي | ورش السعودية</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">
+ورش السعودية
+</div>
+
+<button onclick="logout()" class="logout-btn">
+تسجيل الخروج
+</button>
+
+</header>
+
+<main class="dashboard">
+
+<h1>
+مرحبًا <span id="customerDashboardName"></span>
+</h1>
+
+<div class="stats">
+
+<div>
+<strong id="customerBookingCount">0</strong>
+<span>حجوزاتي</span>
+</div>
+
+<div>
+<strong>0</strong>
+<span>مكتملة</span>
+</div>
+
+</div>
+
+<section class="dashboard-section">
+
+<h2>حجوزاتي</h2>
+
+<div id="customerBookings"></div>
+
+</section>
+
+</main>
+
+<script src="app.js"></script>
+
+<script>
+loadCustomerDashboard();
+</script>
+
+</body>
+</html>
