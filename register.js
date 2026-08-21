@@ -1,37 +1,13 @@
 const registerForm =
-    document.getElementById("registerForm");
+    document.getElementById(
+        "registerForm"
+    );
 
 
-function toggleRegisterPassword() {
-
-    const password =
-        document.getElementById(
-            "registerPassword"
-        );
-
-    const button =
-        document.querySelector(
-            ".password-field button"
-        );
-
-
-    if (password.type === "password") {
-
-        password.type = "text";
-
-        button.textContent =
-            "إخفاء";
-
-    } else {
-
-        password.type = "password";
-
-        button.textContent =
-            "إظهار";
-
-    }
-
-}
+const registerError =
+    document.getElementById(
+        "registerError"
+    );
 
 
 registerForm.addEventListener(
@@ -77,10 +53,25 @@ registerForm.addEventListener(
             ).value;
 
 
-        if (password !== confirmPassword) {
+        registerError.classList.remove(
+            "show"
+        );
 
-            alert(
-                "كلمتا المرور غير متطابقتين."
+
+        /*
+            التحقق من كلمة المرور
+        */
+
+        if (
+            password !==
+            confirmPassword
+        ) {
+
+            registerError.textContent =
+                "كلمتا المرور غير متطابقتين.";
+
+            registerError.classList.add(
+                "show"
             );
 
             return;
@@ -88,42 +79,163 @@ registerForm.addEventListener(
         }
 
 
+        /*
+            التحقق من رقم الجوال
+        */
+
+        if (
+            !/^5\d{8}$/.test(phone)
+        ) {
+
+            registerError.textContent =
+                "اكتب رقم جوال سعودي صحيح.";
+
+            registerError.classList.add(
+                "show"
+            );
+
+            return;
+
+        }
+
+
+        /*
+            جلب المستخدمين
+        */
+
+        const users =
+            JSON.parse(
+                localStorage.getItem(
+                    "users"
+                ) || "[]"
+            );
+
+
+        /*
+            منع تكرار الجوال
+        */
+
+        const phoneExists =
+            users.some(
+                user =>
+                    user.phone === phone
+            );
+
+
+        if (phoneExists) {
+
+            registerError.textContent =
+                "رقم الجوال مسجل مسبقاً.";
+
+            registerError.classList.add(
+                "show"
+            );
+
+            return;
+
+        }
+
+
+        /*
+            منع تكرار البريد
+        */
+
+        const emailExists =
+            users.some(
+                user =>
+                    user.email === email
+            );
+
+
+        if (emailExists) {
+
+            registerError.textContent =
+                "البريد الإلكتروني مسجل مسبقاً.";
+
+            registerError.classList.add(
+                "show"
+            );
+
+            return;
+
+        }
+
+
+        /*
+            إنشاء الحساب
+        */
+
         const user = {
 
-            name: name,
+            id:
+                Date.now(),
 
-            phone: phone,
+            name:
+                name,
 
-            email: email,
+            phone:
+                phone,
 
-            location: location,
+            email:
+                email,
 
-            type: "customer",
+            location:
+                location,
+
+            password:
+                password,
+
+            role:
+                "customer",
 
             createdAt:
-                new Date().toISOString()
+                new Date()
+                    .toISOString()
 
         };
 
 
-        /*
-         * تخزين مؤقت.
-         * لاحقًا نربطه بقاعدة بيانات حقيقية.
-         */
+        users.push(user);
+
 
         localStorage.setItem(
-            "workshopUser",
+            "users",
+            JSON.stringify(users)
+        );
+
+
+        /*
+            تسجيل دخول مباشر
+        */
+
+        localStorage.setItem(
+            "currentUser",
             JSON.stringify(user)
         );
 
 
-        alert(
-            "تم إنشاء حسابك بنجاح."
-        );
+        /*
+            إذا كان المستخدم
+            جاء من صفحة حجز
+        */
+
+        const selectedWorkshop =
+            localStorage.getItem(
+                "selectedWorkshop"
+            );
 
 
-        window.location.href =
-            "account.html";
+        if (selectedWorkshop) {
+
+            window.location.href =
+                "booking.html";
+
+        } else {
+
+            window.location.href =
+                "customer-dashboard.html";
+
+        }
 
     }
 );
