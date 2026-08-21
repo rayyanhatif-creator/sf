@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حجوزات الورشة | ورش السعودية</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop-bookings.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+
+        <span class="brand-line"></span>
+
+        <div>
+            <strong>ورش السعودية</strong>
+            <small>منصة الحرفة السعودية</small>
+        </div>
+
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<!-- القائمة -->
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="menu-head">
+
+        <span>إدارة الورشة</span>
+
+        <button onclick="toggleMenu()">×</button>
+
+    </div>
+
+    <div class="menu-links">
+
+        <a href="workshop-dashboard.html">
+            <span>01</span>
+            الرئيسية
+        </a>
+
+        <a href="workshop-bookings.html">
+            <span>02</span>
+            الحجوزات
+        </a>
+
+        <a href="workshop-profile.html">
+            <span>03</span>
+            صفحة الورشة
+        </a>
+
+        <a href="index.html">
+            <span>04</span>
+            الموقع
+        </a>
+
+    </div>
+
+</aside>
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="toggleMenu()">
+</div>
+
+
+<main class="bookings-page">
+
+
+    <!-- HEADER -->
+
+    <section class="bookings-header">
+
+        <div>
+
+            <div class="section-label">
+                إدارة الحجوزات
+            </div>
+
+            <h1>
+                حجوزات
+                <span>العملاء.</span>
+            </h1>
+
+            <p>
+                تابع جميع طلبات الحجز
+                وحدد حالة كل طلب.
+            </p>
+
+        </div>
+
+        <a
+            href="workshop-dashboard.html"
+            class="back-button">
+
+            ← لوحة الورشة
+
+        </a>
+
+    </section>
+
+
+    <!-- FILTERS -->
+
+    <section class="booking-filters">
+
+        <button
+            class="filter active"
+            data-filter="all">
+
+            الكل
+
+            <span id="allCount">
+                0
+            </span>
+
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="pending">
+
+            جديدة
+
+            <span id="pendingCount">
+                0
+            </span>
+
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="confirmed">
+
+            مؤكدة
+
+            <span id="confirmedCount">
+                0
+            </span>
+
+        </button>
+
+
+        <button
+            class="filter"
+            data-filter="rejected">
+
+            مرفوضة
+
+            <span id="rejectedCount">
+                0
+            </span>
+
+        </button>
+
+    </section>
+
+
+    <!-- BOOKINGS -->
+
+    <section
+        id="bookingsContainer"
+        class="bookings-container">
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+        ورش السعودية
+    </div>
+
+    <p>
+        نقرّب الحرفة من صاحبها،
+        ونخلّي الوصول لأهلها أسهل.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>
+            جميع الحقوق محفوظة
+        </span>
+
+        <span>
+            صنع بواسطة ورش السعودية
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+<script src="workshop-bookings.js"></script>
+
+</body>
+
+</html>
