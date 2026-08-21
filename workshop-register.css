@@ -1,36 +1,27 @@
 .workshop-register-page {
 
-    min-height: 100vh;
-
-    padding:
-        150px 20px 100px;
+    min-height:
+        calc(100vh - 200px);
 
     display: flex;
 
     justify-content: center;
 
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(182,154,104,.06),
-            transparent 38%
-        );
+    padding:
+        150px 20px 100px;
 
 }
 
 
-.workshop-register-box {
+.workshop-register-card {
 
     width: 100%;
 
-    max-width: 650px;
+    max-width: 760px;
 
-    padding: 55px;
+    padding: 55px 45px;
 
-    background:
-        rgba(17,17,15,.88);
+    background: #11110f;
 
     border:
         1px solid var(--line);
@@ -40,7 +31,12 @@
 
 .register-heading {
 
-    margin-bottom: 45px;
+    text-align: center;
+
+    padding-bottom: 40px;
+
+    border-bottom:
+        1px solid var(--line);
 
 }
 
@@ -48,13 +44,15 @@
 .register-heading h1 {
 
     font-size:
-        clamp(50px, 8vw, 80px);
+        clamp(45px, 7vw, 75px);
 
     font-weight: 400;
 
     line-height: .95;
 
     letter-spacing: -4px;
+
+    margin-top: 15px;
 
 }
 
@@ -72,29 +70,58 @@
     color:
         var(--muted);
 
-    line-height: 2;
+    font-size: 11px;
 
-    margin-top: 25px;
+    line-height: 1.9;
 
-    font-size: 14px;
+    margin-top: 20px;
 
 }
 
 
-/* FORM */
-
 .workshop-register-form {
+
+    margin-top: 40px;
+
+}
+
+
+.form-section-title {
 
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+
+    color:
+        var(--gold-light);
+
+    font-size: 11px;
+
+    margin:
+        35px 0 22px;
+
+}
+
+
+.form-section-title::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        var(--line);
 
 }
 
 
 .form-group {
 
-    margin-bottom: 23px;
+    margin-bottom: 22px;
 
 }
 
@@ -103,9 +130,10 @@
 
     display: block;
 
-    font-size: 12px;
+    color:
+        #d8d2c7;
 
-    color: #d8d2c7;
+    font-size: 11px;
 
     margin-bottom: 10px;
 
@@ -119,7 +147,8 @@
 
     padding: 17px;
 
-    background: #0b0b0a;
+    background:
+        #0b0b0a;
 
     border:
         1px solid var(--line);
@@ -130,14 +159,14 @@
 
     font-family: inherit;
 
-    transition: .3s;
+    font-size: 12px;
 
 }
 
 
 .form-group textarea {
 
-    min-height: 140px;
+    min-height: 130px;
 
     resize: vertical;
 
@@ -153,96 +182,128 @@
 }
 
 
-/* PASSWORD */
+.form-grid {
 
-.password-field {
+    display: grid;
 
-    position: relative;
+    grid-template-columns:
+        1fr 1fr;
 
-}
-
-
-.password-field input {
-
-    padding-left: 75px;
+    gap: 18px;
 
 }
 
 
-.password-field button {
-
-    position: absolute;
-
-    left: 12px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    background: none;
-
-    border: 0;
-
-    color: var(--gold-light);
-
-    font-family: inherit;
-
-    font-size: 11px;
-
-    cursor: pointer;
-
-}
-
-
-/* TERMS */
-
-.terms {
+.phone-input {
 
     display: flex;
 
-    align-items: flex-start;
+    direction: ltr;
 
-    gap: 10px;
+}
 
-    color: var(--muted);
+
+.phone-input span {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    background:
+        #171714;
+
+    border:
+        1px solid var(--line);
+
+    border-left: 0;
+
+    color:
+        var(--muted);
 
     font-size: 11px;
 
-    line-height: 1.8;
+}
 
-    margin: 5px 0 25px;
+
+.phone-input input {
+
+    direction: ltr;
+
+    text-align: left;
 
 }
 
 
-.terms input {
+.price-input {
 
-    margin-top: 4px;
+    display: flex;
 
-    accent-color: var(--gold);
+    direction: ltr;
 
 }
 
 
-/* BUTTON */
+.price-input input {
 
-.register-workshop-button {
+    flex: 1;
 
-    width: 100%;
+}
 
-    padding: 18px;
 
-    border: 0;
+.price-input span {
 
-    background: var(--gold);
+    display: flex;
 
-    color: #16120d;
+    align-items: center;
 
-    font-family: inherit;
+    padding: 0 15px;
 
-    font-size: 14px;
+    background:
+        #171714;
 
-    font-weight: 600;
+    border:
+        1px solid var(--line);
+
+    border-left: 0;
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+}
+
+
+/* IMAGE */
+
+.image-upload input {
+
+    display: none;
+
+}
+
+
+.upload-box {
+
+    min-height: 170px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border:
+        1px dashed #393731;
+
+    background:
+        #0b0b0a;
 
     cursor: pointer;
 
@@ -251,79 +312,200 @@
 }
 
 
-.register-workshop-button span {
+.upload-box:hover {
 
-    margin-right: 15px;
-
-    font-size: 20px;
-
-}
-
-
-.register-workshop-button:hover {
-
-    background: var(--gold-light);
-
-    transform: translateY(-2px);
+    border-color:
+        var(--gold);
 
 }
 
 
-/* LOGIN */
+.upload-icon {
 
-.already-account {
+    width: 45px;
+
+    height: 45px;
 
     display: flex;
 
+    align-items: center;
+
     justify-content: center;
 
-    gap: 8px;
+    border:
+        1px solid var(--gold);
 
-    padding-top: 25px;
+    border-radius: 50%;
 
-    margin-top: 30px;
+    color:
+        var(--gold-light);
 
-    border-top:
-        1px solid var(--line);
+    font-size: 22px;
 
-    color: var(--muted);
+}
 
-    font-size: 12px;
+
+.upload-box strong {
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+}
+
+
+.upload-box small {
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+}
+
+
+.image-preview {
+
+    margin-top: 15px;
+
+}
+
+
+.image-preview img {
+
+    width: 100%;
+
+    max-height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* ERROR */
+
+.register-error {
+
+    display: none;
+
+    padding: 14px;
+
+    margin-top: 20px;
+
+    border:
+        1px solid rgba(180,80,80,.4);
+
+    background:
+        rgba(180,80,80,.05);
+
+    color:
+        #d99a9a;
+
+    font-size: 10px;
+
+}
+
+
+.register-error.show {
+
+    display: block;
+
+}
+
+
+/* BUTTON */
+
+.register-button {
+
+    width: 100%;
+
+    padding: 19px;
+
+    margin-top: 25px;
+
+    border: 0;
+
+    background:
+        var(--gold);
+
+    color:
+        #16120d;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.register-button:hover {
+
+    background:
+        var(--gold-light);
+
+}
+
+
+.register-button span {
+
+    margin-right: 10px;
+
+}
+
+
+.already-account {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
 
 }
 
 
 .already-account a {
 
-    color: var(--gold-light);
+    color:
+        var(--gold-light);
+
+    margin-right: 5px;
 
 }
 
-
-/* MOBILE */
 
 @media(max-width:600px) {
 
     .workshop-register-page {
 
         padding:
-            120px 18px 70px;
+            120px 15px 70px;
 
     }
 
 
-    .workshop-register-box {
+    .workshop-register-card {
 
         padding:
-            35px 23px;
+            40px 20px;
 
     }
 
 
-    .register-heading h1 {
+    .form-grid {
 
-        letter-spacing:
-            -3px;
+        grid-template-columns: 1fr;
+
+        gap: 0;
 
     }
 
