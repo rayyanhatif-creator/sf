@@ -26,71 +26,37 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<aside class="side-menu" id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>القائمة</span>
-
-        <button onclick="toggleMenu()">×</button>
-
-    </div>
-
-    <div class="menu-links">
-
-        <a href="workshops.html">
-            <span>01</span>
-            الخراطين
-        </a>
-
-        <a href="workshop-register.html">
-            <span>02</span>
-            اشترك معنا كخراط
-        </a>
-
-        <a href="login.html">
-            <span>03</span>
-            تسجيل الدخول
-        </a>
-
-    </div>
-
-</aside>
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
-
-
 <main class="workshop-login-page">
 
-    <section class="login-box">
+    <section class="workshop-login-card">
 
-        <div class="login-heading">
+        <div class="workshop-login-heading">
 
             <div class="section-label">
-                بوابة الورشة
+                بوابة الورش
             </div>
 
             <h1>
-                مرحبًا
-                <span>بعودتك.</span>
+                دخول
+                <span>الورشة.</span>
             </h1>
 
             <p>
                 سجّل دخولك لإدارة ورشتك
-                ومتابعة حجوزات العملاء.
+                ومتابعة الحجوزات الواردة.
             </p>
 
         </div>
@@ -98,20 +64,44 @@
 
         <form
             id="workshopLoginForm"
-            class="login-form">
+            class="workshop-login-form">
 
 
             <div class="form-group">
 
                 <label>
-                    رقم الجوال أو البريد الإلكتروني
+                    اسم الورشة
                 </label>
 
                 <input
                     type="text"
-                    id="loginIdentifier"
-                    placeholder="05xxxxxxxx أو البريد الإلكتروني"
+                    id="workshopName"
+                    placeholder="مثال: ورشة حرفة"
                     required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    رقم الجوال
+                </label>
+
+                <div class="phone-input">
+
+                    <span>
+                        +966
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="workshopPhone"
+                        placeholder="5XXXXXXXX"
+                        maxlength="9"
+                        required>
+
+                </div>
 
             </div>
 
@@ -122,49 +112,24 @@
                     كلمة المرور
                 </label>
 
-                <div class="password-field">
-
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        placeholder="كلمة المرور"
-                        required>
-
-                    <button
-                        type="button"
-                        onclick="toggleLoginPassword()">
-
-                        إظهار
-
-                    </button>
-
-                </div>
+                <input
+                    type="password"
+                    id="workshopPassword"
+                    placeholder="••••••••"
+                    required>
 
             </div>
 
 
-            <div class="login-options">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        id="rememberWorkshop">
-
-                    تذكرني
-
-                </label>
-
-                <a href="#">
-                    نسيت كلمة المرور؟
-                </a>
-
+            <div
+                id="workshopLoginError"
+                class="workshop-login-error">
             </div>
 
 
             <button
                 type="submit"
-                class="login-button">
+                class="workshop-login-button">
 
                 دخول لوحة الورشة
 
@@ -175,17 +140,27 @@
         </form>
 
 
-        <div class="login-bottom">
+        <div class="workshop-register">
 
             <span>
-                ما عندك حساب؟
+                عندك ورشة وتبي تنضم معنا؟
             </span>
 
             <a href="workshop-register.html">
-                سجل ورشتك معنا
+                اشترك معنا كخراط
+                ←
             </a>
 
         </div>
+
+
+        <a
+            href="login.html"
+            class="customer-login">
+
+            ← العودة لتسجيل دخول العملاء
+
+        </a>
 
     </section>
 
