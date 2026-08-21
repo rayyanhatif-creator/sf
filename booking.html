@@ -39,65 +39,21 @@
 </header>
 
 
-<!-- القائمة -->
-
-<aside
-    class="side-menu"
-    id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>القائمة</span>
-
-        <button
-            onclick="toggleMenu()">
-
-            ×
-
-        </button>
-
-    </div>
-
-
-    <div class="menu-links">
-
-        <a href="index.html">
-            <span>01</span>
-            الرئيسية
-        </a>
-
-        <a href="workshops.html">
-            <span>02</span>
-            الخراطين
-        </a>
-
-        <a href="login.html">
-            <span>03</span>
-            تسجيل الدخول
-        </a>
-
-    </div>
-
-</aside>
-
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
-
-
-
 <main class="booking-page">
 
+    <a
+        href="workshops.html"
+        class="back-link">
 
-    <!-- العنوان -->
+        ← العودة للورش
+
+    </a>
+
 
     <section class="booking-header">
 
         <div class="section-label">
-            حجز جديد
+            طلب حجز جديد
         </div>
 
         <h1>
@@ -106,61 +62,137 @@
         </h1>
 
         <p>
-            اختر الموعد المناسب لك
-            وأرسل طلبك للورشة.
+            اختر اليوم المناسب لك وأرسل طلبك للورشة.
         </p>
 
     </section>
 
 
-
     <div class="booking-layout">
 
 
-        <!-- النموذج -->
+        <!-- معلومات الورشة -->
 
-        <section class="booking-form-box">
+        <aside class="booking-workshop">
+
+            <div
+                id="bookingImage"
+                class="booking-image">
+            </div>
 
 
-            <form
-                id="bookingForm">
+            <div class="booking-workshop-content">
+
+                <span class="booking-label">
+                    الورشة المختارة
+                </span>
+
+                <h2 id="bookingWorkshopName">
+                    —
+                </h2>
+
+                <p id="bookingWorkshopCity">
+                    —
+                </p>
 
 
-                <!-- اسم العميل -->
+                <div class="booking-price">
+
+                    <span>
+                        يبدأ من
+                    </span>
+
+                    <strong id="bookingPrice">
+                        0
+                    </strong>
+
+                    <small>
+                        ريال
+                    </small>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- نموذج الحجز -->
+
+        <section class="booking-form-section">
+
+            <form id="bookingForm">
+
+
+                <div class="form-section-title">
+
+                    <span>
+                        01
+                    </span>
+
+                    بيانات الحجز
+
+                </div>
+
 
                 <div class="form-group">
 
                     <label>
-                        الاسم الكامل
+                        اسم صاحب الحجز
                     </label>
 
                     <input
                         type="text"
                         id="customerName"
-                        placeholder="اكتب اسمك"
                         required>
 
                 </div>
 
 
-                <!-- الجوال -->
+                <div class="form-grid">
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <label>
-                        رقم الجوال
-                    </label>
+                        <label>
+                            رقم الجوال
+                        </label>
 
-                    <input
-                        type="tel"
-                        id="customerPhone"
-                        placeholder="05xxxxxxxx"
-                        required>
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            عدد السبح
+                        </label>
+
+                        <input
+                            type="number"
+                            id="beadCount"
+                            min="1"
+                            value="1"
+                            required>
+
+                    </div>
 
                 </div>
 
 
-                <!-- التاريخ -->
+                <div class="form-section-title second">
+
+                    <span>
+                        02
+                    </span>
+
+                    موعد الخرط
+
+                </div>
+
 
                 <div class="form-group">
 
@@ -176,104 +208,36 @@
                 </div>
 
 
-                <!-- الوقت -->
-
                 <div class="form-group">
 
                     <label>
-                        الوقت المناسب
-                    </label>
-
-                    <select
-                        id="bookingTime"
-                        required>
-
-                        <option value="">
-                            اختر الوقت
-                        </option>
-
-                        <option value="16:00">
-                            4:00 مساءً
-                        </option>
-
-                        <option value="17:00">
-                            5:00 مساءً
-                        </option>
-
-                        <option value="18:00">
-                            6:00 مساءً
-                        </option>
-
-                        <option value="19:00">
-                            7:00 مساءً
-                        </option>
-
-                        <option value="20:00">
-                            8:00 مساءً
-                        </option>
-
-                        <option value="21:00">
-                            9:00 مساءً
-                        </option>
-
-                        <option value="22:00">
-                            10:00 مساءً
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- الخدمة -->
-
-                <div class="form-group">
-
-                    <label>
-                        الخدمة
-                    </label>
-
-                    <select
-                        id="bookingService"
-                        required>
-
-                        <option value="خرط السبح">
-                            خرط السبح
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- الملاحظات -->
-
-                <div class="form-group">
-
-                    <label>
-                        ملاحظات إضافية
-                        <small>
-                            اختياري
-                        </small>
+                        ملاحظات للورشة
                     </label>
 
                     <textarea
                         id="bookingNotes"
-                        placeholder="مثلاً: نوع السبح، عدد الحبات، أو أي طلب خاص..."></textarea>
+                        placeholder="مثلاً: نوع المادة، المقاس، أي تفاصيل إضافية..."></textarea>
 
                 </div>
 
 
-                <div class="booking-warning">
+                <div class="booking-notice">
 
-                    <span>i</span>
+                    <strong>
+                        تنبيه
+                    </strong>
 
                     <p>
-                        إرسال الطلب لا يعني تأكيد الحجز.
-                        سيتم مراجعة طلبك من الورشة
-                        والتواصل معك.
+                        إرسال الطلب لا يعني تأكيد الحجز
+                        حتى تتم مراجعته من الورشة.
                     </p>
 
+                </div>
+
+
+                <div
+                    id="bookingMessage"
+                    class="booking-message">
                 </div>
 
 
@@ -283,98 +247,19 @@
 
                     إرسال طلب الحجز
 
-                    <span>←</span>
+                    <span>
+                        ←
+                    </span>
 
                 </button>
-
 
             </form>
 
         </section>
 
-
-
-        <!-- ملخص الورشة -->
-
-        <aside class="booking-summary">
-
-
-            <div class="summary-label">
-                أنت تحجز لدى
-            </div>
-
-
-            <div
-                class="summary-image"
-                id="summaryImage">
-
-            </div>
-
-
-            <h2 id="summaryName">
-                ورشة حرفة
-            </h2>
-
-
-            <p id="summaryLocation">
-                الرياض
-            </p>
-
-
-            <div class="summary-divider"></div>
-
-
-            <div class="summary-row">
-
-                <span>
-                    الخدمة
-                </span>
-
-                <strong id="summaryService">
-                    خرط السبح
-                </strong>
-
-            </div>
-
-
-            <div class="summary-row">
-
-                <span>
-                    السعر يبدأ من
-                </span>
-
-                <strong>
-
-                    <b id="summaryPrice">
-                        700
-                    </b>
-
-                    ريال
-
-                </strong>
-
-            </div>
-
-
-            <div class="summary-divider"></div>
-
-
-            <a
-                href="workshop-details.html"
-                class="change-workshop">
-
-                ← تغيير الورشة
-
-            </a>
-
-
-        </aside>
-
-
     </div>
 
 </main>
-
 
 
 <footer>
