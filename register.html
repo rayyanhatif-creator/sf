@@ -26,90 +26,46 @@
 
     </a>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
 
 </header>
 
 
-<!-- القائمة -->
-
-<aside class="side-menu" id="sideMenu">
-
-    <div class="menu-head">
-
-        <span>القائمة</span>
-
-        <button onclick="toggleMenu()">×</button>
-
-    </div>
-
-    <div class="menu-links">
-
-        <a href="workshops.html">
-            <span>01</span>
-            الخراطين
-        </a>
-
-        <a href="workshop-register.html">
-            <span>02</span>
-            اشترك معنا كخراط
-        </a>
-
-        <a href="login.html">
-            <span>03</span>
-            تسجيل الدخول
-        </a>
-
-    </div>
-
-</aside>
-
-<div
-    class="menu-overlay"
-    id="menuOverlay"
-    onclick="toggleMenu()">
-</div>
-
-
 <main class="register-page">
 
-    <section class="register-box">
-
-
-        <!-- العنوان -->
+    <section class="register-card">
 
         <div class="register-heading">
 
             <div class="section-label">
-                01 / حساب جديد
+                حساب جديد
             </div>
 
             <h1>
-                أنشئ
-                <span>حسابك.</span>
+                سجّل
+                <span>معنا.</span>
             </h1>
 
             <p>
-                سجّل بياناتك مرة واحدة،
-                وبعدها تقدر تحجز وتتابع
-                جميع حجوزاتك بسهولة.
+                أنشئ حسابك في ورش السعودية
+                وابدأ بحجز دورك مع الخراطين.
             </p>
 
         </div>
 
 
-        <!-- النموذج -->
-
         <form
             id="registerForm"
             class="register-form">
 
-
-            <!-- الاسم -->
 
             <div class="form-group">
 
@@ -120,13 +76,11 @@
                 <input
                     type="text"
                     id="registerName"
-                    placeholder="اكتب اسمك الكامل"
+                    placeholder="مثال: ريان الخليفي"
                     required>
 
             </div>
 
-
-            <!-- الجوال -->
 
             <div class="form-group">
 
@@ -134,16 +88,21 @@
                     رقم الجوال
                 </label>
 
-                <input
-                    type="tel"
-                    id="registerPhone"
-                    placeholder="05xxxxxxxx"
-                    required>
+                <div class="phone-input">
+
+                    <span>+966</span>
+
+                    <input
+                        type="tel"
+                        id="registerPhone"
+                        placeholder="5XXXXXXXX"
+                        maxlength="9"
+                        required>
+
+                </div>
 
             </div>
 
-
-            <!-- البريد -->
 
             <div class="form-group">
 
@@ -160,87 +119,77 @@
             </div>
 
 
-            <!-- الموقع -->
-
             <div class="form-group">
 
                 <label>
-                    موقعك
+                    الموقع
                 </label>
 
                 <input
                     type="text"
                     id="registerLocation"
-                    placeholder="المدينة / الحي"
+                    placeholder="الرياض - حي ... "
                     required>
 
             </div>
 
 
-            <!-- كلمة المرور -->
+            <div class="form-grid">
 
-            <div class="form-group">
+                <div class="form-group">
 
-                <label>
-                    كلمة المرور
-                </label>
-
-                <div class="password-field">
+                    <label>
+                        كلمة المرور
+                    </label>
 
                     <input
                         type="password"
                         id="registerPassword"
-                        placeholder="أنشئ كلمة مرور"
+                        placeholder="••••••••"
+                        minlength="6"
                         required>
 
-                    <button
-                        type="button"
-                        onclick="toggleRegisterPassword()">
+                </div>
 
-                        إظهار
 
-                    </button>
+                <div class="form-group">
+
+                    <label>
+                        تأكيد كلمة المرور
+                    </label>
+
+                    <input
+                        type="password"
+                        id="registerPasswordConfirm"
+                        placeholder="••••••••"
+                        minlength="6"
+                        required>
 
                 </div>
 
             </div>
 
 
-            <!-- تأكيد كلمة المرور -->
-
-            <div class="form-group">
-
-                <label>
-                    تأكيد كلمة المرور
-                </label>
-
-                <input
-                    type="password"
-                    id="registerPasswordConfirm"
-                    placeholder="أعد كتابة كلمة المرور"
-                    required>
-
+            <div
+                id="registerError"
+                class="register-error">
             </div>
 
-
-            <!-- الموافقة -->
 
             <label class="terms">
 
                 <input
                     type="checkbox"
-                    id="registerTerms"
+                    id="acceptTerms"
                     required>
 
                 <span>
-                    أوافق على شروط استخدام المنصة
-                    وسياسة الخصوصية.
+                    أوافق على شروط استخدام
+                    <a href="#">ورش السعودية</a>
                 </span>
 
             </label>
 
-
-            <!-- إنشاء -->
 
             <button
                 type="submit"
@@ -255,35 +204,12 @@
         </form>
 
 
-        <!-- تسجيل الدخول -->
+        <div class="login-link">
 
-        <div class="already-account">
-
-            <span>
-                عندك حساب؟
-            </span>
+            عندك حساب بالفعل؟
 
             <a href="login.html">
                 تسجيل الدخول
-            </a>
-
-        </div>
-
-
-        <!-- الخراط -->
-
-        <div class="workshop-register-box">
-
-            <p>
-                أنت صاحب ورشة؟
-            </p>
-
-            <a href="workshop-register.html">
-
-                سجل معنا كخراط
-
-                <span>←</span>
-
             </a>
 
         </div>
